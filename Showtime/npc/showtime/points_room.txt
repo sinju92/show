@@ -1,0 +1,86 @@
+firstcity,205,90,5	script	Branch Farming#goldroom	1033,{
+	doevent "gold_room_main2::OnTalk";
+}
+ 
+// warp portal back prontera
+ordeal_3-2,123,123,0	warp	gold_room_back_prt	1,1,prontera,155,181
+ 
+// peco peco summon
+ordeal_3-2,0,0,0,0	monster	Enchanted Peach Tree	1410,200,60000,0,"gold_room_main2::OnKill"
+ 
+ 
+-	script	gold_room_main2	-1,{
+ 
+	OnInit:
+		// gold room map
+		.map$ = "ordeal_3-2";
+		// entrance fee
+		.zeny_cost = 200000;
+		// rate to get gold
+		.rate = 50;
+		// gold random amount
+		setarray .gold_amount2,1,2;
+ 
+		setmapflag .map$,mf_noteleport;
+		setmapflag .map$,mf_pvp;
+		setmapflag .map$,mf_pvp_noguild;
+		setmapflag .map$,mf_pvp_noparty;
+		setmapflag .map$,mf_nobranch;
+		setmapflag .map$,mf_nosave;
+		setmapflag .map$,mf_nomemo;
+		setmapflag .map$,mf_noreturn;
+		setmapflag .map$,mf_nowarp;
+		setmapflag .map$,mf_nowarpto;
+		setmapflag .map$,mf_noskill;
+		end;
+ 
+	OnTalk:
+		mes "Enter Branch Farming Room ?";
+		if ( .zeny_cost ) 
+			mes F_InsertComma( .zeny_cost ) + " Zeny";
+		switch ( select( 
+			"Enter Branch Room",
+			"Exchange DB Points",
+			"Cancel"
+		)) {
+			case 1:
+				if ( Zeny < .zeny_cost ) {
+					mes "Not enough Zeny.";
+				}
+				else {
+					Zeny -= .zeny_cost;
+					warp .map$,0,0;
+				}
+				break;
+			case 2:	
+				mes "You got "+F_InsertComma( #BRANCHP )+" Points";
+				input .@value,0,#BRANCHP;
+				if ( checkweight( 604, .@value ) ) {
+					#BRANCHP -= .@value;
+					getitem 604,.@value;
+					mes "Gained "+.@value+" Deab Branch.";
+				}
+				else {
+					mes "You overweight.";
+				}
+			default:
+				break;
+		}
+		close;
+ 
+	OnKill:	
+		if ( .rate < rand( 100 ) ) {
+			.@point = rand( .gold_amount2[0],.gold_amount2[1] );
+			#BRANCHP += .@point;
+			dispbottom "Gained "+.@point+" Point. You got "+F_InsertComma( #BRANCHP )+" Points now.";
+		}
+		end;
+ 
+	OnPCDieEvent:
+		.@killerrid = killerrid;
+		if ( strcharinfo(3) == .map$ && .@killerrid != getcharid(3) && getmonsterinfo( .@killerrid,MOB_NAME ) != "null" ) {
+			#BRANCHP = 0;
+			dispbottom "You died, you lost all the point.";
+		}
+		end;
+}

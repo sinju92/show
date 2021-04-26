@@ -1,0 +1,170 @@
+-	script	itemmap	-1,{
+OnInit:
+    bindatcmd "itemmap",strnpcinfo(3)+"::OnAtcommand",80,80;
+    end;
+OnAtcommand:
+		if ( .@atcmd_numparameters != 2 ) {
+			message .@myname$, "Usage: "+ .@atcmd_command$ +" <item id> <amount>";
+			end;
+		}
+		.atoi_id = atoi( .@atcmd_parameters$[0] );
+		.atoi_amount = atoi( .@atcmd_parameters$[1] );
+		.@myname$ = strcharinfo(0);
+		if ( getiteminfo( .atoi_id,0 ) == -1 ) {
+			message .@myname$, "Requesting to send an non-existing item ("+ .atoi_id +"). "+ .@atcmd_command$ +" failed.";
+			end;
+		}
+		else if ( .atoi_amount < 1 ) {
+			message .@myname$, "You can't send "+ .atoi_amount +" item. "+ .@atcmd_command$ +" failed.";
+			end;
+		}
+		addrid(1);
+		if(checkvending(strcharinfo(0))) { end; }
+		else { 
+			dispbottom "It seems to be a wonderful day. You have bless and received a gift from the Game Master";
+			getitem .atoi_id, .atoi_amount; }
+		end;
+}
+
+-	script	eaflooritem	-1,{
+
+Onitemrain:
+
+.@itemid = atoi( .@atcmd_parameters$ );
+
+.@amount = atoi( .@atcmd_parameters$[1] );
+
+if ( getitemname( .@itemid ) == "null" ) {
+
+message strcharinfo(0), "Invalid Item ID";
+
+end;
+
+}
+
+if ( .@amount <= 0 || .@amount > 100 )
+
+.@amount = 100;
+
+.@area = getbattleflag("area_size");
+
+getmapxy .@map$, .@x, .@y, BL_PC;
+
+while ( .@i < .@amount ) {
+
+do {
+
+.@dx = rand( -.@area, .@area );
+
+.@dy = rand( -.@area, .@area );
+
+} while( !checkcell( .@map$,(.@x+.@dx),(.@y+.@dy),cell_chkpass ) );
+
+makeitem .@itemid, 1, .@map$, .@x + .@dx, .@y + .@dy;
+
+.@i++;
+
+}
+
+end;
+
+OnInit:
+
+bindatcmd "flooritem", strnpcinfo(0) +"::Onitemrain", 80,80;
+
+end;
+
+}
+
+
+-	script	hold	-1,{
+
+	OnInit:
+		bindatcmd("hold", strnpcinfo(3)+"::OnHold");
+		end;
+
+	OnHold:
+		if ( !@Hold ) {
+			set @Hold, 1;
+			message strcharinfo(0), "Hold mode is ON.";
+			pcblockmove getcharid(3),1;
+		} else {
+			set @Hold, 0;
+			message strcharinfo(0), "Hold mode is OFF.";
+			pcblockmove getcharid(3),0;
+		}
+
+}
+
+//=------------------------------------------------------------------------------
+-	script	warp#11	-1,{
+	
+	
+OnInit:
+bindatcmd "maintown", strnpcinfo(3) +"::OnMaintown";
+bindatcmd "mall", strnpcinfo(3) +"::OnMall";
+bindatcmd "event", strnpcinfo(3) +"::OnEvent";
+bindatcmd "vend", strnpcinfo(3) +"::OnVend";
+bindatcmd "gm", strnpcinfo(3) +"::OnGm";
+
+//----- Savepoints
+bindatcmd "aldebaran", strnpcinfo(3) +"::OnMaintownalde";
+bindatcmd "prontera", strnpcinfo(3) +"::OnMaintownprt";
+bindatcmd "izlude", strnpcinfo(3) +"::OnMaintowniz";
+bindatcmd "geffen", strnpcinfo(3) +"::OnMaintowngef";
+bindatcmd "morroc", strnpcinfo(3) +"::OnMaintownmoc";
+bindatcmd "alberta", strnpcinfo(3) +"::OnMaintownalb";
+bindatcmd "hugel", strnpcinfo(3) +"::OnMaintownhu";
+bindatcmd "payon", strnpcinfo(3) +"::OnMaintownpay";
+bindatcmd "yuno", strnpcinfo(3) +"::OnMaintownyun";
+end;
+		
+
+
+OnVend:	
+setarray .Map$[0],"guild_vs2-2","pvp_y_2-5","guild_vs3";
+if(strcharinfo(3) == .Map$[0] || strcharinfo(3) == .Map$[1]){
+  message strcharinfo(0),"You can't use that command here!";
+end;
+}
+warp "1@mir",101,95;
+end;
+
+OnGm:
+setarray .Map$[0],"guild_vs2-2","pvp_y_2-5","guild_vs3";
+if(strcharinfo(3) == .Map$[0] || strcharinfo(3) == .Map$[1]){
+  message strcharinfo(0),"You can't use that command here!";
+end;
+}	
+warp "paramk",97,71;
+end;
+
+OnMall:
+setarray .Map$[0],"guild_vs2-2","pvp_y_2-5","guild_vs3";
+if(strcharinfo(3) == .Map$[0] || strcharinfo(3) == .Map$[1]){
+  message strcharinfo(0),"You can't use that command here!";
+end;
+}	
+warp "turbo_room",100,100;
+end;
+
+
+OnEvent:
+setarray .Map$[0],"guild_vs2-2","pvp_y_2-5","guild_vs3";
+if(strcharinfo(3) == .Map$[0] || strcharinfo(3) == .Map$[1]){
+  message strcharinfo(0),"You can't use that command here!";
+end;
+}	
+warp "phtownall",235,201;
+end;
+
+
+OnDonate:
+setarray .Map$[0],"guild_vs2-2","pvp_y_2-5","guild_vs3";
+if(strcharinfo(3) == .Map$[0] || strcharinfo(3) == .Map$[1]){
+  message strcharinfo(0),"You can't use that command here!";
+end;
+}	
+warp "turbo_room",200,200;
+end;
+}	

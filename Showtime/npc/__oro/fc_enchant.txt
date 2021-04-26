@@ -1,0 +1,416 @@
+//===== rAthena Script =======================================
+//= Euphy's Quest Shop
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.7
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= A dynamic quest shop based on Lunar's, with easier config.
+//= Includes support for multiple shops & cashpoints.
+//= Item Preview script by ToastOfDoom.
+//===== Additional Comments: =================================
+//= 1.0 Initial script.
+//= 1.2 Added category support.
+//= 1.3 More options and fixes.
+//= 1.4 Added debug settings.
+//= 1.5 Replaced categories with shop IDs.
+//= 1.6 Added support for purchasing stackables.
+//= 1.6a Added support for previewing costumes and robes.
+//= 1.6b Added 'disable_items' command.
+//= 1.6c Replaced function 'A_An' with "F_InsertArticle".
+//= 1.7 Added Success rates - by Mabuhay
+//============================================================
+
+// Shop NPCs -- supplying no argument displays entire menu.
+//	callfunc "qshop"{,<shop ID>{,<shop ID>{,...}}};
+//  ADD YOUR NPC HERE
+//============================================================
+turbo_room,64,93,4	script	FC Upgrade 1	933,{ callfunc "fcen"; }
+// prontera,165,203,6	script	Quest Shop#2	998,{ callfunc "fcen",1,2; }	// call the shop 1 and 2 defined below
+// etc.. Add your Shop NPCs 'Quest Shop#XXX' here
+//============================================================
+
+
+// Script Core - DO NOT DUPLICATE THIS NPC !!!!!!!!!!!!!
+//============================================================
+-	script	quest_fc	-1,{
+function Add; function Chk; function Slot;
+OnInit:
+	freeloop(1);
+
+// -----------------------------------------------------------
+//  Basic shop settings.
+// -----------------------------------------------------------
+
+	set .Announce,1;	// Announce quest completion? (1: yes / 0: no)
+	set .ShowSlot,1;	// Show item slots? (2: all equipment / 1: if slots > 0 / 0: never)
+	set .ShowID,1;  	// Show item IDs? (1: yes / 0: no)
+	set .ShowZeny,1;	// Show Zeny cost, if any? (1: yes / 0: no)
+	set .MaxStack,100;	// Max number of quest items purchased at one time.
+	set .SuccessRate,1;	// Enable Success Rates? ( 1: yes / 0: no)
+
+// -----------------------------------------------------------
+//  Points variable -- optional quest requirement.
+//	setarray .Points$[0],"<variable name>","<display name>";
+// -----------------------------------------------------------
+
+	setarray .Points$[0],
+		"#CASHPOINTS", "Cash Points";
+
+
+//=====================================================================================
+// ------------------- ADD YOUR SHOPS NAME AND ITEMS SHOPS STARTING HERE --------------
+//=====================================================================================
+
+// -----------------------------------------------------------
+//  Shop IDs -- to add shops, copy dummy data at bottom of file.
+//	setarray .Shops$[1],"<Shop 1>","<Shop 2>"{,...};
+// -----------------------------------------------------------
+
+	setarray .Shopsnen$[1],
+		"Costume Upgrade";	// Shop Named 1
+//		"Weapons",		// Shop Named 2
+//		"Other";		// Shop Named 3
+
+// -----------------------------------------------------------
+//  Quest items -- do NOT use a reward item more than once!
+//	Add(<shop ID>,<reward ID>,<reward amount>,
+//	    <Zeny cost>,<point cost>,<success rate>
+//	    <required item ID>,<required item amount>{,...});
+// -----------------------------------------------------------
+
+// Shop 1
+	Add(1,32102,1,5000000,0,80,32102,1,6153,1000);
+	Add(1,32103,1,5000000,0,80,32103,1,6153,1000);
+	Add(1,32106,1,5000000,0,80,32106,1,6153,1000);
+	Add(1,32107,1,5000000,0,80,32107,1,6153,1000);
+	Add(1,32110,1,5000000,0,80,32110,1,6153,1000);
+	Add(1,32111,1,5000000,0,80,32111,1,6153,1000);
+	Add(1,32114,1,5000000,0,80,32114,1,6153,1000);
+	Add(1,32115,1,5000000,0,80,32115,1,6153,1000);
+	Add(1,32118,1,5000000,0,80,32118,1,6153,1000);
+    	sleep 10;
+	Add(1,32119,1,5000000,0,80,32119,1,6153,1000);
+	Add(1,32122,1,5000000,0,80,32122,1,6153,1000);
+	Add(1,32123,1,5000000,0,80,32123,1,6153,1000);
+	Add(1,32126,1,5000000,0,80,32126,1,6153,1000);
+	Add(1,32127,1,5000000,0,80,32127,1,6153,1000);
+	Add(1,32130,1,5000000,0,80,32130,1,6153,1000);
+	Add(1,32131,1,5000000,0,80,32131,1,6153,1000);
+	Add(1,32134,1,5000000,0,80,32134,1,6153,1000);
+	Add(1,32135,1,5000000,0,80,32135,1,6153,1000);
+	sleep 10;
+    	Add(1,32138,1,5000000,0,80,32138,1,6153,1000);
+	Add(1,32139,1,5000000,0,80,32139,1,6153,1000);
+	Add(1,32142,1,5000000,0,80,32142,1,6153,1000);
+	Add(1,32143,1,5000000,0,80,32143,1,6153,1000);
+	Add(1,32146,1,5000000,0,80,32146,1,6153,1000);
+	Add(1,32147,1,5000000,0,80,32147,1,6153,1000);
+	Add(1,32150,1,5000000,0,80,32150,1,6153,1000);
+	Add(1,32151,1,5000000,0,80,32151,1,6153,1000);
+	Add(1,32154,1,5000000,0,80,32154,1,6153,1000);
+	Add(1,32155,1,5000000,0,80,32155,1,6153,1000);
+    	sleep 10;
+    	Add(1,20316,1,5000000,0,80,20316,1,6153,1000);
+    	Add(1,19997,1,5000000,0,80,19997,1,6153,1000);
+    	Add(1,20036,1,5000000,0,80,20036,1,6153,1000);
+    	Add(1,20218,1,5000000,0,80,20218,1,6153,1000);
+    	Add(1,20384,1,5000000,0,80,20384,1,6153,1000);
+    	Add(1,20467,1,5000000,0,80,20467,1,6153,1000);
+    	Add(1,20490,1,5000000,0,80,20490,1,6153,1000);
+    	Add(1,19752,1,5000000,0,80,19752,1,6153,1000);
+    	Add(1,19755,1,5000000,0,80,19755,1,6153,1000);
+    	Add(1,19769,1,5000000,0,80,19769,1,6153,1000);
+    	sleep 10;
+    	Add(1,20311,1,5000000,0,80,20311,1,6153,1000);
+    	Add(1,19742,1,5000000,0,80,19742,1,6153,1000);
+    	Add(1,20707,1,5000000,0,80,20707,1,6153,1000);
+        Add(1,20246,1,5000000,0,80,20246,1,6153,1000);
+    	Add(1,20285,1,5000000,0,80,20285,1,6153,1000);
+    	Add(1,20315,1,5000000,0,80,20315,1,6153,1000);
+    	Add(1,20323,1,5000000,0,80,20323,1,6153,1000);
+    	Add(1,20404,1,5000000,0,80,20404,1,6153,1000);
+    	Add(1,20459,1,5000000,0,80,20459,1,6153,1000);
+    
+
+// -----------------------------------------------------------
+
+//=====================================================================================
+// ------------------- YOUR SHOPS AND ITEMS SHOPS HAVE BEEN ADDED ---------------------
+//=====================================================================================
+
+	freeloop(0);
+	set .menu$,"";
+	for(set .@i,1; .@i<=getarraysize(.Shopsnen$); set .@i,.@i+1) {
+		set .menu$, .menu$+.Shopsnen$[.@i]+":";
+		npcshopdelitem "fcen"+.@i,909;
+	}
+	end;
+
+OnMenu:
+	set .@size, getarraysize(@i);
+	if (!.@size) set @shop_index, select(.menu$);
+	else if (.@size == 1) set @shop_index, @i[0];
+	else {
+		for(set .@j,0; .@j<.@size; set .@j,.@j+1)
+			set .@menu$, .@menu$+.Shopsnen$[@i[.@j]]+":";
+		set @shop_index, @i[select(.@menu$)-1];
+	}
+	deletearray @i[0],getarraysize(@i);
+	if (.Shopsnen$[@shop_index] == "") {
+		message strcharinfo(0),"An error has occurred.";
+		end;
+	}
+	dispbottom "Select one item at a time.";
+	callshop "fcen"+@shop_index,1;
+	npcshopattach "fcen"+@shop_index;
+	end;
+
+OnBuyItem:
+	// .@q[] : RewardID, BoughtAmt, RewardAmt, BaseAmt, ReqZeny, ReqPts, SuccessRate, { ReqItem, ReqAmt, ... }
+	setarray .@q[0],@bought_nameid[0],((@bought_quantity[0] > .MaxStack)?.MaxStack:@bought_quantity[0]);
+	copyarray .@q[3],getd(".q_"+@shop_index+"_"+.@q[0]+"[0]"),getarraysize(getd(".q_"+@shop_index+"_"+.@q[0]));
+	set .@q[2],.@q[1]*.@q[3];
+	if (!.@q[2] || .@q[2] > 30000) {
+		message strcharinfo(0),"You can't purchase that many "+getitemname(.@q[0])+".";
+		end;
+	}
+	mes "[Quest Shop]";
+	mes "Reward: ^0055FF"+((.@q[2] > 1)?.@q[2]+"x ":"")+Slot(.@q[0])+"^000000";
+	if (.SuccessRate) mes "Success Rate: ^ff0000"+ .@q[6] +"^000000%";
+	mes "Requirements:";
+	disable_items;
+	if (.@q[4]) mes " > "+Chk(Zeny,.@q[4]*.@q[1])+(.@q[4]*.@q[1])+" Zeny^000000";
+	if (.@q[5]) mes " > "+Chk(getd(.Points$[0]),.@q[5]*.@q[1])+(.@q[5]*.@q[1])+" "+.Points$[1]+" ("+getd(.Points$[0])+"/"+(.@q[5]*.@q[1])+")^000000";
+	if (.@q[7]) for(set .@i,7; .@i<getarraysize(.@q); set .@i,.@i+2)
+		mes " > "+Chk(countitem(.@q[.@i]),.@q[.@i+1]*.@q[1])+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+" ("+countitem(.@q[.@i])+"/"+(.@q[.@i+1]*.@q[1])+")^000000";
+	next;
+	setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
+	if (@qe[2] > 0 && ((@qe[1] & EQP_HEAD_LOW) || (@qe[1] & EQP_HEAD_TOP) || (@qe[1] & EQP_HEAD_MID) || (@qe[1] & EQP_COSTUME_HEAD_TOP) || (@qe[1] & EQP_COSTUME_HEAD_MID) || (@qe[1] & EQP_COSTUME_HEAD_LOW) || (@qe[1] & EQP_GARMENT) || (@qe[1] & EQP_COSTUME_GARMENT)))
+		set .@preview,1;
+	addtimer 1000, strnpcinfo(0)+"::OnEnd";
+	while(1) {
+		switch(select(" ~ Purchase ^0055FF"+getitemname(.@q[0])+"^000000:"+((.@preview && !@qe[7])?" ~ Preview...":"")+": ~ ^777777Cancel^000000")) {
+		case 1:
+			if (@qe[0]) {
+				mes "[Quest Shop]";
+				mes "You're missing one or more quest requirements.";
+				close;
+			}
+			if (!checkweight(.@q[0],.@q[2])) {
+				mes "[Quest Shop]";
+				mes "^FF0000You need "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" additional weight capacity to complete this trade.^000000";
+				close;
+			}
+			if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
+			if (.@q[5]) setd .Points$[0], getd(.Points$[0])-(.@q[5]*.@q[1]);
+			if (.@q[7]) for(set .@i,7; .@i<getarraysize(.@q); set .@i,.@i+2)
+				delitem .@q[.@i],.@q[.@i+1]*.@q[1];
+			// If success rate setting is on, this happens if it fails
+			if ( .SuccessRate && .@q[6] <= rand(100) ) { // on fail
+				mes "[Quest Shop]";
+				mes "Opps! Sorry, item crafting has failed!";
+				dispbottom "Opps! Sorry, item crafting has failed!";
+				specialeffect2 155;
+				close;
+			}
+				switch (rand(1,118)) {
+case 1: set .@caddpart,4700;break;
+case 2: set .@caddpart,4701;break;
+case 3: set .@caddpart,4702;break;
+case 4: set .@caddpart,4703;break;
+case 5: set .@caddpart,4704;break;
+case 6: set .@caddpart,4705;break;
+case 7: set .@caddpart,4706;break;
+case 8: set .@caddpart,4707;break;
+case 9: set .@caddpart,4708;break;
+case 10: set .@caddpart,4709;break;
+case 11: set .@caddpart,4710;break;
+case 12: set .@caddpart,4711;break;
+case 13: set .@caddpart,4712;break;
+case 14: set .@caddpart,4713;break;
+case 15: set .@caddpart,4714;break;
+case 16: set .@caddpart,4715;break;
+case 17: set .@caddpart,4716;break;
+case 18: set .@caddpart,4717;break;
+case 19: set .@caddpart,4718;break;
+case 20: set .@caddpart,4719;break;
+case 21: set .@caddpart,4720;break;
+case 22: set .@caddpart,4721;break;
+case 23: set .@caddpart,4722;break;
+case 24: set .@caddpart,4723;break;
+case 25: set .@caddpart,4724;break;
+case 26: set .@caddpart,4725;break;
+case 27: set .@caddpart,4726;break;
+case 28: set .@caddpart,4727;break;
+case 29: set .@caddpart,4728;break;
+case 30: set .@caddpart,4729;break;
+case 31: set .@caddpart,4730;break;
+case 32: set .@caddpart,4731;break;
+case 33: set .@caddpart,4732;break;
+case 34: set .@caddpart,4733;break;
+case 35: set .@caddpart,4734;break;
+case 36: set .@caddpart,4735;break;
+case 37: set .@caddpart,4736;break;
+case 38: set .@caddpart,4737;break;
+case 39: set .@caddpart,4738;break;
+case 40: set .@caddpart,4739;break;
+case 41: set .@caddpart,4740;break;
+case 42: set .@caddpart,4741;break;
+case 43: set .@caddpart,4742;break;
+case 44: set .@caddpart,4743;break;
+case 45: set .@caddpart,4744;break;
+case 46: set .@caddpart,4745;break;
+case 47: set .@caddpart,4746;break;
+case 48: set .@caddpart,4747;break;
+case 49: set .@caddpart,4748;break;
+case 50: set .@caddpart,4749;break;
+case 51: set .@caddpart,4750;break;
+case 52: set .@caddpart,4751;break;
+case 53: set .@caddpart,4752;break;
+case 54: set .@caddpart,4753;break;
+case 55: set .@caddpart,4754;break;
+case 56: set .@caddpart,4755;break;
+case 57: set .@caddpart,4756;break;
+case 58: set .@caddpart,4757;break;
+case 59: set .@caddpart,4758;break;
+case 60: set .@caddpart,4759;break;
+case 61: set .@caddpart,4760;break;
+case 62: set .@caddpart,4761;break;
+case 63: set .@caddpart,4762;break;
+case 64: set .@caddpart,4763;break;
+case 65: set .@caddpart,4764;break;
+case 66: set .@caddpart,4765;break;
+case 67: set .@caddpart,4766;break;
+case 68: set .@caddpart,4767;break;
+case 69: set .@caddpart,4768;break;
+case 70: set .@caddpart,4769;break;
+case 71: set .@caddpart,4770;break;
+case 72: set .@caddpart,4771;break;
+case 73: set .@caddpart,4772;break;
+case 74: set .@caddpart,4773;break;
+case 75: set .@caddpart,4774;break;
+case 76: set .@caddpart,4775;break;
+case 77: set .@caddpart,4776;break;
+case 78: set .@caddpart,4777;break;
+case 79: set .@caddpart,4778;break;
+case 80: set .@caddpart,4779;break;
+case 81: set .@caddpart,4780;break;
+case 82: set .@caddpart,4781;break;
+case 83: set .@caddpart,4782;break;
+case 84: set .@caddpart,4783;break;
+case 85: set .@caddpart,4784;break;
+case 86: set .@caddpart,4785;break;
+case 87: set .@caddpart,4786;break;
+case 88: set .@caddpart,4787;break;
+case 89: set .@caddpart,4788;break;
+case 90: set .@caddpart,4789;break;
+case 91: set .@caddpart,4790;break;
+case 92: set .@caddpart,4791;break;
+case 93: set .@caddpart,4792;break;
+case 94: set .@caddpart,4793;break;
+case 95: set .@caddpart,4794;break;
+case 96: set .@caddpart,4795;break;
+case 97: set .@caddpart,4796;break;
+case 98: set .@caddpart,4797;break;
+case 99: set .@caddpart,4798;break;
+case 100: set .@caddpart,4799;break;
+case 101: set .@caddpart,4800;break;
+case 102: set .@caddpart,4801;break;
+case 103: set .@caddpart,4802;break;
+case 104: set .@caddpart,4870;break;
+case 105: set .@caddpart,4871;break;
+case 106: set .@caddpart,4872;break;
+case 107: set .@caddpart,4881;break;
+case 108: set .@caddpart,4896;break;
+case 109: set .@caddpart,4897;break;
+case 110: set .@caddpart,4898;break;
+case 111: set .@caddpart,4904;break;
+case 112: set .@caddpart,4942;break;
+case 113: set .@caddpart,4943;break;
+case 114: set .@caddpart,4944;break;
+case 115: set .@caddpart,4945;break;
+case 116: set .@caddpart,4946;break;
+case 117: set .@caddpart,4947;break;
+case 118: set .@caddpart,4948;break;
+	      		}
+			getitem2 .@q[0],.@q[2],1,0,0,0,0,0,.@caddpart; 
+if (.Announce) announce strcharinfo(0)+" has successfully enchanted "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+" from Fullfilment Costume Enchantment NPC!",0;
+			specialeffect2 EF_FLOWERLEAF;
+			close;
+		case 2:
+			setarray @qe[3], getlook(LOOK_HEAD_BOTTOM), getlook(LOOK_HEAD_TOP), getlook(LOOK_HEAD_MID), getlook(LOOK_ROBE), 1;
+			if ((@qe[1] & 1) || (@qe[1] & 4096)) changelook LOOK_HEAD_BOTTOM, @qe[2];
+			else if ((@qe[1] & 256) || (@qe[1] & 1024)) changelook LOOK_HEAD_TOP, @qe[2];
+			else if ((@qe[1] & 512) || (@qe[1] & 2048)) changelook LOOK_HEAD_MID, @qe[2];
+			else if ((@qe[1] & 4) || (@qe[1] & 8192)) changelook LOOK_ROBE, @qe[2];
+			break;
+		case 3:
+			close;
+		}
+	}
+
+OnEnd:
+	if (@qe[7]) {
+		changelook LOOK_HEAD_BOTTOM, @qe[3];
+		changelook LOOK_HEAD_TOP, @qe[4];
+		changelook LOOK_HEAD_MID, @qe[5];
+		changelook LOOK_ROBE, @qe[6];
+	}
+	deletearray @qe[0],8;
+	end;
+
+function Add {
+	if (getitemname(getarg(1)) == "null") {
+		debugmes "Quest reward #"+getarg(1)+" invalid (skipped).";
+		return;
+	}
+	setarray .@j[0],getarg(2),getarg(3),getarg(4),getarg(5);
+	for(set .@i,6; .@i<getargcount(); set .@i,.@i+2) {
+		if (getitemname(getarg(.@i)) == "null") {
+			debugmes "Quest requirement #"+getarg(.@i)+" invalid (skipped).";
+			return;
+		} else
+			setarray .@j[.@i-2],getarg(.@i),getarg(.@i+1);
+	}
+	copyarray getd(".q_"+getarg(0)+"_"+getarg(1)+"[0]"),.@j[0],getarraysize(.@j);
+	npcshopadditem "fcen"+getarg(0),getarg(1),((.ShowZeny)?getarg(3):0);
+	return;
+}
+
+function Chk {
+	if (getarg(0) < getarg(1)) {
+		set @qe[0],1;
+		return "^FF0000";
+	} else
+		return "^00FF00";
+}
+
+function Slot {
+	set .@s$,getitemname(getarg(0));
+	switch(.ShowSlot) {
+		case 1: if (!getitemslots(getarg(0))) return .@s$;
+		case 2: if (getiteminfo(getarg(0),2) == 4 || getiteminfo(getarg(0),2) == 5) return .@s$+" ["+getitemslots(getarg(0))+"]";
+		default: return .@s$;
+	}
+}
+}
+
+function	script	fcen	{
+	deletearray @i[0],getarraysize(@i);
+	for(set .@i,0; .@i<getargcount(); set .@i,.@i+1)
+		set @i[.@i],getarg(.@i);
+	doevent "quest_fc::OnMenu";
+	end;
+}
+
+
+// Dummy shop data -- copy as needed.
+//============================================================
+-	shop	fcen1	-1,909:-1
+-	shop	fcen2	-1,909:-1
+-	shop	fcen3	-1,909:-1
+-	shop	fcen4	-1,909:-1
+-	shop	fcen5	-1,909:-1

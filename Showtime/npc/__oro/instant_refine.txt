@@ -1,0 +1,115 @@
+prt_in,61,54,3    script    Refiner    826,{
+OnUsed:
+set .Mode,0;            // Refine mode [ 0 = Refine +1 Each time  / 1 = Refine to Max Limit ]
+set .EquipCheck,1;        // Check Equips is refineable or not. [ 0 = Disable / 1 = Enable ]
+set .MaxRefine,0;        // Max Refine Limit
+set .MaxRefine2,10;        // Max Refine Limit [ for Mode 2 Max Refine ]
+set .TicketID,7539;        // Ticket ID
+
+if( countitem(.TicketID) < 1 ){
+mes "You don't have "+getitemname(.TicketID)+" to continue this process.";
+end;
+}
+
+switch(select( ( getequiprefinerycnt(6) >= .MaxRefine2 || getequipisequiped(6) == 0 )?"":"Upper Headgear [ ^4EEE94"+getequipname(6)+"^000000 ]",
+            ( getequiprefinerycnt(5) >= .MaxRefine2 || getequipisequiped(5) == 0 )?"":"Middle Headgear [ ^4EEE94"+getequipname(5)+"^000000 ]",
+            ( getequiprefinerycnt(4) >= .MaxRefine2 || getequipisequiped(4) == 0 )?"":"Lower Headgear [ ^4EEE94"+getequipname(4)+"^000000 ]",
+            ( getequiprefinerycnt(7) >= .MaxRefine2 || getequipisequiped(7) == 0 )?"":"Armor [ ^4EEE94"+getequipname(7)+"^000000 ]",
+            ( getequiprefinerycnt(8) >= .MaxRefine2 || getequipisequiped(8) == 0 )?"":"Left Hand [ ^4EEE94"+getequipname(8)+"^000000 ]",
+            ( getequiprefinerycnt(9) >= .MaxRefine2 || getequipisequiped(9) == 0 )?"":"Right Hand [ ^4EEE94"+getequipname(9)+"^000000 ]",
+            ( getequiprefinerycnt(3) >= .MaxRefine2 || getequipisequiped(3) == 0 )?"":"Garment [ ^4EEE94"+getequipname(3)+"^000000 ]",
+            ( getequiprefinerycnt(2) >= .MaxRefine2 || getequipisequiped(2) == 0 )?"":"Shoes [ ^4EEE94"+getequipname(2)+"^000000 ]",
+            ( getequiprefinerycnt(1) >= .MaxRefine2 || getequipisequiped(1) == 0 )?"":"Accessory [ ^4EEE94"+getequipname(1)+"^000000 ]",
+            ( getequiprefinerycnt(0) >= .MaxRefine2 || getequipisequiped(0) == 0 )?"":"Accessory [ ^4EEE94"+getequipname(0)+"^000000 ]",
+                "^FF0000end^000000")) {
+        Case 1:    
+            if ( .Mode == 0 ) { callsub RefineSystem,6; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,6; }    
+            if ( .Mode == 2 ) { callsub NewRefineSystem,6; }        
+        Case 2:
+            if ( .Mode == 0 ) { callsub RefineSystem,5; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,5; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,5; }
+        Case 3:
+            if ( .Mode == 0 ) { callsub RefineSystem,4; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,4; }    
+            if ( .Mode == 2 ) { callsub NewRefineSystem,4; }    
+        Case 4:
+            if ( .Mode == 0 ) { callsub RefineSystem,7; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,7; }    
+            if ( .Mode == 2 ) { callsub NewRefineSystem,7; }    
+        Case 5:
+            if ( .Mode == 0 ) { callsub RefineSystem,8; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,8; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,8; }
+        Case 6:
+            if ( .Mode == 0 ) { callsub RefineSystem,9; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,9; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,9; }
+        Case 7:
+            if ( .Mode == 0 ) { callsub RefineSystem,3; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,3; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,3; }
+        Case 8:
+            if ( .Mode == 0 ) { callsub RefineSystem,2; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,2; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,2; }
+        Case 9:
+            if ( .Mode == 0 ) { callsub RefineSystem,1; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,1; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,1; }
+        Case 10:
+            if ( .Mode == 0 ) { callsub RefineSystem,0; }
+            if ( .Mode == 1 ) { callsub MaxRefineSystem,0; }        
+            if ( .Mode == 2 ) { callsub NewRefineSystem,0; }
+        Case 11:
+            end;
+            }
+
+RefineSystem:
+if ( .EquipCheck == 1 && getequipisenableref(getarg(0)) == 0 ){
+mes "I can't refine this item.It's unrefinable.";
+end;
+}
+    if(getequiprefinerycnt(getarg(0)) < .MaxRefine) {
+    mes "I can't refine this item.";
+    mes "You must refine to ^0000FF+0^000000";
+    mes "Before you give to me.";
+    end;
+    }
+    successrefitem (getarg(0));
+    message strcharinfo(0),"refine Success.";
+    delitem .TicketID,1;
+    end;
+
+MaxRefineSystem:
+if ( .EquipCheck == 1 && getequipisenableref(getarg(0)) == 0 ){
+mes "I can't refine this item.It's unrefinable.";
+end;
+}
+    for ( set .@i,getequiprefinerycnt(getarg(0)); getequiprefinerycnt(getarg(0)) < .MaxRefine; set .@i,getequiprefinerycnt(getarg(0)) ){
+    successrefitem (getarg(0));
+    }
+    message strcharinfo(0),"refine Success.";
+    delitem .TicketID,1;
+    end;
+    
+NewRefineSystem:
+if ( .EquipCheck == 1 && getequipisenableref(getarg(0)) == 0 ){
+mes "I can't refine this item.It's unrefinable.";
+end;
+}
+mes "I Only refine until +10";
+next;
+while ( countitem(.TicketID) > 0 && getequiprefinerycnt(getarg(0)) < .MaxRefine ){
+successrefitem (getarg(0));
+delitem .TicketID,1;
+}
+while ( countitem(.TicketID) > 1 && getequiprefinerycnt(getarg(0)) > .MaxRefine && getequiprefinerycnt(getarg(0)) < .MaxRefine2 ){
+successrefitem (getarg(0));
+delitem .TicketID,1;
+}
+message strcharinfo(0),"refine Success.";
+end;
+
+}

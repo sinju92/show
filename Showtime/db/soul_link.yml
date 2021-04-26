@@ -1,0 +1,83 @@
+# Custom soul link buffs.
+# Author: Secret <Secret@rathena.org>
+#
+# Format
+# <SL_ constant>: <YAML string literal with a pair of enclosing bracket for the script>
+#
+# You can code the script just like an item script.
+#
+# Use ONLY spaces to indent.
+# DONT USE TABS
+
+#Header: # Metadata for future use
+#    Version: 1
+#    Type: MOD_SECRET_SOUL_LINK
+
+SL_ALCHEMIST: |
+    {
+        bonus bDex,1; bonus bInt,1;
+    }
+SL_MONK: |
+    {
+        bonus bStr,1; bonus bInt,1;
+    }
+SL_STAR: |
+    {
+        bonus bStr,1; bonus bLuk,1;
+    }
+SL_SAGE: |
+    {
+        bonus bAgi,1; bonus bInt,1;
+    }
+SL_CRUSADER: |
+    {
+        bonus bStr,1; bonus bVit,1;
+    }
+SL_SUPERNOVICE: |
+    {
+        bonus bAllstats,1;
+    }
+SL_KNIGHT: |
+    {
+        bonus bStr,1; bonus bDex,1;
+    }
+SL_WIZARD: |
+    {
+        bonus bInt,1; bonus bDex,1;
+    }
+SL_PRIEST: |
+    {
+        bonus bInt,1; bonus bAgi,1;
+    }
+SL_BARDDANCER: |
+    {
+        bonus bInt,1; bonus bVit,1;
+    }
+SL_ROGUE: |
+    {
+        bonus bStr,1; bonus bDex,1;
+    }
+SL_ASSASIN: |
+    {
+        bonus bStr,1; bonus bDex,1;
+    }
+SL_BLACKSMITH: |
+    {
+        bonus bStr,1; bonus bAgi,1;
+    }
+SL_HUNTER: |
+    {
+        bonus bDex,1; bonus bAgi,1;
+    }
+SL_SOULLINKER: |
+    {
+        bonus bDex,1; bonus bInt,1;
+    }
+#  SL_GUNNER: |
+#    {
+#        bonus bMaxHPrate,50; bonus2 bSkillAtk,"GS_DESPERADO",30;
+#    }
+#SL_NINJA: |
+#    {
+#        bonus bMaxHPrate,50; bonus2 bSkillAtk,"NJ_ISSEN",30;
+#    }

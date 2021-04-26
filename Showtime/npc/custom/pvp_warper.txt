@@ -1,0 +1,141 @@
+prontera,148,195,4	script	PvP Warper	468,{
+
+//if( select("Free For All [ "+getmapusers("new_2-1")+"/50 ]") == 1 )
+//if( getmapusers("pvp_n_2-5") < 50 )
+	//warp "pvp_n_2-5",0,0;
+//}
+
+
+switch(select("Free for All ["+getmapusers("pvp_y_2-5")+"/50]:Arena ["+getmapusers("guild_vs3")+"/50]:Party vs Party ["+getmapusers("guild_vs2-2")+"/50]")) {
+
+	case 1:	
+		if (getmapusers("pvp_y_2-5") > 50 ) callsub S_full;
+//		set pvpx, rand(58,60);
+//		set pvpy, rand(84,154);
+		announce ""+strcharinfo(0)+" has entered the PVP ROOM!",bc_all;
+		warp "pvp_y_2-5",0,0;
+		end;
+
+	case 2:	
+		if (getmapusers("guild_vs3") > 99) callsub S_full;
+                announce ""+strcharinfo(0)+" has entered the Arena!",bc_all;
+		warp "guild_vs3",0,0;
+		end;
+ 
+	case 3:	
+		if (getmapusers("guild_vs2-2") > 99) callsub S_full;
+              announce ""+strcharinfo(0)+" has entered the Party vs Party Room!",bc_all;
+		warp "guild_vs2-2",0,0;
+		end;
+ 
+	case 4:	
+		if (getmapusers("pvp_y_3-2") > 99) callsub S_full;
+		for( set .@i,0; .@i<getarraysize(.NoPotion_ids); set .@i,.@i+1 ) {
+			if (countitem(.NoPotion_ids[.@i])) {
+				mes "You can not bring potions in this pvp.";
+				close;
+			}
+		}
+		warp "pvp_y_8-2",0,0;
+		end;
+ 
+	case 5:	
+		if (getmapusers("1@orcs") > 99) callsub S_full;
+		for( set .@i,0; .@i<getarraysize(.NoDonator_ids); set .@i,.@i+1 ) {
+			if (countitem(.NoDonator_ids[.@i])) {
+				mes "You can not bring God items in this pvp.";
+				close;
+			}
+		}
+		warp "1@orcs",0,0;
+		end;
+	Case 6: // Baby PvP Room
+		if (getmapusers("pvp_y_4-2") > 99) callsub S_full;
+		if (class < 4023 || class > 4045) goto L_NotBaby;
+		warp "pvp_y_2-2",0,0;
+		end;
+ 
+	}
+
+S_full:
+	mes " ";
+	mes "I'm sorry, this room is full.  Please try again later...";
+	close;
+OnInit:
+waitingroom	"PvP Room",0;
+
+}
+pvp_y_2-2	mapflag	nowarpto
+pvp_y_2-2	mapflag	nowarp
+pvp_y_2-2	mapflag	nobranch
+pvp_y_2-2	mapflag	noreturn
+pvp_y_2-2	mapflag	pvp
+pvp_y_2-2	mapflag	noteleport
+pvp_y_2-2	mapflag	nosave
+pvp_y_2-2	mapflag	pvp_noguild
+pvp_y_2-2	mapflag	novending
+pvp_y_2-2	mapflag	noicewall
+
+guild_vs3	mapflag	nowarpto
+guild_vs3	mapflag	nowarp
+guild_vs3	mapflag	nobranch
+guild_vs3	mapflag	noreturn
+guild_vs3	mapflag	pvp
+guild_vs3	mapflag	noteleport
+guild_vs3	mapflag	nosave
+guild_vs3	mapflag	pvp_noguild
+guild_vs3	mapflag	novending
+guild_vs3	mapflag	noicewall
+guild_vs3	mapflag	restricted	4
+//guild_vs3	mapflag	nocommand	20
+
+
+guild_vs2-2	mapflag	nowarpto
+guild_vs2-2	mapflag	nowarp
+guild_vs2-2	mapflag	noteleport
+guild_vs2-2	mapflag	pvp
+guild_vs2-2	mapflag	nobranch
+guild_vs2-2	mapflag	noreturn
+//guild_vs2-2	mapflag	nocommand	20
+guild_vs2-2	mapflag	nosave
+guild_vs2-2	mapflag	novending
+guild_vs2-2	mapflag	noicewall
+
+
+pvp_y_2-5	mapflag	nowarpto
+pvp_y_2-5	mapflag	nowarp
+pvp_y_2-5	mapflag	noteleport
+pvp_y_2-5	mapflag	pvp
+pvp_y_2-5	mapflag	nobranch
+pvp_y_2-5	mapflag	noreturn
+//pvp_y_2-5	mapflag	nocommand	20
+
+
+morocc,162,97,4	duplicate(PvP Warper)	PvP Room#moc	468
+geffen,113,64,4	duplicate(PvP Warper)	PvP Room#gef	468
+payon,178,111,4	duplicate(PvP Warper)	PvP Room#pay	468
+alberta,37,240,4	duplicate(PvP Warper)	PvP Room#alb	468
+izlude,123,118,4	duplicate(PvP Warper)	PvP Room#iz	468
+xmas,148,126,4	duplicate(PvP Warper)	PvP Room#xm	468
+amatsu,204,169,4	duplicate(PvP Warper)	PvP Room#am	468
+umbala,85,162,4	duplicate(PvP Warper)	PvP Room#um	468
+louyang,222,104,4	duplicate(PvP Warper)	PvP Room#lou	468
+ayothaya,204,169,3	duplicate(PvP Warper)	PvP Room#5	468
+lighthalzen,153,85,3	duplicate(PvP Warper)	PvP Room#lhzi 	468
+comodo,182,155,4	duplicate(PvP Warper)	PvP Room#cmd	468
+moscovia,217,191,5	duplicate(PvP Warper)	PvP Room#1	468
+splendide,192,153,5	duplicate(PvP Warper)	PvP Room#spl	468
+dicastes01,189,191,4	duplicate(PvP Warper)	PvP Room#dic	468
+rachel,122,121,4	duplicate(PvP Warper)	PvP Room#rachel	468
+niflheim,201,184,4	duplicate(PvP Warper)	PvP Room#nif	468
+aldebaran,135,115,4	duplicate(PvP Warper)	PvP Room#2	468
+gonryun,168,114,3	duplicate(PvP Warper)	PvP Room#3	468
+ra_temsky,51,140,3	duplicate(PvP Warper)	PvP Room#4	468
+mosk_in,28,119,3	duplicate(PvP Warper)	PvP Room#7	468
+hugel,102,146,3	duplicate(PvP Warper)	PvP Room#8	468
+jawaii,197,299,4	duplicate(PvP Warper)	PvP Room#lou	46
+
+//mapflag
+//pvp_y_2-2	mapflag	nocommand	20
+guild_vs3	mapflag	noicewall
+

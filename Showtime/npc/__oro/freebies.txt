@@ -1,0 +1,27 @@
+turbo_room,97,115,4	script	Lif	10168,{
+mes "[^000088 Lif ^000000]";
+	mes "Hello, I'm the freebies giver.";
+	mes "Thank you for joining the Odyssey Ragnarok Online.";
+	next;
+mes "[^000088 Lif ^000000]";
+	mes "You already claimed your freebies for this account.";
+	if( #newplayer_prize3 == 3){
+  mes "Items already given";
+	}else{
+	getitembound 12135,1000,Bound_Account;
+	getitembound 16682,1,Bound_Account;	
+	getitembound 6242,10,Bound_Account;	
+set Zeny,Zeny+5000000;    
+    
+set #newplayer_prize3, 3;
+  mes "Enjoy your Item.";
+	mes "Dont forget to keep inviting!";
+    
+
+}
+	close;
+
+OnInit:
+	waitingroom "New Player Freebies",0;
+	end;
+}

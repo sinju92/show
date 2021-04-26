@@ -1,0 +1,475 @@
+
+//==============================================================================//
+//= Script Release : Job Changer + Max Leveler  [ Version 1.5 ]
+//==================================By==========================================//
+//= ManiacSociety
+//==============================================================================//
+//= Idea Came From : ManiacSociety
+//= Helper : Emistry & Kenpachi
+//==============================================================================//
+//= D E S C R I P T I O N S
+//==============================================================================//
+// -- 1. Character can choose a Job which he like to be.
+// -- 2. This NPC only have 1 Time Usage.
+//		 If it is set to Account Based then that account can use 1 times.
+//		 If it is set to Character Based then all new character can use 1 times.
+// -- 3. Complete skills / Skill Points will be given if it is set to be.
+// -- 4. Base Level and Job Level will be given upon Job Change.
+//==============================================================================//
+//= V E R S I O N S
+//==============================================================================//
+// -- [ 1.5 ] : Added Configuration for Account Based / Character Based Settings
+// -- [ 1.4 ] : Added Baby Classes + 3rd Job Classes.							
+// -- [ 1.3 ] : Added Configuration Option , 4 Announce Option , Informations.			
+// -- [ 1.2 ] : Simplified Scripts + Shorten the Scripts.							
+// -- [ 1.1 ] : Added New Job Change Option.									
+// -- [ 1.0 ] : Simple Login Auto Max Level + Job Changer.						
+//==============================================================================//
+//= R U L E S
+//==============================================================================//
+// -- 1. Do not use for exchanging purpose.										
+// -- 2. Do not claim it as yours.												
+// -- 3. Do not change or remove the credits.
+// -- 4. Do not sell the script in order to get paid.
+// -- 5. Do not re-sharing upon modified without permission.
+//==============================================================================//
+
+
+
+
+function	script	ClassHelper	{
+//OnPCLoginEvent:
+
+// -- Configuration Option
+set .npcname$,"[ ^0000FF Class Helper ^000000 ]";
+set .InfoMenu,1;					// Classes Informations Option [ 0 - Disable / 1 - Enable ]
+set .1stClassMenu,0;				// First Job Class Option [ 0 - Disable / 1 - Enable ]
+set .2ndClassMenu,1;				// Second Job Class Option [ 0 - Disable / 1 - Enable ]
+set .High1stClassMenu,0;			// High 1st Class Option [ 0 - Disable / 1 - Enable ]
+set .Trans2ndClassMenu,1;			// Transcendent Class Option [ 0 - Disable / 1 - Enable ]
+set .Trans3rdClassMenu,0;			// Third Job Class Option [ 0 - Disable / 1 - Enable ]
+set .ExpandedClassMenu,1;			// Expanded Class Option [ 0 - Disable / 1 - Enable ]
+set .BabyClassMenu,1;				// Baby Job Class Option [ 0 - Disable / 1 - Enable ]
+set .Baby3rdClassMenu,0;			// Baby Third Job Class Option [ 0 - Disable / 1 - Enable ]
+set .Allskills,1;					// Complete Skills Option [ 0 - Disable / 1 - Enable ]
+
+// -- Usable for Only 1 Time
+set .Based,1;						// [ 0 - Account Based  / 1 - Character Based ]
+
+
+if( Classchr == 1 || #Classchr == 1 ) end;
+
+Main_Menu:
+	mes .npcname$;
+	mes "I am the Job Class Helper...";
+	mes "I am here to help you.";
+	mes " ^FF0000________________________________^000000";
+	mes "Do you wish to become Stronger ?";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "Do you admire those who have a great power ? Do you wish to become a part of them ? If yes , then which classes that you admire the most ?";
+	next;
+	switch(select(( .InfoMenu == 0 )?"":"^FF0000Classes Information^000000",
+				( .1stClassMenu == 0 )?"":"^0000FFFirst Job Classes^000000",
+				( .2ndClassMenu == 0 )?"":"^0000FFSecond Job Classes^000000",	
+				( .High1stClassMenu == 0 )?"":"^0000FFHigh First Job Classes^000000",	
+				( .Trans2ndClassMenu == 0 )?"":"^0000FFTranscendent Job Classes^000000",	
+				( .Trans3rdClassMenu == 0 )?"":"^0000FFThird Job Classes^000000",		
+				( .ExpandedClassMenu == 0 )?"":"^0000FFEExpanded Job Classes^000000",	
+				( .BabyClassMenu == 0 )?"":"^0000FFBaby Normal Job Classes^000000",		
+				( .Baby3rdClassMenu == 0 )?"":"^0000FFBaby Third Job Classes^000000",		
+				"^FF0000Sorry, i admire nobody....^000000")) {
+
+					Case 1: goto Classes_info;
+					Case 2:	goto FirstJob_Classes;
+					Case 3:	goto SecondJob_Classes;
+					Case 4:	goto HighFirstJob_Classes;
+					Case 5:	goto TransSecondJob_Classes;
+					Case 6:	goto TransThirdJob_Classes;
+					Case 7:	goto ExpandedJob_Classes;
+					Case 8:	goto BabyJob_Classes;
+					Case 9:	goto BabyThirdJob_Classes;
+					Case 10:	close;
+			}
+	
+FirstJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Swordman^000000",
+				"^F77D13Magician^000000",
+				"^F77D13Archer^000000",
+				"^F77D13Acolyte^000000",
+				"^F77D13Merchant^000000",
+				"^F77D13Thief^000000",
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+
+			Case 1:	callsub Job_Changing,1,99,50,60,"All";
+			Case 2:	callsub Job_Changing,2,99,50,60,"All";
+			Case 3:	callsub Job_Changing,3,99,50,60,"All";
+			Case 4:	callsub Job_Changing,4,99,50,60,"All";
+			Case 5:	callsub Job_Changing,5,99,50,60,"All";
+			Case 6:	callsub Job_Changing,6,99,50,60,"All";
+			Case 7:	goto Main_Menu;
+		}
+
+HighFirstJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13High Swordman^000000",
+				"^F77D13High Magician^000000",
+				"^F77D13High Archer^000000",
+				"^F77D13High Acolyte^000000",
+				"^F77D13High Merchant^000000",
+				"^F77D13High Thief^000000",
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+
+			Case 1:	callsub Job_Changing,4002,99,50,60,"All";
+			Case 2:	callsub Job_Changing,4003,99,50,60,"All";
+			Case 3:	callsub Job_Changing,4004,99,50,60,"All";
+			Case 4:	callsub Job_Changing,4005,99,50,60,"All";
+			Case 5:	callsub Job_Changing,4006,99,50,60,"All";
+			Case 6:	callsub Job_Changing,4007,99,50,60,"All";
+			Case 7:	goto Main_Menu;
+		}
+		
+SecondJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Knight^000000",
+				"^F77D13Priest^000000",
+				"^F77D13Wizard^000000",
+				"^F77D13Blacksmith^000000",
+				"^F77D13Hunter^000000",
+				"^F77D13Assassin^000000",
+				"^F77D13Crusader^000000",
+				"^F77D13Monk^000000",
+				"^F77D13Sage^000000",
+				"^F77D13Rogue^000000",
+				"^F77D13Alchemist^000000",
+				( Sex == 0 )?"":"^F77D13Bard^000000",		
+				( Sex == 1 )?"":"^F77D13Dancer^000000",	
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+			
+			Case 1:	callsub Job_Changing,7,99,50,110,"All";
+			Case 2:	callsub Job_Changing,8,99,50,110,"All";
+			Case 3:	callsub Job_Changing,9,99,50,110,"All";
+			Case 4:	callsub Job_Changing,10,99,50,110,"All";
+			Case 5:	callsub Job_Changing,11,99,50,110,"All";
+			Case 6:	callsub Job_Changing,12,99,50,110,"All";
+			Case 7:	callsub Job_Changing,14,99,50,110,"All";
+			Case 8:	callsub Job_Changing,15,99,50,110,"All";
+			Case 9:	callsub Job_Changing,16,99,50,110,"All";
+			Case 10:	callsub Job_Changing,17,99,50,110,"All";
+			Case 11:	callsub Job_Changing,18,99,50,110,"All";
+			Case 12:	callsub Job_Changing,19,99,50,110,"All";
+			Case 13:	callsub Job_Changing,20,99,50,110,"All";
+			Case 14:	goto Main_Menu;
+		}
+
+TransSecondJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Lord Knight^000000",
+				"^F77D13High Priest^000000",
+				"^F77D13High Wizard^000000",
+				"^F77D13Whitesmith^000000",
+				"^F77D13Sniper^000000",
+				"^F77D13Assassin Cross^000000",
+				"^F77D13Paladin^000000",
+				"^F77D13Champion^000000",
+				"^F77D13Professor^000000",
+				"^F77D13Stalker^000000",
+				"^F77D13Creator^000000",
+				( Sex == 0 )?"":"^F77D13Clown^000000",		
+				( Sex == 1 )?"":"^F77D13Gypsy^000000",	
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+			
+			Case 1:	callsub Job_Changing,4008,99,70,129,"All";
+			Case 2:	callsub Job_Changing,4009,99,70,129,"All";
+			Case 3:	callsub Job_Changing,4010,99,70,129,"All";
+			Case 4:	callsub Job_Changing,4011,99,70,129,"All";
+			Case 5:	callsub Job_Changing,4012,99,70,129,"All";
+			Case 6:	callsub Job_Changing,4013,99,70,129,"All";
+			Case 7:	callsub Job_Changing,4015,99,70,129,"All";
+			Case 8:	callsub Job_Changing,4016,99,70,129,"All";
+			Case 9:	callsub Job_Changing,4017,99,70,129,"All";
+			Case 10:	callsub Job_Changing,4018,99,70,129,"All";
+			Case 11:	callsub Job_Changing,4019,99,70,129,"All";
+			Case 12:	callsub Job_Changing,4020,99,70,129,"All";
+			Case 13:	callsub Job_Changing,4021,99,70,129,"All";
+			Case 14:	goto Main_Menu;
+		}
+
+TransThirdJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Rune Knight^000000",
+				"^F77D13Warlock^000000",
+				"^F77D13Ranger^000000",
+				"^F77D13Arch Bishop^000000",
+				"^F77D13Mechanic^000000",
+				"^F77D13Guillotine Cross^000000",
+				"^F77D13Royal Guard^000000",
+				"^F77D13Sorcerer^000000",
+				( Sex == 0 )?"":"^F77D13Minstrel^000000",		
+				( Sex == 1 )?"":"^F77D13Wanderer^000000",	
+				"^F77D13Shura^000000",
+				"^F77D13Genetic^000000",
+				"^F77D13Shadow Chaser^000000",
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+			
+			Case 1:	callsub Job_Changing,4060,99,70,200,"All";
+			Case 2:	callsub Job_Changing,4061,99,70,200,"All";
+			Case 3:	callsub Job_Changing,4062,99,70,200,"All";
+			Case 4:	callsub Job_Changing,4063,99,70,200,"All";
+			Case 5:	callsub Job_Changing,4064,99,70,200,"All";
+			Case 6:	callsub Job_Changing,4065,99,70,200,"All";
+			Case 7:	callsub Job_Changing,4073,99,70,200,"All";
+			Case 8:	callsub Job_Changing,4074,99,70,200,"All";
+			Case 9:	callsub Job_Changing,4075,99,70,200,"All";
+			Case 10:	callsub Job_Changing,4076,70,70,200,"All";
+			Case 11:	callsub Job_Changing,4077,70,70,200,"All";
+			Case 12:	callsub Job_Changing,4078,70,70,200,"All";
+			Case 13:	callsub Job_Changing,4079,70,70,200,"All";
+			Case 14:	goto Main_Menu;
+		}
+				
+ExpandedJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Super Novice^000000",
+				"^F77D13Gunslinger^000000",
+				"^F77D13Ninja^000000",
+				"^F77D13Takewon^000000",
+				"^F77D13Star Gladiator^000000",
+				"^F77D13Soul Linker^000000",
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+
+			Case 1:	callsub Job_Changing,23,99,99,129,"All";
+			Case 2:	callsub Job_Changing,24,99,50,129,"All";
+			Case 3:	callsub Job_Changing,25,99,50,129,"All";
+			Case 4:	callsub Job_Changing,4046,99,50,60,"All";
+			Case 5:	callsub Job_Changing,4047,99,50,129,"All";
+			Case 6:	callsub Job_Changing,4049,99,50,129,"All";
+			Case 7:	goto Main_Menu;
+		}
+
+BabyJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Baby Swordman^000000",
+				"^F77D13Baby Magician^000000",
+				"^F77D13Baby Archer^000000",
+				"^F77D13Baby Acolyte^000000",
+				"^F77D13Baby Merchant^000000",
+				"^F77D13Baby Thief^000000",
+				"^F77D13Baby Knight^000000",
+				"^F77D13Baby Priest^000000",
+				"^F77D13Baby Wizard^000000",
+				"^F77D13Baby Blacksmith^000000",
+				"^F77D13Baby Hunter^000000",
+				"^F77D13Baby Assassin^000000",
+				"^F77D13Baby Crusader^000000",
+				"^F77D13Baby Monk^000000",
+				"^F77D13Baby Sage^000000",
+				"^F77D13Baby Rogue^000000",
+				"^F77D13Baby Alchemist^000000",
+				( Sex == 0 )?"":"^F77D13Baby Bard^000000",		
+				( Sex == 1 )?"":"^F77D13Baby Dancer^000000",	
+				"^F77D13Baby Baby^000000",
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+			
+			Case 1:	callsub Job_Changing,4024,99,50,60,"All";
+			Case 2:	callsub Job_Changing,4025,99,50,60,"All";
+			Case 3:	callsub Job_Changing,4026,99,50,60,"All";
+			Case 4:	callsub Job_Changing,4027,99,50,60,"All";
+			Case 5:	callsub Job_Changing,4028,99,50,60,"All";
+			Case 6:	callsub Job_Changing,4029,99,50,60,"All";
+			Case 7:	callsub Job_Changing,4030,99,50,110,"All";
+			Case 8:	callsub Job_Changing,4031,99,50,110,"All";
+			Case 9:	callsub Job_Changing,4032,99,50,110,"All";
+			Case 10:	callsub Job_Changing,4033,99,50,110,"All";
+			Case 11:	callsub Job_Changing,4034,99,50,110,"All";
+			Case 12:	callsub Job_Changing,4035,99,50,110,"All";
+			Case 13:	callsub Job_Changing,4037,99,50,110,"All";
+			Case 14:	callsub Job_Changing,4038,99,50,110,"All";
+			Case 15:	callsub Job_Changing,4039,99,50,110,"All";
+			Case 16:	callsub Job_Changing,4040,99,50,110,"All";
+			Case 17:	callsub Job_Changing,4041,99,50,110,"All";
+			Case 18:	callsub Job_Changing,4042,99,50,110,"All";
+			Case 19:	callsub Job_Changing,4043,99,50,110,"All";
+			Case 20:	callsub Job_Changing,4045,99,50,110,"All";
+			Case 21:	goto Main_Menu;
+		}
+		
+BabyThirdJob_Classes:
+	mes .npcname$;
+	mes "So, i give you a chance now. Which Classes will you choose to join ? Tell me your desired Classes.";
+	next;
+	switch(select("^F77D13Baby Rune Knight^000000",
+				"^F77D13Baby Warlock^000000",
+				"^F77D13Baby Ranger^000000",
+				"^F77D13Baby Arch Bishop^000000",
+				"^F77D13Baby Mechanic^000000",
+				"^F77D13Baby Guillotine Cross^000000",
+				"^F77D13Baby Royal Guard^000000",
+				"^F77D13Baby Sorcerer^000000",
+				( Sex == 0 )?"":"^F77D13Baby Wanderer^000000",		
+				( Sex == 1 )?"":"^F77D13Baby Minstrel^000000",	
+				"^F77D13Baby Shura^000000",
+				"^F77D13Baby Genetic^000000",
+				"^F77D13Baby Shadow Chaser^000000",
+				"^FF0000Back^000000")) {
+
+// --- callsub Job_Changing,<JOB>,<BaseLv>,<JobLv>,<Skill>,<Announce>;	
+			
+			Case 1:	callsub Job_Changing,4096,99,70,200,"All";
+			Case 2:	callsub Job_Changing,4097,99,70,200,"All";
+			Case 3:	callsub Job_Changing,4098,99,70,200,"All";
+			Case 4:	callsub Job_Changing,4099,99,70,200,"All";
+			Case 5:	callsub Job_Changing,4100,99,70,200,"All";
+			Case 6:	callsub Job_Changing,4101,99,70,200,"All";
+			Case 7:	callsub Job_Changing,4102,99,70,200,"All";
+			Case 8:	callsub Job_Changing,4103,99,70,200,"All";
+			Case 9:	callsub Job_Changing,4104,99,70,200,"All";
+			Case 10:	callsub Job_Changing,4105,99,70,200,"All";
+			Case 11:	callsub Job_Changing,4106,99,70,200,"All";
+			Case 12:	callsub Job_Changing,4107,99,70,200,"All";
+			Case 13:	callsub Job_Changing,4108,99,70,200,"All";
+			Case 14:	goto Main_Menu;
+		}
+
+Job_Changing:
+		mes .npcname$;
+		mes "You are now a part of ^FF0000"+jobname(getarg(0))+"^000000.";
+		if (compare(getarg(4),"All")){	announce "[ "+strcharinfo(0)+" ] has changed to [ "+jobname(getarg(0))+" ].",bc_all,0xF77D13;	}
+		if (compare(getarg(4),"Map")){	announce "[ "+strcharinfo(0)+" ] has changed to [ "+jobname(getarg(0))+" ].",bc_map,0xF77D13;	}
+		if (compare(getarg(4),"Area")){	announce "[ "+strcharinfo(0)+" ] has changed to [ "+jobname(getarg(0))+" ].",bc_area,0xF77D13;	}
+		if (compare(getarg(4),"Self")){	announce "[ "+strcharinfo(0)+" ] has changed to [ "+jobname(getarg(0))+" ].",bc_self,0xF77D13;	}
+		jobchange getarg(0);
+		set BaseLevel,getarg(1);
+        set JobLevel,getarg(2);
+		ResetSkill;
+		ResetStatus;
+        set SkillPoint,getarg(3);
+		if ( .Allskills == 1 ){
+		atcommand "@skillall";
+        set SkillPoint,0;
+	atcommand "@skillall";
+		}
+        specialeffect2 113;
+        percentheal 100,100;
+		if ( .Based == 0 ){	set #Classchr,1;	}
+		if ( .Based == 1 ){	set Classchr,1;	}
+		close;
+	
+Classes_info:
+	mes .npcname$;
+	mes "=====[^F77D13 Swordman Classes ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Enthusiastic skills in sword fighting is a definite attraction to all teenagers. Easy to control and master character enables most players to be a great player.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Archer Classes ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Long ranged attack ability and special techniques of archers in defeating enemy often lure players to try this.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Mage Classes ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Fascinating element techniques involvement of nature in its abilities is truly amazing with their series of undefeatable magics.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Thief Classes ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Poisoning and dodging abilities will defeat most of the enemy. Maximum defensive and offensive ability caused this character to fearsome one.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Acolyte Classes ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "A supportive character, most of the skills like helping will benefit to teammates who lead to teammates act like a terminator.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Merchant Classes ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Involving communication with other players that emphasizes on battles, intelligence in business dealing. His versatility made him must not be look down.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Super Novice ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "A job who are Advanced after Novice Class. It look alike like a Novice but it is not. Beside that, it can learn most of the skills for all 1st Job Class.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Gunslinger ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "The only Job class in RO who are using Gun as weapon. If are you a Gun Lover , there is no doubt you will choose this Job.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Ninja ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "A mysterious Job Class , who alway processing Ancient Spells , look alike with Mage but not mage , good in PK , can evade very well during PK.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Taekwon ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Just like the name has mentioned. The only class in RO who are not using any Weapon. Attack enemy using barehand and foots. ";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Star Gladiator ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "A class who can use the power of the Sun / Star / Moon. By processing the power of Universe to gain a stronger Power.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	mes .npcname$;
+	mes "=====[^F77D13 Soul Linker ^000000]=====";
+	mes " ^FF0000________________________________^000000";
+	mes "^4EEE94Description :^000000";
+	mes "Class that work like a Shaman, who able to recalling the soul of the dead from the underworld to Boost other class ability.";
+	mes " ^FF0000________________________________^000000";
+	next;
+	goto Main_Menu;
+
+}

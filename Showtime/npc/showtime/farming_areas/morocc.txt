@@ -1,0 +1,178 @@
+morocc,147,97,4	script	Morocc Farming NPC	10115,{
+//Start of script
+cutin "ep16_skia_shadow01",2;
+if (#mocf_q == 1) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(620) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 620,100; //Orange Juice
+		set #mocf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Orange Juice";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#mocf_q == 2) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(916) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 916,100; //Feather of Birds
+		set #mocf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Feather of Birds";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#mocf_q == 3) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(7031) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 7031,100; //Old Frying Pan
+		set #mocf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Old Frying Pan";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }		
+	 else if (#mocf_q == 4) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(7043) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 7043,100; //Fine Sand
+		set #mocf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Fine Sand";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#mocf_q == 5) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(925) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 925,100; //Bill of Birds
+		set #mocf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Bill of Birds";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	mes .npcnamepront$;
+	mes "Hello there ^0000ff"+strcharinfo(0)+"^000000. I am the Morocc Farming npc.";
+	mes "I will give you a random quest.";
+	mes "For every quest you finish, I will reward you with ^ff0000"+ .zenyrewrd + " Zeny^000000."; 
+	mes "Would you like to take on a quest?";
+	switch(select("Yes, I am ready!:No, not now.")) {
+		case 1:
+			switch(rand(1,5) ) {
+			case 1:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Pulpity-Pulp-Pulp-Pulp!]^000000.";
+				mes "Bring me 100x Orange Juice.";
+				set #mocf_q, 1;
+				break;
+			case 2:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Featherless Birds]^000000.";
+				mes "Bring me 100x Feather of Birds.";
+				set #mocf_q, 2;
+				break;
+			case 3:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[The Rebellious Egg]^000000.";
+				mes "Bring me 100x Old Frying Pan.";
+				set #mocf_q, 3;
+				break;
+			case 4:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Exit Light, Enter Night]^000000.";
+				mes "Bring me 100x Fine Sand.";
+				set #mocf_q, 4;
+				break;
+
+			case 5:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Wetting The Beak]^000000.";
+				mes "Bring me 100x Bill of Birds.";
+				set #mocf_q, 5;
+				break;				
+			} 
+		case 2:
+			end;
+		} 
+		mes .npcnamepront$;
+		mes "Sorry, Please Come back Later!";
+		mes "You can have another quest after 24 hours has expired";
+		cutin "",255;
+		close;
+	
+OnInit:
+	//Name of npc
+	set .npcnamepront$, "[^1b02ad Farming NPC ^000000 ]";
+	.zenyrewrd = 5000000;
+	end;
+}

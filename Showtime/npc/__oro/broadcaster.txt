@@ -1,0 +1,120 @@
+//Jam "Merme"
+//=======================================================================================
+//=======================================================================================
+//=======================================================================================
+//Annoucer/broadcaster   (in color)
+//=======================================================================================
+//=======================================================================================
+//=======================================================================================
+turbo_room,95,120,6	script	Broadcaster	10153,{
+
+//set @payitem,671;
+set @payamt,100000;
+
+mes "[ ^FE021BMerme^000000 ]";
+mes "Hello, ^F509DE"+strcharinfo(0)+"^000000";
+mes "Do you want to broadcast something? Payment is^FAEB60 100,000 Zeny^000000.";
+menu "Yes please.",yes,"No",no;
+
+yes:
+//if((countitem(@payitem)<@payamt)) goto exit2;
+if( Zeny < @payamt) goto exit2;
+next;
+mes "[ ^FE021BMerme^000000 ]";
+mes "We Have 3 different types of Broadcast  Please choose!";
+next;
+menu "General",green, "Buying",blue, "Selling",orange, "Cancel",-; 
+mes "Im Sorry if u want to say something just let me know.";
+close;
+
+red:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(0)+": "+@mensagem$+" ",bc,0xD20000;
+close;
+
+black:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem1$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+": "+@mensagem1$+" ",bc,0x000000;
+close;
+
+
+blue:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem3$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(0)+" wants to buy : "+@mensagem3$+" ",bc_blue;
+close;
+
+green:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem4$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+": "+@mensagem4$+" ",bc,0x33FF33;
+close;
+
+purple:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem5$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+": "+@mensagem5$+" ",bc,0xCC00FF;
+close;
+
+pink:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem5$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+" is selling : "+@mensagem5$+" ",bc,0xFF33CC;
+close;
+
+gray:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem6$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+": "+@mensagem6$+" ",bc,0xBAB9B9;
+close;
+
+orange:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem5$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+": "+@mensagem5$+" ",bc,0xFF9900;
+close;
+
+no:
+next;
+mes "[ ^FE021BMerme^000000 ]";
+mes "Oh that's a bummmer.";
+mes "Come back when you need me. ^_^";
+close;
+
+exit2:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Sorry you don't have enough Zeny to make the broadcast.";
+mes "Please come again.";
+close;
+
+end;
+}
+
+//=========================================================================
+phtownall,191,169,3	duplicate(Broadcaster)	Broadcaster#main1	10153
+phtownall,56,184,3	duplicate(Broadcaster)	Broadcaster#main2	10153 
+phtownall,53,361,3	duplicate(Broadcaster)	Broadcaster#main3	10153 
+phtownall,191,373,3	duplicate(Broadcaster)	Broadcaster#main4	10153 
+phtownall,165,53,3	duplicate(Broadcaster)	Broadcaster#main5	10153 
+phtownall,334,223,3	duplicate(Broadcaster)	Broadcaster#main6	10153 
+phtownall,336,55,3	duplicate(Broadcaster)	Broadcaster#main7	10153 
+phtownall,332,338,3	duplicate(Broadcaster)	Broadcaster#main8	10153 
+  

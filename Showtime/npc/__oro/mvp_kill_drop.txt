@@ -1,0 +1,15 @@
+-	script	-1,{
+OnNPCKillEvent:
+if( getmonsterinfo( killedrid,MOB_MVPEXP ) ){
+
+	if( getcharid(1) ){
+		getpartymember getcharid(1),2;
+		.@AID = $@partymemberaid[ rand( $@partymembercount ) ];
+	}else{
+		.@AID = getcharid(3);
+	}
+	getitem 7179,10,.@AID;
+	
+}
+end;
+}

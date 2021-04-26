@@ -1,0 +1,80 @@
+//Jam "Merme"
+//=======================================================================================
+//=======================================================================================
+//=======================================================================================
+//Annoucer/broadcaster   (in color)
+//=======================================================================================
+//=======================================================================================
+//=======================================================================================
+turbo_room,95,120,6	script	Broadcaster	10153,{
+
+//set @payitem,671;
+set @payamt,100000;
+
+mes "[ ^FE021BMerme^000000 ]";
+mes "Hello, ^F509DE"+strcharinfo(0)+"^000000";
+mes "Do you want to broadcast something? Payment is 100,000 Zeny.";
+menu "Yes please.",yes,"No",no;
+
+yes:
+if( Zeny < @payamt) goto exit2;
+next;
+mes "[ ^FE021BMerme^000000 ]";
+mes "We Have 3 different types of Broadcast  Please choose!";
+next;
+menu "General",green, "Buying",blue, "Selling",orange, "Cancel",-; 
+mes "Im Sorry if u want to say something just let me know.";
+close;
+
+
+blue:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem3$;
+set Zeny, Zeny - 100000; 
+announce "[BUY] "+strcharinfo(0)+" : "+@mensagem3$+" ",bc_blue;
+close;
+
+green:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem4$;
+set Zeny, Zeny - 100000; 
+announce ""+strcharinfo(O)+": "+@mensagem4$+" ",bc,0x33FF33;
+close;
+
+
+orange:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Type your message and it will be heard miles away";
+input @mensagem5$;
+set Zeny, Zeny - 100000; 
+announce "[SELL] "+strcharinfo(O)+": "+@mensagem5$+" ",bc,0xFF9900;
+close;
+
+no:
+next;
+mes "[ ^FE021BMerme^000000 ]";
+mes "Oh that's a bummmer.";
+mes "Come back when you need me. ^_^";
+close;
+
+exit2:
+mes "[ ^FE021BMerme^000000 ]";
+mes "Sorry you don't have enough Zeny to make the broadcast.";
+mes "Please come again.";
+close;
+
+end;
+}
+
+//=========================================================================
+prontera,148,195,3	duplicate(Broadcaster)	Broadcaster#main1	10153
+morocc,150,97,3	duplicate(Broadcaster)	Broadcaster#main2	10153
+geffen,115,66,3	duplicate(Broadcaster)	Broadcaster#main3	10153
+payon,179,112,3	duplicate(Broadcaster)	Broadcaster#main4	10153
+aldebaran,143,124,3	duplicate(Broadcaster)	Broadcaster#main5	10153
+yuno,158,191,3	duplicate(Broadcaster)	Broadcaster#main6	10153
+firstcity,224,57,3	duplicate(Broadcaster)	Broadcaster#main7	10153
+
+  

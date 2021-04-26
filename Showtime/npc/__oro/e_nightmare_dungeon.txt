@@ -1,0 +1,152 @@
+///////////////////////////////////////////////////////
+//  ___________               _____.__                
+//  \__    ___/__.__.________/ ____\__| ____    ____  
+//    |    | <   |  |\_  __ \   __\|  |/    \  / ___\ 
+//    |    |  \___  | |  | \/|  |  |  |   |  \/ /_/  >
+//    |____|  / ____| |__|   |__|  |__|___|  /\___  / 
+//            \/       Scripts             \//_____?/  
+//
+//=====================================================
+// Name: Paid Warper
+//
+// Description:
+// At a cost of items, a player will be warped to a map,
+// and he may retrieve 1/3 of them by talking to the NPC.
+//
+// Customizations:
+// .currency: set to the Item ID you would like the NPC
+// to trade for the warps.
+//
+// .cost: Amount of .currency item to give for each city.
+// .equip: Equipment ID to be wearing when claiming items.
+//=====================================================
+///////////////////////////////////////////////////////
+-	script	Paid Warper	613,{
+	function WarpTo;
+	function ClaimCurrency;
+	
+	set .npc_name$, "Nightmare Dungeon Attendant";
+//	set .currency, 7517;
+	setarray .warpable_cities$[0], "Nightmare Dungeon";
+//	setarray .cost[0], 3;
+//	setarray .equip[0], 7517;
+	
+	if (!.initialized) {
+		// Sets .warps$ to the valid warps according to the map the NPC is in
+		for (.@i = 0; .@i < getarraysize(.warpable_cities$); .@i++) {
+			set .warps$, .warps$ + (strtolower(.warpable_cities$[.@i]) == strnpcinfo(4) ? "" : .warpable_cities$[.@i]);
+			if (.@i + 1 != getarraysize(.warpable_cities$))
+				set .warps$, .warps$ + ":";
+		}
+		set .initialized, 1;
+	}
+	
+	Begin:
+	waitingroom "Farming Area",0;
+	mes "[^00cc00"+ .npc_name$ +"^000000]";
+	mes "Hello, " + strcharinfo(0) + "!";    
+	mes "Im the attendant to the Nightmare Dungeon.";
+    mes "I've heard there is a treasure inside the dungeon that awaits for brave adventurers.";
+    
+	next;
+	switch (select("Yes:No")) {
+		case 1:
+			mes "[^00cc00"+ .npc_name$ +"^000000]";
+			mes "Are you ready to face the challenges inside the Nightmare Dungeon?";				
+			WarpTo(select(.warps$));
+//		case 2:
+//			mes "[^00cc00"+ .npc_name$ +"^000000]";
+//			mes "You have accumulated so far:";
+//			for (.@i = 0; .@i < getarraysize(.warpable_cities$); .@i++) {
+//				mes .warpable_cities$[.@i] + ": " + warp_accumulator[.@i] + " " + getitemname(.currency);
+//			}
+//			mes "Which would you like to claim?";
+//			next;
+//			ClaimCurrency(select(implode(.warpable_cities$, ":")));
+	}
+	end;
+	
+	function WarpTo	{
+		set .@city, getarg(0) - 1;
+//		mes "To warp to " + .warpable_cities$[.@city] + ", you need to provide "+ .cost[.@city] +" "+ getitemname(.currency) + ".";
+		mes "Are you sure to warp to the Nightmare Farming Area?";
+		if (select("Yes:No") == 1) {
+//			if (countitem(.currency) < .cost[.@city]) {			
+//				next;
+//				mes "[^00cc00"+ .npc_name$ +"^000000]";
+//				mes "I am sorry, you need " + .cost[.@city] + " " + getitemname(.currency) + " to warp, but you only have " + countitem(.currency) + ".";
+//				next;
+//				goto Begin;
+//			}
+//			delitem .currency,.cost[.@city];
+			warp_accumulator[.@city]++;
+//			atcommand "@go " + .warpable_cities$[.@city];
+		    warp "bra_dun01",0,0;            
+			next;
+		}
+		next;
+		goto Begin;
+		return;
+	}
+	
+	function ClaimCurrency	{
+		set .@city, getarg(0) - 1;
+//		set .@necessary_equip, .equip[.@city];
+		if (warp_accumulator[.@city] == 0) {
+			mes "[^00cc00"+ .npc_name$ +"^000000]";
+			mes "You don't have any "+ getitemname(.currency) +"s to retrieve.";
+			next;
+		} else if(isequipped(.@necessary_equip)) {
+			mes "[^00cc00"+ .npc_name$ +"^000000]";
+			mes "Here you are!";
+			getitem .currency,warp_accumulator[.@city];
+			warp_accumulator[.@city] = 0;
+			next;
+		} else {
+			mes "[^00cc00"+ .npc_name$ +"^000000]";
+			mes "I'm sorry, you need to be wearing " + getitemname(.@necessary_equip) + " to retrieve your items.";
+			next;
+		}
+		goto Begin;
+		return;
+	}
+}
+
+phtownall,193,189,4	duplicate(Paid Warper)	Nightmare Farming Dungeon#prt	613
+
+bra_dun01	mapflag	pvp
+bra_dun01	mapflag	pvp_nightmaredrop	random,equip,300
+bra_dun01	mapflag	pvp_noguild
+bra_dun01	mapflag	pvp_noparty
+bra_dun01	mapflag	hidemobhpbar
+bra_dun01	mapflag	nosave
+bra_dun01	mapflag	nomemo
+bra_dun01	mapflag	nowarpto
+bra_dun01	mapflag	noreturn
+
+
+bra_dun01,0,0	boss_monster	Your Ex Girlfriend	3242,1,3600000,600000,0
+//bra_dun01,0,0	boss_monster	Your Ex Boyfriend	3225,1,3600000,600000,0
+
+bra_dun01,0,0	monster	Unfulfilling Career	1395,10
+bra_dun01,0,0	monster	Unappreciating Partner	1396,10
+bra_dun01,0,0	monster	Unresolved Issues 	1397,10
+bra_dun01,0,0	monster	Broken Promises	1398,10
+
+bra_dun01,0,0	monster	Toxic Relationship	1395,5
+bra_dun01,0,0	monster	Nagging Partner	1396,5
+bra_dun01,0,0	monster	Trust Issues 	1397,5
+bra_dun01,0,0	monster	Unpaid Bills	1398,5
+
+bra_dun01,0,0	monster	Anxiety	1395,5
+bra_dun01,0,0	monster	Depression	1396,5
+bra_dun01,0,0	monster	Adulting 	1397,5
+bra_dun01,0,0	monster	Past Regrets	1398,5
+
+bra_dun01,0,0	monster	Tamang Hinala	1395,5
+bra_dun01,0,0	monster	Unfaithful Husband	1396,5
+bra_dun01,0,0	monster	Unfaithful Wife 	1397,5
+bra_dun01,0,0	monster	May Toyong Partner	1398,5
+
+bra_dun01,0,0	monster	Ares Raulo	1215,35
+bra_dun01,0,0	monster	Tanten Beans	1101,35

@@ -1,0 +1,6 @@
+// Item Combos Database
+//
+// Structure of Database:
+// ID:ID:ID:ID,{ Script }
+5490:5475,{ bonus2 bComaClass,Class_Normal,100; },{},{}
+

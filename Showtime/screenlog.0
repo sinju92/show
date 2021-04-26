@@ -1,0 +1,863 @@
+[1;32m[Status][0m: Loading NPC file: npc/showtime/dhenfolder/BabayagaQuest.txt[K[1;33m[Warning][0m: npc_parsename: Duplicate unique name in file 'npc/showtime/dhenfolder/BabayagaQuest.txt', line'1'. Renaming 'Babayaga' to '1_-1_0_0'.
+[1;36m[Debug][0m: this npc:
+   display name 'Babayaga'
+   unique name 'Babayaga'
+   map=(not on a map), x=0, y=0
+[1;36m[Debug][0m: other npc in 'npc/showtime/dhenfolder/WanderingMonk.txt' :
+   display name 'Babayaga'
+   unique name 'Babayaga'
+   map=(not on a map), x=0, y=0
+[1;33m[Warning][0m: npc_parsename: Duplicate unique name in file 'npc/showtime/dhenfolder/BabayagaQuest.txt', line'2'. Renaming 'Babayaga Quest#Dhen' to '1_171_147_171'.
+[1;36m[Debug][0m: this npc:
+   display name 'Babayaga Quest#Dhen'
+   unique name 'Babayaga Quest#Dhen'
+   map=prontera, x=147, y=171
+[1;36m[Debug][0m: other npc in 'npc/showtime/dhenfolder/WanderingMonk.txt' :
+   display name 'Babayaga Quest#Dhen'
+   unique name 'Babayaga Quest#Dhen'
+   map=prontera, x=147, y=171
+[1;32m[Status][0m: Loading NPC file: npc/pre-re/kafras/kafras.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/merchants/ammo_boxes.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/merchants/ammo_dealer.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/merchants/shops.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/merchants/socket_enchant2.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mapflag/hidemobhpbar.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mapflag/gvg.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/citycleaners.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/abbey.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/abyss.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/alde_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/ama_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/anthell.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/ayo_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/beach_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/c_tower.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/ein_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/gef_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/gefenia.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/glastheim.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/gld_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/gld_dunSE.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/gon_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/ice_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/in_sphinx.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/iz_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/juperos.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/kh_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/lhz_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/lou_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/mag_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/mjo_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/moc_pryd.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/mosk_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/nyd_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/odin.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/orcsdun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/pay_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/prt_maze.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/prt_sew.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/ra_san.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/tha_t.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/thor_v.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/treasure.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/tur_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/um_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/xmas_dun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/dungeons/yggdrasil.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/amatsu.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/ayothaya.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/comodo.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/einbroch.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/geffen.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/gonryun.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/hugel.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/lighthalzen.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/louyang.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/lutie.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/manuk.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/mjolnir.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/morocc.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/moscovia.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/niflheim.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/payon.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/prontera.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/rachel.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/splendide.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/umbala.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/veins.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/mobs/fields/yuno.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/cities/izlude.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/cities/prontera.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/cities/rachel.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/cities/yggdrasil.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/com_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/geffen_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/hugel_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/morroc_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/payon_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/prontera_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/rachel_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/veins_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/fields/yuno_fild.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/other/arena.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/other/sign.txt[K[1;32m[Status][0m: Loading NPC file: npc/pre-re/warps/guildcastles.txt[K[1;37m[Info][0m: Done loading '[1;37m5000[0m' NPCs:[K
+	-'[1;37m2974[0m' Warps
+	-'[1;37m225[0m' Shops
+	-'[1;37m1801[0m' Scripts
+	-'[1;37m3512[0m' Spawn sets
+	-'[1;37m39953[0m' Mobs Cached
+	-'[1;37m0[0m' Mobs Not Cached
+[1;32m[Status][0m: Done reading 'db/emblems/bg_1.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_2.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_3.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_4.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_5.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_6.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_7.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_8.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_9.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_10.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_11.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_12.ebm' emblem data file.
+[1;32m[Status][0m: Done reading 'db/emblems/bg_13.ebm' emblem data file.
+[1;31m[Error][0m: status_calc_mob: No castle set at map firstcity
+[1;32m[Status][0m: Event '[1;37mOnInit[0m' executed with '[1;37m335[0m' NPCs.
+[1;37m[Notice][0m: Server is running on '[1;37mPK Mode[0m'.
+[1;32m[Status][0m: Server is '[1;32mready[0m' and listening on port '[1;37m5121[0m'.
+
+[1;32m[Status][0m: Attempting to connect to Char Server. Please wait.
+[1;32m[Status][0m: Connecting to 51.79.173.142:6121
+[1;32m[Status][0m: Logging in to char server...
+[1;32m[Status][0m: Successfully logged on to Char Server (Connection: '[1;37m7[0m').
+[1;32m[Status][0m: Sending maps to char server...
+[1;32m[Status][0m: Event '[1;37mOnInterIfInit[0m' executed with '[1;37m0[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnInterIfInitOnce[0m' executed with '[1;37m0[0m' NPCs.
+[1;32m[Status][0m: Requested '[1;37m44[0m' guild castles from char-server...
+[1;32m[Status][0m: Map-server connected to char-server '[1;37mServer[0m'.
+[1;32m[Status][0m: Map Server is now online.
+[1;32m[Status][0m: Done loading '[1;37m3[0m' vending autotraders with '[1;37m28[0m' items.
+[1;37m[Info][0m: Received Fame List of '[1;37m1[0m' characters.
+[1;32m[Status][0m: Received '[1;37m44[0m' guild castles from char-server.
+[1;32m[Status][0m: Received '[1;37m4[0m' clans from char-server.
+[1;37m[Info][0m: '[1;37mBangs Business Uno[0m' logged in. (AID/CID: '[1;37m2000067/81[0m', IP: '[1;37m0.0.0.0[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mVendor1[0m' logged in. (AID/CID: '[1;37m2000068/82[0m', IP: '[1;37m0.0.0.0[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mRTX Vendor[0m' logged in. (AID/CID: '[1;37m2000034/106[0m', IP: '[1;37m0.0.0.0[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Vending loaded for '[1;37mBangs Business Uno[0m' with '[1;37m6[0m' items at [1;37mfirstcity (228,222)[0m
+[1;37m[Info][0m: Vending loaded for '[1;37mVendor1[0m' with '[1;37m12[0m' items at [1;37mfirstcity (228,225)[0m
+[1;37m[Info][0m: Vending loaded for '[1;37mRTX Vendor[0m' with '[1;37m10[0m' items at [1;37mfirstcity (204,228)[0m
+[1;37m[Info][0m: '[1;37m1337x[0m' logged in. (AID/CID: '[1;37m2000007/3[0m', IP: '[1;37m136.158.28.192[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37m1337x[0m' logged off.
+[1;37m[Info][0m: '[1;37m1337x[0m' logged in. (AID/CID: '[1;37m2000007/3[0m', IP: '[1;37m136.158.28.192[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37m1337x[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mMuffin[0m' logged in. (AID/CID: '[1;37m2000018/58[0m', IP: '[1;37m68.146.164.198[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMuffin[0m' logged off.
+[1;37m[Info][0m: '[1;37mMuffin[0m' logged in. (AID/CID: '[1;37m2000018/58[0m', IP: '[1;37m68.146.164.198[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMuffin[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m185.176.222.106[0m'.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.46.94[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.46.94[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mWendy Marvell[0m' logged in. (AID/CID: '[1;37m2000122/192[0m', IP: '[1;37m120.29.79.232[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mWendy Marvell[0m' logged off.
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: Session #10 timed out
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.50.77[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mYoshiki Murayama[0m' logged in. (AID/CID: '[1;37m2000055/187[0m', IP: '[1;37m115.164.50.77[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mzzzznaxx[0m' logged in. (AID/CID: '[1;37m2000009/21[0m', IP: '[1;37m49.145.162.241[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mzzzznaxx[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mRTX 3O8O[0m' logged in. (AID/CID: '[1;37m2000027/140[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mYoshiki Murayama[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mRTX 3O8O[0m' logged off.
+[1;37m[Info][0m: '[1;37mWizNiWaffles[0m' logged in. (AID/CID: '[1;37m2000027/56[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mWizNiWaffles[0m' logged off.
+[1;37m[Info][0m: '[1;37mMaple[0m' logged in. (AID/CID: '[1;37m2000027/155[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMaple[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3O8O[0m' logged in. (AID/CID: '[1;37m2000027/140[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mYoshiki Murayama[0m' logged in. (AID/CID: '[1;37m2000055/187[0m', IP: '[1;37m115.164.201.83[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3O8O[0m' logged off.
+[1;37m[Info][0m: '[1;37mMVPYING[0m' logged in. (AID/CID: '[1;37m2000027/101[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMVPYING[0m' logged off.
+[1;37m[Info][0m: '[1;37mCRTR[0m' logged in. (AID/CID: '[1;37m2000027/63[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mCRTR[0m' logged off.
+[1;37m[Info][0m: '[1;37mRobinHood[0m' logged in. (AID/CID: '[1;37m2000027/158[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRobinHood[0m' logged off.
+[1;37m[Info][0m: '[1;37mMVPYING[0m' logged in. (AID/CID: '[1;37m2000027/101[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mChupapi Munyanyo[0m' logged in. (AID/CID: '[1;37m2000044/114[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mSMOOTHHHHH[0m' logged in. (AID/CID: '[1;37m2000086/116[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mYoshiki Murayama[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mMVPYING[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mSMOOTHHHHH[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mChupapi Munyanyo[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Closed connection from '[1;37m45.146.167.61[0m'.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #9.
+[1;37m[Info][0m: Closed connection from '[1;37m45.146.167.61[0m'.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #9.
+[1;37m[Info][0m: Closed connection from '[1;37m45.146.167.61[0m'.
+[1;37m[Info][0m: '[1;37mMVPYING[0m' logged in. (AID/CID: '[1;37m2000027/101[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mYoshiki Murayama[0m' logged in. (AID/CID: '[1;37m2000055/187[0m', IP: '[1;37m115.164.214.219[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.214.219[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #10 timed out
+[1;37m[Info][0m: Character '[1;37mYoshiki Murayama[0m' logged off.
+[1;37m[Info][0m: Session #11 timed out
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mSempu[0m' logged in. (AID/CID: '[1;37m2000119/189[0m', IP: '[1;37m125.160.65.21[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSempu[0m' logged off.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.171.151[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.171.151[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mYoshiki Murayama[0m' logged in. (AID/CID: '[1;37m2000055/187[0m', IP: '[1;37m115.164.171.151[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #10 timed out
+[1;37m[Info][0m: Character '[1;37mYoshiki Murayama[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mKatrinn[0m' logged in. (AID/CID: '[1;37m2000006/55[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mYoshiki Murayama[0m' logged in. (AID/CID: '[1;37m2000055/187[0m', IP: '[1;37m115.164.74.3[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #10 timed out
+[1;37m[Info][0m: Character '[1;37mYoshiki Murayama[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mKatrinn[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMVPYING[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3O8O[0m' logged in. (AID/CID: '[1;37m2000027/140[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3O8O[0m' logged off.
+[1;37m[Info][0m: '[1;37mMVPYING[0m' logged in. (AID/CID: '[1;37m2000027/101[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMVPYING[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3O8O[0m' logged in. (AID/CID: '[1;37m2000027/140[0m', IP: '[1;37m124.104.245.248[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.92.197[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #10.
+[1;37m[Info][0m: Closed connection from '[1;37m185.176.222.106[0m'.
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChang Mama[0m' logged in. (AID/CID: '[1;37m2000017/2[0m', IP: '[1;37m136.158.29.71[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mChang Mama[0m' logged off.
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mKellie[0m' logged in. (AID/CID: '[1;37m2000109/164[0m', IP: '[1;37m112.198.164.127[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mKellie[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mRTX 3O8O[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m217.165.222.209[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mluuh[0m' logged in. (AID/CID: '[1;37m2000123/194[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mFreebies Giver[0m' logged in. (AID/CID: '[1;37m2000112/172[0m', IP: '[1;37m217.165.222.209[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mluuh[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuuhl[0m' logged in. (AID/CID: '[1;37m2000124/195[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mFreebies Giver[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: '[1;37mMinion[0m' logged in. (AID/CID: '[1;37m2000101/188[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMinion[0m' logged off.
+[1;37m[Info][0m: '[1;37mMinion[0m' logged in. (AID/CID: '[1;37m2000101/188[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mlLuuhl[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuuuhl[0m' logged in. (AID/CID: '[1;37m2000124/196[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m217.165.222.209[0m', Group '[1;37m0[0m').
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #11.
+[1;37m[Info][0m: Closed connection from '[1;37m78.142.18.52[0m'.
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m217.165.222.209[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mzzzznaxx[0m' logged in. (AID/CID: '[1;37m2000009/21[0m', IP: '[1;37m49.145.162.241[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mzzzznaxx[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: Session #9 timed out
+[1;37m[Info][0m: Character '[1;37mlLuuuhl[0m' logged off.
+[1;37m[Info][0m: '[1;37mKaty Perry[0m' logged in. (AID/CID: '[1;37m2000057/53[0m', IP: '[1;37m37.211.154.160[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mKaty Perry[0m' logged off.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.53.25[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #9 timed out
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #9.
+[1;37m[Info][0m: Closed connection from '[1;37m94.232.42.169[0m'.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #9.
+[1;37m[Info][0m: Closed connection from '[1;37m78.142.18.52[0m'.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 43 bytes received), disconnecting session #9.
+[1;37m[Info][0m: Closed connection from '[1;37m209.222.101.2[0m'.
+[1;37m[Info][0m: '[1;37mlLuuuhl[0m' logged in. (AID/CID: '[1;37m2000124/196[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mlLuuuhl[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuuhl[0m' logged in. (AID/CID: '[1;37m2000124/195[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mlLuuhl[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #9.
+[1;37m[Info][0m: Closed connection from '[1;37m94.232.42.169[0m'.
+[1;37m[Info][0m: '[1;37mMuffin[0m' logged in. (AID/CID: '[1;37m2000018/58[0m', IP: '[1;37m68.146.164.198[0m', Group '[1;37m0[0m').
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 43 bytes received), disconnecting session #10.
+[1;37m[Info][0m: Closed connection from '[1;37m209.222.101.2[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mMuffin[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mMinion[0m' logged off.
+[1;37m[Info][0m: '[1;37mMinion[0m' logged in. (AID/CID: '[1;37m2000101/188[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMinion[0m' logged off.
+[1;37m[Info][0m: '[1;37mTuron[0m' logged in. (AID/CID: '[1;37m2000101/152[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mlLuuhl[0m' logged in. (AID/CID: '[1;37m2000124/195[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mKatrinn[0m' logged in. (AID/CID: '[1;37m2000006/55[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mKatrinn[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mlLuuhl[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuhlAwral[0m' logged in. (AID/CID: '[1;37m2000124/197[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mSuicide Bomber[0m' logged in. (AID/CID: '[1;37m2000006/30[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSuicide Bomber[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mlLuhlAwral[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuuuhl[0m' logged in. (AID/CID: '[1;37m2000124/196[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mTuron[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mlLuuuhl[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuuhlWizardl[0m' logged in. (AID/CID: '[1;37m2000124/198[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m217.165.222.209[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mlLuuhlWizardl[0m' logged off.
+[1;37m[Info][0m: '[1;37mlLuuhl[0m' logged in. (AID/CID: '[1;37m2000124/195[0m', IP: '[1;37m136.158.29.183[0m', Group '[1;37m0[0m').
+[1;31m[Error][0m: buildin_checkweight: Invalid amount '0'.
+[1;36m[Debug][0m: Source (NPC): gold_room_main (invisible/not on a map)
+[1;37m[Info][0m: Character '[1;37mlLuuhl[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m185.217.0.84[0m'.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.209.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.209.183[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.94.10[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mTuron[0m' logged in. (AID/CID: '[1;37m2000101/152[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mTuron[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: '[1;37mMinion[0m' logged in. (AID/CID: '[1;37m2000101/188[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMinion[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m91.241.19.173[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.137[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.137[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.221.154[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: Session #9 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.93.102[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.93.102[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 1080ti[0m' logged in. (AID/CID: '[1;37m2000010/83[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #9 timed out
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.87.78[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.87.78[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.87.78[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mRTX 1080ti[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mWandering Nightmare[0m' logged in. (AID/CID: '[1;37m2000030/40[0m', IP: '[1;37m112.206.98.85[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mWandering Nightmare[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.98.99.32[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mEscanor[0m' logged in. (AID/CID: '[1;37m2000058/79[0m', IP: '[1;37m49.144.3.140[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mEscanor[0m' logged off.
+[1;37m[Info][0m: '[1;37mSir Galiren[0m' logged in. (AID/CID: '[1;37m2000058/139[0m', IP: '[1;37m49.144.3.140[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSir Galiren[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.169.46[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.169.46[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.169.46[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.169.46[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.169.46[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mLink[0m' logged in. (AID/CID: '[1;37m2000007/36[0m', IP: '[1;37m112.200.193.166[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mLink[0m' logged off.
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.169.46[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.202.75[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.201.26[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.201.26[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.187.254[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.187.254[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.177.206[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.177.206[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mOmni[0m' logged in. (AID/CID: '[1;37m2000002/148[0m', IP: '[1;37m180.190.138.113[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mOmni[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.177.206[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mImong mama[0m' logged in. (AID/CID: '[1;37m2000007/199[0m', IP: '[1;37m37.211.154.160[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mImong mama[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mMurayama[0m' logged in. (AID/CID: '[1;37m2000048/29[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mHyuga[0m' logged in. (AID/CID: '[1;37m2000055/151[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHyuga[0m' logged off.
+[1;37m[Info][0m: '[1;37mFujio[0m' logged in. (AID/CID: '[1;37m2000055/169[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mFujio[0m' logged off.
+[1;37m[Info][0m: '[1;37mYoshiki Murayama[0m' logged in. (AID/CID: '[1;37m2000055/187[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mYoshiki Murayama[0m' logged off.
+[1;37m[Info][0m: '[1;37mTodoroki[0m' logged in. (AID/CID: '[1;37m2000055/51[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMurayama[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mTodoroki[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mBlack Star[0m' logged in. (AID/CID: '[1;37m2000055/48[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;31m[Error][0m: buildin_checkweight: Invalid amount '0'.
+[1;36m[Debug][0m: Source (NPC): gold_room_main2 (invisible/not on a map)
+[1;37m[Info][0m: Character '[1;37mBlack Star[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.217.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.182.157[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;32m[Status][0m: Event '[1;37mOnAgitStart[0m' executed with '[1;37m22[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitStart2[0m' executed with '[1;37m11[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitStart3[0m' executed with '[1;37m0[0m' NPCs.
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Gaebolg::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Richard::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Heine::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Nerious::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Glaris::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Defolty::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Sorin::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Bennit::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#W::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;32m[Status][0m: Event '[1;37mOnAgitEnd[0m' executed with '[1;37m21[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitEnd2[0m' executed with '[1;37m11[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitEnd3[0m' executed with '[1;37m0[0m' NPCs.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.76.88[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mEditor[0m' logged in. (AID/CID: '[1;37m2000030/142[0m', IP: '[1;37m112.206.98.85[0m', Group '[1;37m90[0m').
+[1;32m[Status][0m: Done reading '[1;37m7669[0m' entries in '[1;37mdb/pre-re/item_db.txt[0m'.
+[1;33m[Warning][0m: itemdb_parse_dbrow: Duplicate item name for "Clothing_Dye_Coupon"
+[1;32m[Status][0m: Done reading '[1;37m276[0m' entries in '[1;37mdb/import/item_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m1[0m' entries in '[1;37mdb/item_avail.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m7[0m' entries in '[1;37mdb/pre-re/item_stack.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m125[0m' entries in '[1;37mdb/item_nouse.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/pre-re/item_group_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m1022[0m' entries in '[1;37mdb/pre-re/item_bluebox.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m923[0m' entries in '[1;37mdb/pre-re/item_violetbox.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m393[0m' entries in '[1;37mdb/pre-re/item_cardalbum.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m20[0m' entries in '[1;37mdb/item_findingore.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m617[0m' entries in '[1;37mdb/pre-re/item_giftbox.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m598[0m' entries in '[1;37mdb/pre-re/item_misc.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m157[0m' entries in '[1;37mdb/pre-re/item_combo_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/pre-re/item_randomopt_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m19[0m' entries in '[1;37mdb/pre-re/item_noequip.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m1637[0m' entries in '[1;37mdb/pre-re/item_trade.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m13[0m' entries in '[1;37mdb/pre-re/item_delay.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m1521[0m' entries in '[1;37mdb/pre-re/item_buyingstore.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m42[0m' entries in '[1;37mdb/pre-re/item_flag.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/pre-re/item_randomopt_group.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_avail.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_stack.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_nouse.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_group_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_bluebox.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_violetbox.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_cardalbum.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_findingore.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_giftbox.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_misc.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m1[0m' entries in '[1;37mdb/import/item_combo_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_randomopt_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_noequip.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_trade.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_delay.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_buyingstore.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_flag.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37mdb/import/item_randomopt_group.txt[0m'.
+[1;33m[Warning][0m: cashshop_parse_dbrow: Invalid ID 6795 in line '6', skipping...
+[1;31m[Error][0m: sv_readdb: Could not process contents of line 26 of "db/pre-re/item_cash_db.txt".
+[1;32m[Status][0m: Done reading '[1;37m12[0m' entries in '[1;37mdb/pre-re/item_cash_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m4[0m' entries in '[1;37mdb/import/item_cash_db.txt[0m'.
+[1;32m[Status][0m: Done reading '[1;37m0[0m' entries in '[1;37msales[0m'.
+[1;32m[Status][0m: Done reading '[1;37m42[0m' entries in '[1;37mdb_roulette[0m'.
+[1;33m[Warning][0m: itemdb_search: Item ID 32165 does not exists in the item_db. Using dummy data.
+[1;33m[Warning][0m: itemdb_search: Item ID 32165 does not exists in the item_db. Using dummy data.
+[1;37m[Info][0m: Character '[1;37mEditor[0m' logged off.
+[1;37m[Info][0m: '[1;37mWandering Nightmare[0m' logged in. (AID/CID: '[1;37m2000030/40[0m', IP: '[1;37m112.206.98.85[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mWandering Nightmare[0m' logged off.
+[1;37m[Info][0m: '[1;37mEditor[0m' logged in. (AID/CID: '[1;37m2000030/142[0m', IP: '[1;37m112.206.98.85[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mEditor[0m' logged off.
+[1;37m[Info][0m: '[1;37mBangs[0m' logged in. (AID/CID: '[1;37m2000043/15[0m', IP: '[1;37m130.105.212.231[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBangs[0m' logged off.
+[1;37m[Info][0m: '[1;37m1 Hit 1 Kill[0m' logged in. (AID/CID: '[1;37m2000043/34[0m', IP: '[1;37m130.105.212.231[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37m1 Hit 1 Kill[0m' logged off.
+[1;37m[Info][0m: '[1;37mBangs[0m' logged in. (AID/CID: '[1;37m2000043/15[0m', IP: '[1;37m130.105.212.231[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBangs[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37mKellie[0m' logged in. (AID/CID: '[1;37m2000109/164[0m', IP: '[1;37m112.198.161.78[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mKellie[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.99.115.146[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mzzzznaxx[0m' logged in. (AID/CID: '[1;37m2000009/21[0m', IP: '[1;37m49.145.162.229[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mzzzznaxx[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.87.124[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mHawk Eye[0m' logged in. (AID/CID: '[1;37m2000006/24[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mHawk Eye[0m' logged off.
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mWandering Nightmare[0m' logged in. (AID/CID: '[1;37m2000030/40[0m', IP: '[1;37m112.206.98.85[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mWandering Nightmare[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.87.124[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m89.248.165.25[0m'.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m89.248.165.25[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.46.79[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.46.79[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.46.79[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.78.102[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.78.102[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.78.102[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.78.102[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.91.166[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m213.108.134.156[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mZankrow[0m' logged in. (AID/CID: '[1;37m2000125/200[0m', IP: '[1;37m112.206.14.118[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mZankrow[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.179.142[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m213.108.134.156[0m'.
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m86.99.0.225[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.179.142[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.175.236[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.82.157[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mWandering Nightmare[0m' logged in. (AID/CID: '[1;37m2000030/40[0m', IP: '[1;37m120.29.108.112[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mWandering Nightmare[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mOdette[0m' logged in. (AID/CID: '[1;37m2000012/9[0m', IP: '[1;37m5.194.197.109[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mOdette[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.221.193[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.221.193[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mKellie[0m' logged in. (AID/CID: '[1;37m2000109/164[0m', IP: '[1;37m112.198.162.226[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mKellie[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.44.82[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m45.134.26.89[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m185.176.222.106[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.57.211[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m185.176.222.106[0m'.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.57.211[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.59.90[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;32m[Status][0m: Event '[1;37mOnAgitStart[0m' executed with '[1;37m22[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitStart2[0m' executed with '[1;37m11[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitStart3[0m' executed with '[1;37m0[0m' NPCs.
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Gaebolg::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Richard::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Heine::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Nerious::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Glaris::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Defolty::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Sorin::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Bennit::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#W::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;32m[Status][0m: Event '[1;37mOnAgitEnd[0m' executed with '[1;37m21[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitEnd2[0m' executed with '[1;37m11[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitEnd3[0m' executed with '[1;37m0[0m' NPCs.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.76.145[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.79.93[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.79.93[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mWandering Nightmare[0m' logged in. (AID/CID: '[1;37m2000030/40[0m', IP: '[1;37m112.206.105.19[0m', Group '[1;37m90[0m').
+[1;37m[Info][0m: Character '[1;37mWandering Nightmare[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 19 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m194.61.25.4[0m'.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mBaked[0m' logged in. (AID/CID: '[1;37m2000100/149[0m', IP: '[1;37m124.104.114.153[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mBaked[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.47.144[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: '[1;37mMasterMage[0m' logged in. (AID/CID: '[1;37m2000103/201[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMasterMage[0m' logged off.
+[1;37m[Info][0m: '[1;37mMasterMage[0m' logged in. (AID/CID: '[1;37m2000103/201[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mMasterMage[0m' logged off.
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: '[1;37mWIZmebaby[0m' logged in. (AID/CID: '[1;37m2000071/88[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mWIZmebaby[0m' logged off.
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;31m[Error][0m: 0 enemies targeted by 653:NPC_EARTHQUAKE, divide per 0 avoided!
+[1;31m[Error][0m: 0 enemies targeted by 653:NPC_EARTHQUAKE, divide per 0 avoided!
+[1;31m[Error][0m: 0 enemies targeted by 653:NPC_EARTHQUAKE, divide per 0 avoided!
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mLewned[0m' logged in. (AID/CID: '[1;37m2000023/57[0m', IP: '[1;37m112.203.98.233[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mLewned[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mChampion Chen[0m' logged in. (AID/CID: '[1;37m2000006/141[0m', IP: '[1;37m112.204.116.116[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mChampion Chen[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.52.61[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;33m[Warning][0m: clif_parse: Received unsupported packet (packet 0x0003, 47 bytes received), disconnecting session #8.
+[1;37m[Info][0m: Closed connection from '[1;37m103.253.42.58[0m'.
+[1;37m[Info][0m: '[1;37monestrike[0m' logged in. (AID/CID: '[1;37m2000103/156[0m', IP: '[1;37m180.191.176.14[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37monestrike[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.78.245[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: '[1;37mSmokey[0m' logged in. (AID/CID: '[1;37m2000055/144[0m', IP: '[1;37m115.164.78.245[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mSmokey[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mRTX 3080[0m' logged in. (AID/CID: '[1;37m2000010/38[0m', IP: '[1;37m2.51.242.196[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Character '[1;37mRTX 3080[0m' logged off.
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.35.15[0m', Group '[1;37m0[0m').
+[1;31m[Error][0m: buildin_checkweight: Invalid amount '0'.
+[1;36m[Debug][0m: Source (NPC): gold_room_main2 (invisible/not on a map)
+[1;37m[Info][0m: Session #8 timed out
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.
+[1;37m[Info][0m: '[1;37mAnne Curtis[0m' logged in. (AID/CID: '[1;37m2000101/153[0m', IP: '[1;37m112.200.35.15[0m', Group '[1;37m0[0m').
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;37m[Info][0m: Pinging SQL server to keep connection alive...
+[1;32m[Status][0m: Event '[1;37mOnAgitStart[0m' executed with '[1;37m22[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitStart2[0m' executed with '[1;37m11[0m' NPCs.
+[1;32m[Status][0m: Event '[1;37mOnAgitStart3[0m' executed with '[1;37m0[0m' NPCs.
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Gaebolg::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Richard::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Heine::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Nerious::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Glaris::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Defolty::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Sorin::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#Bennit::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;36m[Debug][0m: NPCEvent 'Manager_TE#W::OnAgitEnd3' not found! (source: WOE_CONTROL)
+[1;37m[Info][0m: Character '[1;37mAnne Curtis[0m' logged off.

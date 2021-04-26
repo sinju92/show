@@ -1,0 +1,121 @@
+////=========================[ 	   CreaTeD 14 august 2009  ]==============================////
+////========================[ 	  Created By Andrew Ric0zTa ]===========================////
+////=======================[     Editing By : Andrew Ric0zTa	]=====================////
+////======================[ My BEST ^^ Healer NPC For Your Server ]=================////
+////====================[ Tested On MiracLe Ragnarok - Stable 14000 ]=============////
+////=====================[ 		 Version 2.0		  ]=============////
+////======================[     Fixed Bug And Add New Buffer    ]=============////
+
+/////////////////////////////////////////////////////////////////////////////////
+////////		Andrew Ric0zTa As Admin MiracLe RO			/
+///////			   William  As GM Event MiracLe RO			/
+//////										/
+/////		MiracLe RO Is Indonesian Server Private Server			/	
+////				Rate 2k/2k/????					/
+///		      www.miracle-forum.indonesianforum.net			/
+//		ENJOY THE MIRACLE !!Always Believe MiracLe IS ReaL!!!		/
+/////////////////////////////////////////////////////////////////////////////////
+payon,155,235,4	script	Town Healer#1-1::Bhealer	10252,{
+	mes "I Will heal you now";
+	next;
+	mes "You are healed.";
+		//skilleffect 383,0; sc_start SC_WINDWALK,600000,10;
+		//skilleffect 33,0; 
+		//sc_start SC_ANGELUS,600000,10;
+		//skilleffect 34,0; 
+		sc_start SC_BLESSING,600000,10;
+		//skilleffect 29,0; 
+		sc_start SC_INCREASEAGI,600000,10;
+		//skilleffect 66,0; 
+		//sc_start SC_IMPOSITIO,600000,5;
+//skilleffect 67,0; 
+		//sc_start SC_SUFFRAGIUM,36000,3;
+		//skilleffect 74,0; 
+		//sc_start SC_MAGNIFICAT,600000,5;
+		//skilleffect 75,0; 
+		//sc_start SC_GLORIA,600000,5;
+		//skilleffect 73,0; sc_start SC_KYRIE,1200000,10;
+		//skilleffect 361,0; sc_start SC_ASSUMPTIO,120000000,5;
+//skilleffect 543,0; sc_start SC_NEN,300000,5; 
+		//skilleffect 45,0; 
+		sc_start SC_CONCENTRATE,600000,3;
+//skilleffect 380,0; sc_start SC_TRUESIGHT,360000,5;
+//skilleffect 249,0;sc_start SC_AUTOGUARD,360000,10;
+//skilleffect 234,0;sc_start SC_CP_WEAPON,360000,5;
+//skilleffect 235,0;sc_start SC_CP_SHIELD,360000,5;
+//skilleffect 236,0;sc_start SC_CP_ARMOR,360000,5;
+//skilleffect 237,0;sc_start SC_CP_HELM,360000,5;
+//skilleffect 355,0; sc_start SC_AURABLADE,360000000,5;
+//skilleffect 155,0; sc_start SC_LOUD,360000,1;
+//skilleffect 157,0; sc_start SC_ENERGYCOAT,360000000,1;
+//skilleffect 378,0; sc_start SC_EDP,360000,5;
+		sc_start SC_ASPDPOTION2,360000,0;
+//		sc_start SC_STRFood,720000,10;
+//		sc_start SC_AGIFood,720000,10;
+//		sc_start SC_VITFood,720000,10;
+//		sc_start SC_INTFood,720000,10;
+//		sc_start SC_DEXFood,720000,10;
+//		sc_start SC_LUKFood,720000,10;
+//sc_start SC_HitFood,1200000,30;
+//sc_start SC_FleeFood,1200000,30;
+//sc_start SC_BATKFood,1200000,10;
+//sc_start SC_MATKFood,120000,10;
+//sc_start SC_FULLPROTECTION,300000,1;
+		repairall;
+		misceffect 91;
+	//	skilleffect 28, .@hp ;
+		percentheal 100,100;
+		//npctalk "You are healed ["+ strcharinfo ( 0 ) +"] !";
+	end ;
+	}
+
+
+
+// Duplicates
+//============================================================
+
+alberta,25,240,6	duplicate(Bhealer)	Healer#alb	10252
+alberta,120,53,6	duplicate(Bhealer)	Healer#alb2	10252
+aldebaran,135,118,6	duplicate(Bhealer)	Healer#alde	10252
+amatsu,102,151,4	duplicate(Bhealer)	Healer#ama	10252
+ayothaya,155,121,6	duplicate(Bhealer)	Healer#ayo	10252
+comodo,184,158,6	duplicate(Bhealer)	Healer#com	10252
+einbech,57,36,6	duplicate(Bhealer)	Healer#einbe	10252
+einbroch,57,202,6	duplicate(Bhealer)	Healer#einbr	10252
+geffen,115,72,6	duplicate(Bhealer)	Healer#gef	10252
+gonryun,156,122,6	duplicate(Bhealer)	Healer#gon	10252
+hugel,89,150,6	duplicate(Bhealer)	Healer#hug	10252
+izlude,129,118,6	duplicate(Bhealer)	Healer#izl	10252	//Pre-RE: (125,118)
+jawaii,250,139,4	duplicate(Bhealer)	Healer#jaw	10252
+lighthalzen,161,100,6	duplicate(Bhealer)	Healer#lhz	10252
+louyang,226,103,4	duplicate(Bhealer)	Healer#lou	10252
+manuk,272,144,6	duplicate(Bhealer)	Healer#man	10252
+mid_camp,203,289,6	duplicate(Bhealer)	Healer#mid	10252
+moc_ruins,72,164,4	duplicate(Bhealer)	Healer#moc	10252
+morocc,153,97,6	duplicate(Bhealer)	Healer#mor	10252
+moscovia,220,191,4	duplicate(Bhealer)	Healer#mos	10252
+niflheim,212,182,5	duplicate(Bhealer)	Healer#nif	10252
+
+prontera,155,187,4	duplicate(Bhealer)	Healer#pay	10252
+
+//prontera,151,191,4	duplicate(Bhealer)	Healer#prtera	10252
+rachel,125,116,6	duplicate(Bhealer)	Healer#rac	10252
+splendide,201,153,4	duplicate(Bhealer)	Healer#spl	10252
+thor_camp,249,74,4	duplicate(Bhealer)	Healer#thor	10252
+umbala,93,160,3	duplicate(Bhealer)	Healer#umb	10252
+veins,211,123,4	duplicate(Bhealer)	Healer#ve	10252
+xmas,143,136,4	duplicate(Bhealer)	Healer#xmas	10252
+yuno,156,191,4	duplicate(Bhealer)	Healer#yuno	10252
+//aldeba_in,92,187,4	duplicate(Bhealer)	Healer#aldein	10252
+//guild_vs1,47,51,4	duplicate(Bhealer)	Healer#clone	10252
+
+// Duplicates (Renewal)
+//============================================================
+//brasilis,194,221,6	duplicate(Bhealer)	Healer#bra	10252
+//dewata,195,187,4	duplicate(Bhealer)	Healer#dew	10252
+//dicastes01,201,194,4	duplicate(Bhealer)	Healer#dic	10252
+//ecl_in01,45,60,4	duplicate(Bhealer)	Healer#ecl	10252
+//malangdo,132,114,6	duplicate(Bhealer)	Healer#mal	10252
+//malaya,227,204,6	duplicate(Bhealer)	Healer#ma	10252
+//mora,55,152,4	duplicate(Bhealer)	Healer#mora	10252
+

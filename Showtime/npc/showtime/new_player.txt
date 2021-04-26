@@ -1,0 +1,232 @@
+new_1-4,100,29,4	script	Hanson#639	488,{
+	if(#new_freebies == 0){
+	mes "[Hanson]";
+	mes "What's up madlang people!";
+	mes "As a new player, i can give you an option to manually level up or ascend to level 255 instantly!";
+	mes "But be warned, manually leveling with give you more benefits than ascending to level 255 instantly!!";
+   menu "Level UP Manually",L_manual,"Instant Level 255",L_255,"Cancel",L_Exit;
+
+L_manual:
+	mes "Wise choice!, and for that here are your benefits!";
+    getitembound 35012,1,Bound_Account;
+    getitembound 17162,1,Bound_Account;    
+    getitem 9001,1;
+    getitem 643,5;
+    getitem 531,1000;                     
+	set #new_freebies,1; 
+	warp "firstcity",215,56;    
+	end;    
+
+
+L_Exit:
+   end;    
+
+L_255:                
+	mes "I'll change you into a job that you want";
+	mes "but be warned you can only change your job once";
+	mes "so choose carefully!";
+	next;
+	mes "[Hanson]";
+	mes "If you cancel on me you will lose your chance to have";
+	mes "instant level and job!";
+	next;
+	switch(select("Lord Knight:Paladin:Assassin Cross:Stalker:High Priest:Champion:High Wizard:Professor:Sniper:Clown/Gypsy:Gunslinger:Ninja:Star Gladiator:Soul Linker:Creator:Whitesmith")){
+
+Case 1:
+	jobchange 4008;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Lord Knight!";
+    getitembound 35012,1,Bound_Account;         
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;      
+	end;
+Case 2:
+	jobchange 4015;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Paladin!";
+    getitembound 35012,1,Bound_Account;                         
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;
+	warp "firstcity",215,56;        
+	end;
+Case 3:
+	jobchange 4013;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now an Assassin Cross!";
+    getitembound 35012,1,Bound_Account;     
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 4:
+	jobchange 4018;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Stalker!";
+    getitembound 35012,1,Bound_Account;  
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 5:
+	jobchange 4009;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a High Priest!";
+    getitembound 35012,1,Bound_Account;    
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 6:
+	jobchange 4016;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Champion!";
+    getitembound 35012,1,Bound_Account;    
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 7:
+	jobchange 4010;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a High Wizard!";
+    getitembound 35012,1,Bound_Account;    
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 8:
+	jobchange 4017;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Professor!";
+    getitembound 35012,1,Bound_Account;    
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 9:
+	jobchange 4012;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Sniper!";
+    getitembound 35012,1,Bound_Account;
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 10:
+	if(Sex == 0){
+	jobchange 4021;
+	set BaseLevel,255;
+	set JobLevel,70;
+    getitembound 35012,1,Bound_Account;    
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Gypsy!";
+	}
+	else {
+	jobchange 4020;
+	set BaseLevel,255;
+	set JobLevel,70;
+    getitembound 35012,1,Bound_Account;    
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Clown!";
+	}
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 11:
+	jobchange 24;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Gunslinger!";
+    getitembound 35012,1,Bound_Account;      
+	set #new_freebies,1;
+	warp "firstcity",215,56;        
+	end;
+Case 12:
+	jobchange 25;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Ninja!";
+    getitembound 35012,1,Bound_Account;  
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 13:
+	jobchange 4047;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Star Gladiator!";
+    getitembound 35012,1,Bound_Account;  
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+Case 14:
+	jobchange 4049;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Soul Linker!";
+    getitembound 35012,1,Bound_Account;      
+	set #new_freebies,1;
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;
+    
+Case 15:
+	jobchange 4019;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Creator!";
+    getitembound 35012,1,Bound_Account;      
+	set #new_freebies,1;      
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end;    
+
+Case 16:
+	jobchange 4011;
+	set BaseLevel,255;
+	set JobLevel,70;
+	mes "[Hanson]";
+	mes "Congratulations! You are now a Whitesmith!";
+    getitembound 35012,1,Bound_Account;      
+	set #new_freebies,1;      
+    set skillpoint, skillpoint+ 50;    
+	warp "firstcity",215,56;        
+	end; 
+}
+
+	end;
+	}
+
+if(#new_freebies == 1) {
+	warp "firstcity",215,56;    
+	end;
+	}
+	
+}

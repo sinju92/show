@@ -1,0 +1,179 @@
+prontera,156,192,4	script	Prontera Farming NPC	10115,{
+ //Start of script
+//	if((gettimetick(2) - #timeexpired > (60 * 60 * 24)) && (#prtfarm_done==1)) {
+cutin "ep16_skia_shadow01",2;
+if (#prtf_q == 1) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(949) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 949,100; //Feather
+		set #prtf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 5,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Feathers";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#prtf_q == 2) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(909) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 909,100; //Feather
+		set #prtf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 5,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Jellopy";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#prtf_q == 3) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(7182) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 7182,100; //Cacao
+		set #prtf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained  5,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Cacao";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }		
+	 else if (#prtf_q == 4) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(940) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 940,100; //Grasshoppper's Leg
+		set #prtf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 5,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Grasshopper's Leg";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#prtf_q == 5) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(706) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 706,100; //4-leaf clover
+		set #prtf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 5,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Four-leaf Clover";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	mes .npcnamepront$;
+	mes "Hello there ^0000ff"+strcharinfo(0)+"^000000. I am the Prontera Farming npc.";
+	mes "I will give you a random quest.";
+	mes "For every quest you finish, I will reward you with ^ff0000"+ .zenyrewrd + " Zeny^000000."; 
+	mes "Would you like to take on a quest?";
+	switch(select("Yes, I am ready!:No, not now.")) {
+		case 1:
+			switch(rand(1,5) ) {
+			case 1:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Tickle Me Fancy]^000000.";
+				mes "Bring me 100x feather.";
+				set #prtf_q, 1;
+				break;
+			case 2:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Crystallization? Or???]^000000.";
+				mes "Bring me 100x jellopy.";
+				set #prtf_q, 2;
+				break;
+			case 3:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[CHOCOLATEEE!!]^000000.";
+				mes "Bring me 100x Cacao.";
+				set #prtf_q, 3;
+				break;
+			case 4:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Break A Leg]^000000.";
+				mes "Bring me 100x Grasshopper's legs.";
+				set #prtf_q, 4;
+				break;
+
+			case 5:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[The Luck O' The Irish]^000000.";
+				mes "Bring me 100x Four-leaf clover.";
+				set #prtf_q, 5;
+				break;				
+			} 
+		case 2:
+			end;
+		} 
+		mes .npcnamepront$;
+		mes "Sorry, Please Come back Later!";
+		mes "You can have another quest after 24 hours has expired";
+		cutin "",255;
+		close;
+	
+OnInit:
+	//Name of npc
+	set .npcnamepront$, "[^1b02ad Farming NPC ^000000 ]";
+	.zenyrewrd = 5000000;
+	end;
+}

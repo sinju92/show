@@ -1,0 +1,263 @@
+gonryun,159,123,4	script	Kafra ::kaf_gon_aura	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gonryun",159,113;
+	callfunc "F_KafEnd",0,1,"in the city of Gonryun";
+}
+
+
+rachel,129,117,4	script	Kafra ::kaf_rach_aura	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "rachel",130,112;
+	callfunc "F_KafEnd",0,1,"in the city of Rachel";
+}
+
+prontera,158,187,4	script	Kafra ::kaf_pront_aura	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "prontera",156,183;
+	callfunc "F_KafEnd",0,1,"in the city of Prontera";
+}
+
+izlude,134,87,3	script	Kafra ::kaf_iz_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "izlude",128,102;
+	callfunc "F_KafEnd",0,1,"in the city of Izlude";
+}
+
+xmas,141,126,6	script	Kafra ::kaf_xmas_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "xmas",147,130;
+	callfunc "F_KafEnd",0,1,"in the city of Lutie";
+}
+
+hugel,90,145,6	script	Kafra ::kaf_huge_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "hugel",96,146;
+	callfunc "F_KafEnd",0,1,"in the city of Hugel";
+}
+
+splendide,195,153,6	script	Kafra ::kaf_spl_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "splendide",201,147;
+	callfunc "F_KafEnd",0,1,"in the city of Splendide";
+}
+
+dicastes01,192,191,6	script	Kafra ::kaf_dic_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "dicastes01",197,188;
+	callfunc "F_KafEnd",0,1,"in the city of El Discastes";
+}
+morocc,156,97,4	script	Kafra ::kaf_moc_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "morocc",159,87;
+	callfunc "F_KafEnd",0,1,"in the city of Morocc";
+}
+
+aldebaran,145,123,4	script	Kafra ::kaf_alde_aura01	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "aldebaran",140,118;
+	callfunc "F_KafEnd",0,1,"in the city of Aldebaran";
+}
+
+/*
+gh1,146,120,4	script	Kafra ::kaf_gh1	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh1",150,111;
+	callfunc "F_KafEnd",0,1,"in the Guildhouse 1";
+}
+gh11,143,136,4	script	Kafra ::kaf_gh11	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh11",148,126;
+	callfunc "F_KafEnd",0,1,"in the Guildhouse 11";
+}
+gh3,125,118,4	script	Kafra ::kaf_gh3	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh3",128,102;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 3";
+}
+
+gh4,156,97,4	script	Kafra ::kaf_gh4	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh4",159,87;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 4";
+}
+
+gh5,151,235,4	script	Kafra ::kaf_gh5	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh5",155,226;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 5";
+}
+
+gh6,158,192,4	script	Kafra ::kaf_gh6	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh6",155,184;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 6";
+}
+
+gh7,93,151,4	script	Kafra ::kaf_gh7	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh7",95,144;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 7";
+}
+
+gh8,127,117,4	script	Kafra ::kaf_gh8	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh8",129,110;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 8";
+}
+
+gh9,156,100,4	script	Kafra ::kaf_gh9	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh9",159,93;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 9";
+}
+
+gh10,156,121,4	script	Kafra ::kaf_gh10	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "The Kafra Corporation";
+	mes "is always working to provide";
+	mes "you with convenient services.";
+	mes "How may I be of assistance?";
+	callfunc "F_Kafra",5,0,1,20,600;
+	savepoint "gh10",159,111;
+	callfunc "F_KafEnd",0,1,"in Guildhouse 10";
+}
+*/
+
+
+
+

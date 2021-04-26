@@ -1,0 +1,2 @@
+phtownall,203,153	monster	Barricade Dummy	1905,1
+phtownall,197,153	monster	Emperium Dummy	1750,1

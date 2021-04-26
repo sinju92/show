@@ -1,0 +1,17 @@
+userid: rouser
+passwd: ropass
+
+server_name: Showtime
+
+login_ip: 51.79.173.142
+login_port: 6900
+
+char_ip: 51.79.173.142
+char_port: 6121
+
+start_point_pre: new_1-4,99,8
+start_items: 1201,1,2:2301,1,16
+
+char_del_delay: 0
+
+

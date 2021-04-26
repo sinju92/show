@@ -1,0 +1,91 @@
+// https://rathena.org/board/topic/108888-request-a-gold-room-drop-gold-point/
+
+
+firstcity,196,87,5	script	Zeny Farming Area#goldroom	4_F_KAFRA1,{
+	doevent "gold_room_main::OnTalk";
+}
+
+// warp portal back prontera
+//ordeal_3-2,123,123,0	warp	gold_room_back_prt	1,1,prontera,155,181
+gon_fild01,192,265,0	warp	gold_room_back_maintown	1,1,firstcity,215,56
+gon_fild01,257,76,0	warp	gold_room_back_maintown2	1,1,firstcity,215,56
+// peco peco summon
+gon_fild01,0,0,0,0	monster	LODS	1585,200,600,0,"gold_room_main::OnKill"
+gon_fild01,0,0,0,0	monster	IDOLO	1840,100,600,0,"gold_room_main::OnKill"
+gon_fild01,0,0,0,0	monster	KUPAL	1214,5,600,0,"gold_room_main::OnKill"
+
+
+-	script	gold_room_main	-1,{
+	
+	OnInit:
+		// gold room map
+		.map$ = "gon_fild01";
+		// entrance fee
+		.zeny_cost = 200000;
+		// rate to get gold
+		.rate = 50;
+		// gold random amount
+		setarray .gold_amount,1,2;
+		
+		setmapflag .map$,mf_noteleport;
+		setmapflag .map$,mf_pvp;
+		setmapflag .map$,mf_pvp_noguild;
+		setmapflag .map$,mf_pvp_noparty;
+		setmapflag .map$,mf_nobranch;
+		setmapflag .map$,mf_nosave;
+		setmapflag .map$,mf_nomemo;
+		setmapflag .map$,mf_noreturn;
+		setmapflag .map$,mf_nowarp;
+		setmapflag .map$,mf_nowarpto;
+		end;
+	
+	OnTalk:
+		mes "Enter Farming Area ?";
+		if ( .zeny_cost ) 
+			mes F_InsertComma( .zeny_cost ) + " Zeny";
+		switch ( select( 
+			"Enter Farming Area",
+			"Exchange Gold Point",
+			"Cancel"
+		)) {
+			case 1:
+				if ( Zeny < .zeny_cost ) {
+					mes "Not enough Zeny.";
+				}
+				else {
+					Zeny -= .zeny_cost;
+					warp .map$,0,0;
+				}
+				break;
+			case 2:	
+				mes "You got "+F_InsertComma( #GOLDPOINTS )+" Points";
+				input .@value,0,#GOLDPOINTS;
+				if ( checkweight( 969, .@value ) ) {
+					#GOLDPOINTS -= .@value;
+					getitem 969,.@value;
+					mes "Gained "+.@value+" Gold.";
+				}
+				else {
+					mes "You overweight.";
+				}
+			default:
+				break;
+		}
+		close;
+		
+	OnKill:	
+		if ( .rate < rand( 100 ) ) {
+			.@point = rand( .gold_amount[0],.gold_amount[1] );
+			#GOLDPOINTS += .@point;
+			dispbottom "Gained "+.@point+" Point. You got "+F_InsertComma( #GOLDPOINTS )+" Points now.";
+		}
+		end;
+
+	OnPCDieEvent:
+		.@killerrid = killerrid;
+		if ( strcharinfo(3) == .map$ && .@killerrid != getcharid(3) && getmonsterinfo( .@killerrid,MOB_NAME ) != "null" ) {
+			#GOLDPOINTS = 0;
+			dispbottom "You died, you lost all the point.";
+		}
+		end;
+}

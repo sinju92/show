@@ -1,0 +1,47 @@
+firstcity,222,168,4	script	Credit Converter	10132,{
+	mes "[Credit NPC]";
+	mes "Hello "+strcharinfo(0);
+	mes "What can I help you with today?";
+	next;
+	mes "[Points NPC]";
+	mes "Please be adviced that the follow convertion is a standard on this server";
+	mes "";
+	mes "";
+	mes "^3355FF1 Credit = 1 Cash Point.^000000";
+	mes "^3355FF1 Cash point = 1 Credit.^000000";
+	mes "Which one do you like to be converted?";
+	next;
+	menu "Credit",pd_cp,"Cash Points",cp_pd,"Nothing",L_leave;
+pd_cp:
+        mes "You have a Total of "+countitem(7179)+" Credits in hand";
+	mes "How many ^3355FF Credits^000000 do you want to be converted into cashpoints?";
+	input @dc1;
+	if( countitem(7179) < @dc1 ){
+	next;
+	mes "You don't have "+@dc1+" Credits.";
+    	close;
+	}
+	set #CASHPOINTS, #CASHPOINTS+@dc1*1;
+	delitem 7179, @dc1;
+	next;
+	dispbottom "You gain "+@dc1*1+" point(s), current cash points:" +#CASHPOINTS;
+	close;
+cp_pd:
+	mes "You have a Total of ^3355FF"+#CASHPOINTS+"^000000 Cashpoints";
+        next;
+	mes "Please Input the number of^3355FF Credits^000000 you would like to have";
+	input @cp1;
+	if( #CASHPOINTS < (@cp1*1) ){
+	next;
+    	mes "You don't have enough Points.";
+    	close;
+	}
+	set #CASHPOINTS, #CASHPOINTS - @cp1*1;
+	getitem 7179, @cp1; 
+	mes "You have a total of "+#CASHPOINTS+" Cash Points Remaining";
+	dispbottom "You have a total of "+#CASHPOINTS+" Cash Points Remaining";
+//	dispbottom "You got "+@cp1+" Credits.";
+	close;
+L_leave:
+close;
+}

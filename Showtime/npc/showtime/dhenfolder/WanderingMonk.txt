@@ -1,0 +1,95 @@
+-	shop	Babayaga	-1,501:50
+prontera,147,171,4,	script	Babayaga Quest#Dhen	823,{
+	set @i,0;
+	mes "[Shop Quest NPC]";
+	mes "Which item do you wish to obtain?";
+	mes "Select only one.";
+	callshop "Babayaga",1;
+	npcshopattach "Babayaga";
+	end;
+
+OnBuyItem:
+	if(.BuildQuest) {
+		for(set .e,0; !compare(""+getarg(.e+1),"Zeny"); set .e,.e+2) {}
+		npcshopadditem "Babayaga",getarg(.e+2),getarg(.e)*compare(""+getarg(.e+1),"SZeny");
+		setarray .Shop[.i],getarg(.e+2);
+		set .i,.i+1;
+		goto Quest_Setup;
+	}
+	if(.Shop[@i]!=@bought_nameid) for(set @i,1; 1; set @i,@i+1) if(.Shop[@i]==@bought_nameid) { set .i,@i; callsub Quest_Setup; }
+	for(set @i,1; !@e; set @i,@i+1) if(.Shop[@i]==@bought_nameid) { set @e,1; set .i,@i; callsub Quest_Setup; }
+	mes "[Shop Quest NPC]";
+	mes "I require the following:";
+	for(set @i,0; !compare(""+getarg(@i+1),"Zeny"); set @i,@i+2) mes "^FF0000" + ((countitem(getarg(@i))>=getarg(@i+1))? "^00FF00":"") + "" + getarg(@i+1) + " " + getitemname(getarg(@i)) + " [" + countitem(getarg(@i)) + "/" + getarg(@i+1) + "]";
+	if(getarg(@i)) mes "^FF0000" + ((Zeny>=getarg(@i))? "^00FF00":"") + "" + getarg(@i) + " Zeny";
+	mes "^000000In exchange, I will give you:^0000FF";
+	for(set @i,@i+2; getarg(@i+1,0); set @i,@i+2) mes getarg(@i+1) + " " + getitemname(getarg(@i));
+	switch(select("Exchange:" + (((((getiteminfo(@bought_nameid,5) & 1) || (getiteminfo(@bought_nameid,5) & 256) || (getiteminfo(@bought_nameid,5) & 512) || (getiteminfo(@bought_nameid,5) & 1024) || (getiteminfo(@bought_nameid,5) & 2048) || (getiteminfo(@bought_nameid,5) & 4096) || (getiteminfo(@bought_nameid,5) & 8192))  && @equip==0))? "Preview Item":"") + ":No thanks")) {
+		case 1:
+			for(set @i,0; !compare(""+getarg(@i+1),"Zeny"); set @i,@i+2) if(countitem(getarg(@i)) < getarg(@i+1)) {
+				next;
+				mes "You have " + countitem(getarg(@i)) + " " + getitemname(getarg(@i)) + ", while I require " + getarg(@i+1) + ".";
+				mes "Please obtain ^FF0000" + (getarg(@i+1)-countitem(getarg(@i))) + " more " + getitemname(getarg(@i)) + "^000000.";
+				close;
+			}
+			if(Zeny < getarg(@i)) {
+				next;
+				mes "You do not have enough Zeny.";
+				mes "Please obtain ^FF0000" + (getarg(@i)-Zeny) + " more Zeny^000000.";
+				close;
+			}
+			for(set @i,0; !compare(""+getarg(@i+1),"Zeny"); set @i,@i+2) delitem getarg(@i),getarg(@i+1);
+			set Zeny,Zeny-getarg(@i);
+			for(set @i,@i+2; getarg(@i+1,0); set @i,@i+2) getitem getarg(@i),getarg(@i+1);
+			if (compare(""+getarg(@i,0),"announce")) announce strcharinfo(0) + " has just obtained " + getitemname(@bought_nameid) + " from freebies NPC!",bc_all;
+			close;
+		case 2:
+			set @bottomview, getlook(3);
+			set @topview, getlook(4);
+			set @midview, getlook(5);
+			set @robeview, getlook(LOOK_ROBE);
+			addtimer 1000, strnpcinfo(3)+"::On_Leave";
+			set @equip,getiteminfo(@bought_nameid, 5);
+			set @view, getiteminfo(@bought_nameid, 11);
+			if(@equip != -1 && @view > 0) {
+				if(@equip & 1) atcommand "@changelook 3 " + @view;
+				if(@equip & 256) atcommand "@changelook 1 " + @view;
+				if(@equip & 512) atcommand "@changelook 2 " + @view;
+				if(@equip & 1024) atcommand "@changelook 1 " + @view;
+				if(@equip & 2048) atcommand "@changelook 2 " + @view;
+				if(@equip & 4096) atcommand "@changelook 3 " + @view;
+				if(@equip & 8192) atcommand "@changelook 7 " + @view;
+
+			}
+			next;
+			goto OnBuyItem;
+		case 3:
+			close;
+	}
+On_Leave:
+	atcommand "@changelook 1 " + @topview;
+	atcommand "@changelook 2 " + @midview;
+	atcommand "@changelook 3 " + @bottomview;
+	atcommand "@changelook 7 " + @robeview;
+	set @equip,0;
+	set @view,0;
+	set @topview,0;
+	set @midview,0;
+	set @bottomview,0;
+	set @robeview,0;
+	end;OnInit:
+	npcshopitem "Babayaga",0,0;
+	npcshopdelitem "Babayaga",0,0;
+	set .BuildQuest,1;
+	set .i,1;
+Quest_Setup:
+	switch(.i) {
+		default: set .BuildQuest,0; set .e,0; set .i,0; end;
+                case 1: callsub OnBuyItem,2211,10,2287,10,1217,10,1220,10,1211,10,1000000,"Zeny",35051,1,"announce";
+                case 2: callsub OnBuyItem,35051,2,5163,5,2231,5,7157,200,7200,200,1063,200,3000000,"Zeny",35052,1,"announce";
+                case 3: callsub OnBuyItem,35052,2,4348,20,4360,20,13004,10,2336,10,5000000,"Zeny",35053,1,"announce";
+                case 4: callsub OnBuyItem,35053,2,13107,5,2620,10,1223,10,7345,300,7347,300,10000000,"Zeny",35054,1,"announce";               
+		        case 5: callsub OnBuyItem,35053,2,13107,5,2620,10,1223,10,7345,300,7347,300,10000000,"Zeny",35055,1,"announce";
+
+	}
+}

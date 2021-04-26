@@ -1,0 +1,65 @@
+turbo_room,82,97,5	script	Palakang Refiner	614,{
+
+	mes .n$;
+	mes "Hello, I can refine Items to +10,Its FREE!!";
+	mes "What do you want to refine?";
+	next;
+	setarray .@position$[1], "Accessory","Shoes","Muffler","Lower Head","Midgeargear","Headgear","Armor","Shield","Weapon";
+	set .@menu$,"";
+	for( set .@i,1; .@i <= 10; set .@i,.@i+1 )
+	{
+	if( getequipisequiped(.@i) )
+	set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@i) + "]";
+
+	set .@menu$, .@menu$ + ":";
+
+	}
+
+	set @part,select(.@menu$);
+	if(!getequipisequiped(@part)) {
+	mes .n$;
+	mes "Do you want me to refine your small balls?";
+	close;
+
+	}
+
+	if(!getequipisenableref(@part)) {
+	mes .n$;
+	mes "This item is not refinable,Do you want me to refine your dumb brain?";
+	close;
+
+	}
+
+	if(countitem(7517) < 10) {
+	mes "You dont have enough Event Coins,";
+	mes "You need 10 Gold Coins to upgrade!";
+    mes "Go farm zennies you peasant!";
+	close;
+
+	}
+
+	if(getequiprefinerycnt(@part) < 0) {
+	mes .n$;
+	mes "Sorry, I can only refine Items with no refine and above";
+	close;
+
+	}
+
+	if(getequiprefinerycnt(@part) >= 10) {
+	mes .n$;
+	mes "This equipment is at its limit. I can't refine it any further.";
+	close;
+
+	}
+
+	while(getequiprefinerycnt(@part)<10)
+	successrefitem @part;
+	mes .n$;
+	mes "Your Item was successfully refined";
+	delitem 7517,10;
+	close;
+	OnInit:
+	set .n$,"[Refiner]";
+	end;
+
+	}

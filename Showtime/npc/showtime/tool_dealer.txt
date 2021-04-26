@@ -1,0 +1,44 @@
+prontera,146,206,4	shop	Tool Dealer	668,12548:5000,611:1000,12020:3000,11501:5500,11502:5500,645:3000,656:3000,657:3000,601:120,506:40,610:4000,12212:10000,1065:-1,547:-1,14553:120000,14556:120000,14562:120000,14564:120000,7135:-1,7136:-1
+//---------------------------------Duplicates-----------------------------------------------------
+morocc,146,102,3	duplicate(Tool Dealer)	Tool Dealer#tldmoc3	807
+geffen,111,62,1	duplicate(Tool Dealer)	Tool Dealer#tldgef3	807
+payon,184,104,3	duplicate(Tool Dealer)	Tool Dealer#tldpay3	807
+izlude,124,122,3	duplicate(Tool Dealer)	Tool Dealer#tldiz3	807
+alberta,22,240,3	duplicate(Tool Dealer)	Tool Dealer#tldalb3	807
+alberta,120,60,3	duplicate(Tool Dealer)	Tool Dealer#tldalb4	807
+aldebaran,134,118,3	duplicate(Tool Dealer)	Tool Dealer#tldald3	807
+xmas,155,126,3	duplicate(Tool Dealer)	Tool Dealer#tldxmas3	807
+comodo,195,155,3	duplicate(Tool Dealer)	Tool Dealer#tldcmd3	807
+yuno,154,191,3	duplicate(Tool Dealer)	Tool Dealer#tldyuno	807
+amatsu,102,143,3	duplicate(Tool Dealer)	Tool Dealer#tldama	807
+umbala,89,149,3	duplicate(Tool Dealer)	Tool Dealer#tldum	807
+dicastes01,197,194,3	duplicate(Tool Dealer)	Tool Dealer#tlddic3	807
+brasilis,344,235,4	duplicate(Tool Dealer)	Tool Dealer#tldayo3	807
+gonryun,152,113,4	duplicate(Tool Dealer)	Tool Dealer#tldgon3	807
+que_temsky,42,153,4	duplicate(Tool Dealer)	Tool Dealer#tldgon4	807
+que_temsky,86,147,4	duplicate(Tool Dealer)	Tool Dealer#tldque3	807
+z_agit,86,147,4	duplicate(Tool Dealer)	Tool Dealer#tldque2	807
+//quiz_02,343,376,4	duplicate(Tool Dealer)	Tool Dealer#tldimb1	807
+hugel,92,147,4	duplicate(Tool Dealer)	Tool Dealer#tldhug	807
+ama_in01,82,119,4	duplicate(Tool Dealer)	Handy William#tldamain	807
+prt_fild05,290,233,4	duplicate(Tool Dealer)	Tool Dealer#tldhug2	807
+rachel,125,106,5	duplicate(Tool Dealer)	Tool Dealer#tldrach	807
+jawaii,201,282,3	duplicate(Tool Dealer)	Tool Dealer#jawaii1	807
+louyang,218,104,3	duplicate(Tool Dealer)	Tool Dealer#louy01	807
+ayothaya,206,169,3	duplicate(Tool Dealer)	Tool Dealer#ayo01	807
+lighthalzen,155,102,3	duplicate(Tool Dealer)	Tool Dealer#lhz01	807
+moscovia,226,191,3	duplicate(Tool Dealer)	Tool Dealer#msk01	807
+splendide,198,153,3	duplicate(Tool Dealer)	Tool Dealer#spl01	807
+einbroch,66,202,3	duplicate(Tool Dealer)	Tool Dealer#einb01	807
+glast_01,203,275,3	duplicate(Tool Dealer)	Tool Dealer#glast01	807
+firstcity,226,62,3	duplicate(Tool Dealer)	Tool Dealer#main	807
+
+//prt_in,127,78,7	duplicate(Tool Dealer)	Tool Dealer#prontin01	807
+//prontera,145,177,7	duplicate(Tool Dealer)	Tool Dealer#prontera01	807
+
+//------------------------------------------------------------------------------------------------
+//turbo_room,71,131,4	shop	Alchemist Dealer	601,7433:-1,715:600,716:600,717:600,1025:200,7139:6000,7136:3000,7135:3000,7137:3000,7138:3000,7134:-1,972:1000,713:2000,1061:-1,1092:-1,7144:-1,7127:-1,7128:-1,7129:-1,7130:-1,7131:-1,7132:-1,7133:-1;
+//turbo_room,71,129,4	shop	Ammunition	634,1766:50,1755:20,1750:10,1754:20,1761:20,1752:20,1760:20,1759:20,1772:100,1757:30,1770:20,1769:30,1765:40,1763:30,1762:30,1767:30,1764:30,1751:20,1768:30,1753:30,1756:30,1758:30,1771:1000,13200:50,13202:100,13201:300,13206:500,13203:500,13207:500,13204:500,13205:500,13252:50,13254:500,13251:100,13253:300,13250:50,13256:50,13259:50,13258:50,13255:50,13257:50,7521:-1,7522:-1,7523:-1,7524:-1,6512:-1,6513:-1,6514:-1,6515:-1,6493:-1,7940:-1,13250:-1,13251:-1
+//turbo_room,71,127,4	shop	Blacksmith Items	10004,984:200000,985:200000,1010:-1,1011:-1,613:10000,614:30000,615:50000,1005:-1,986:-1,987:-1,989:1000000,612:150,990:-1,991:-1,992:-1,993:-1,994:-1,995:-1,996:-1,997:-1,6408:30000
+//turbo_room,73,135,4	shop	Chef Assistant#mall	548,7454:-1,7456:-1,7482:-1,580:-1,7481:-1
+//turbo_room,75,137,4	shop	Pet Assistant	895,10013:-1,10017:-1,10010:-1,10016:-1,10020:-1,10015:-1,10018:-1,10002:-1,10004:-1,10008:-1,10006:-1,10019:-1,10014:-1,10007:-1,10001:-1,10011:-1,10012:-1,10003:-1,10005:-1,10009:-1,531:-1,508:-1,511:-1,534:-1,507:-1,537:-1,716:-1,532:-1,711:-1,518:-1,929:-1,911:-1,6115:-1,7766:-1,7821:-1,7822:-1,7823:-1,7824:-1,554:-1,6111:-1,6098:-1,6108:-1,6100:-1,6104:-1,6113:-1,6110:-1,6112:-1,6099:-1,6106:-1,6105:-1,6109:-1,6107:-1,6097:-1,6095:-1,6096:-1,6114:-1

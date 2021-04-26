@@ -1,0 +1,4 @@
+firstcity,343,80,0	warp	sro#warp1	1,1,sec_pri,23,61
+sec_pri,14,60,0	warp	sro#warp2	1,1,firstcity,338,85
+firstcity,217,296,0	warp	sro#warp3	1,1,prt_church,100,60
+prt_church,100,56,0	warp	sro#warp4	1,1,firstcity,217,290

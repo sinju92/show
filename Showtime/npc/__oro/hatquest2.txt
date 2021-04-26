@@ -1,0 +1,109 @@
+-	shop	hg_quest_shop2	-1,501:50
+turbo_room,116,88,6,	script	Costume Lower Quest	934,{
+	getinventorylist;
+	if( @inventorylist_count > 70 ){
+	mes "You dont have enough inventory slots, please remove some item";
+	close;
+	}
+	set @i,0;
+	mes "[Shop Quest NPC]";
+	mes "Which item do you wish to obtain?";
+	mes "Select only one.";
+	callshop "hg_quest_shop2",1;
+	npcshopattach "hg_quest_shop2";
+	end;
+
+OnBuyItem:
+	if(.BuildQuest) {
+		for(set .e,0; !compare(""+getarg(.e+1),"Zeny"); set .e,.e+2) {}
+		npcshopadditem "hg_quest_shop2",getarg(.e+2),getarg(.e)*compare(""+getarg(.e+1),"SZeny");
+		setarray .Shop[.i],getarg(.e+2);
+		set .i,.i+1;
+		goto Quest_Setup;
+	}
+	if(.Shop[@i]!=@bought_nameid) for(set @i,1; 1; set @i,@i+1) if(.Shop[@i]==@bought_nameid) { set .i,@i; callsub Quest_Setup; }
+	for(set @i,1; !@e; set @i,@i+1) if(.Shop[@i]==@bought_nameid) { set @e,1; set .i,@i; callsub Quest_Setup; }
+	mes "[Shop Quest NPC]";
+	mes "I require the following:";
+	for(set @i,0; !compare(""+getarg(@i+1),"Zeny"); set @i,@i+2) mes "^FF0000" + ((countitem(getarg(@i))>=getarg(@i+1))? "^00FF00":"") + "" + getarg(@i+1) + " " + getitemname(getarg(@i)) + " [" + countitem(getarg(@i)) + "/" + getarg(@i+1) + "]";
+	if(getarg(@i)) mes "^FF0000" + ((Zeny>=getarg(@i))? "^00FF00":"") + "" + getarg(@i) + " Zeny";
+	mes "^000000In exchange, I will give you:^0000FF";
+	for(set @i,@i+2; getarg(@i+1,0); set @i,@i+2) mes getarg(@i+1) + " " + getitemname(getarg(@i));
+	switch(select("Exchange:" + (((((getiteminfo(@bought_nameid,5) & 1) || (getiteminfo(@bought_nameid,5) & 256) || (getiteminfo(@bought_nameid,5) & 512) || (getiteminfo(@bought_nameid,5) & 1024) || (getiteminfo(@bought_nameid,5) & 2048) || (getiteminfo(@bought_nameid,5) & 4096) || (getiteminfo(@bought_nameid,5) & 8192))  && @equip==0))? "Preview Item":"") + ":No thanks")) {
+		case 1:
+			for(set @i,0; !compare(""+getarg(@i+1),"Zeny"); set @i,@i+2) if(countitem(getarg(@i)) < getarg(@i+1)) {
+				next;
+				mes "You have " + countitem(getarg(@i)) + " " + getitemname(getarg(@i)) + ", while I require " + getarg(@i+1) + ".";
+				mes "Please obtain ^FF0000" + (getarg(@i+1)-countitem(getarg(@i))) + " more " + getitemname(getarg(@i)) + "^000000.";
+				close;
+			}
+			if(Zeny < getarg(@i)) {
+				next;
+				mes "You do not have enough Zeny.";
+				mes "Please obtain ^FF0000" + (getarg(@i)-Zeny) + " more Zeny^000000.";
+				close;
+			}
+			for(set @i,0; !compare(""+getarg(@i+1),"Zeny"); set @i,@i+2) delitem getarg(@i),getarg(@i+1);
+			set Zeny,Zeny-getarg(@i);
+			for(set @i,@i+2; getarg(@i+1,0); set @i,@i+2) getitem getarg(@i),getarg(@i+1);
+			if (compare(""+getarg(@i,0),"announce")) announce strcharinfo(0) + " has just obtained " + getitemname(@bought_nameid) + " from Hat Maker NPC!",bc_all;
+			close;
+		case 2:
+			set @bottomview, getlook(3);
+			set @topview, getlook(4);
+			set @midview, getlook(5);
+			set @robeview, getlook(LOOK_ROBE);
+			addtimer 1000, strnpcinfo(3)+"::On_Leave";
+			set @equip,getiteminfo(@bought_nameid, 5);
+			set @view, getiteminfo(@bought_nameid, 11);
+			if(@equip != -1 && @view > 0) {
+				if(@equip & 1) atcommand "@changelook 3 " + @view;
+				if(@equip & 256) atcommand "@changelook 1 " + @view;
+				if(@equip & 512) atcommand "@changelook 2 " + @view;
+				if(@equip & 1024) atcommand "@changelook 1 " + @view;
+				if(@equip & 2048) atcommand "@changelook 2 " + @view;
+				if(@equip & 4096) atcommand "@changelook 3 " + @view;
+				if(@equip & 8192) atcommand "@changelook 7 " + @view;
+
+			}
+			next;
+			goto OnBuyItem;
+		case 3:
+			close;
+	}
+On_Leave:
+	atcommand "@changelook 1 " + @topview;
+	atcommand "@changelook 2 " + @midview;
+	atcommand "@changelook 3 " + @bottomview;
+	atcommand "@changelook 7 " + @robeview;
+	set @equip,0;
+	set @view,0;
+	set @topview,0;
+	set @midview,0;
+	set @bottomview,0;
+	set @robeview,0;
+	end;OnInit:
+	npcshopitem "hg_quest_shop2",0,0;
+	npcshopdelitem "hg_quest_shop2",0,0;
+	set .BuildQuest,1;
+	set .i,1;
+Quest_Setup:
+	switch(.i) {
+		default: set .BuildQuest,0; set .e,0; set .i,0; end;
+                case 1: callsub OnBuyItem,7317,35,701,3,969,5,706,5,7326,5,7200,25,1036,100,4107,5,4230,5,4287,5,13300,1,4088,50,7521,1000,7522,1000,7523,1000,4043,150,4044,200,1252,1,4001,30,4004,30,4033,1,4005,1,5000000,"Zeny",32191,1,"announce";                
+                case 2: callsub OnBuyItem,1014,70,969,5,7317,35,706,1,7326,25,7200,25,1036,100,4107,50,4178,50,4334,50,909,50,999,50,13205,500,2703,2,13109,1,4043,150,4341,200,4144,1,4001,69,4004,69,4033,69,4005,69,5000000,"Zeny",32192,1,"announce";
+                case 3: callsub OnBuyItem,7211,25,969,100,7317,150,706,150,7326,150,7200,150,1036,100,4107,50,4094,50,4334,50,909,150,12014,10,1745,1,1764,1000,4111,150,4178,150,4137,1,4001,69,4004,69,4033,69,4005,69,5000000,"Zeny",32193,1,"announce";
+                case 4: callsub OnBuyItem,7108,5,969,10,7317,35,706,10,7326,100,7200,100,1036,100,4107,69,4322,69,4334,69,747,150,2122,2,2115,2,2124,2,2123,2,4043,150,4074,300,4135,1,4001,69,4004,69,4033,69,4005,69,5000000,"Zeny",32194,1,"announce";
+                case 5: callsub OnBuyItem,7113,5,969,10,7317,35,706,10,7326,150,7200,150,1036,150,4031,69,4002,69,4133,69,4023,300,4425,1,909,150,4427,5,4281,69,1175,3,4043,170,4074,100,4168,1,4001,69,4004,69,4033,69,4005,69,5000000,"Zeny",32195,1,"announce";
+                case 6: callsub OnBuyItem,4147,3,969,10,983,45,12129,10,7326,150,7200,150,1036,150,4107,69,4312,69,4100,69,526,150,7063,150,1819,1,1820,1,909,150,4043,150,4332,50,4376,1,4235,69,4006,69,4001,69,4005,69,5000000,"Zeny",32196,1,"announce";
+                case 7: callsub OnBuyItem,701,5,969,10,7005,120,706,10,1002,25,7200,155,1036,150,4086,69,4086,69,4194,69,937,150,999,150,1098,150,1261,5,1270,2,10019,3,7038,150,4054,5,4001,69,4004,69,4033,69,4005,69,5000000,"Zeny",32197,1,"announce";
+                case 8: callsub OnBuyItem,751,6,969,5,7317,35,706,1,7095,25,7200,25,1036,100,4237,3,4433,5,4238,5,7063,50,949,50,7226,7,7047,5,716,100,4002,150,4416,250,4330,1,4001,1,4004,1,4033,1,4005,1,5000000,"Zeny",32198,1,"announce";
+                case 9: callsub OnBuyItem,7300,3,969,5,999,55,7497,75,7326,25,7200,25,1036,100,4107,5,4133,5,4097,5,1002,50,702,10,1352,10,988,3,5123,1,4281,150,4074,150,4143,1,4001,1,4004,1,4033,1,4005,1,5000000,"Zeny",32199,1,"announce";                                
+                case 10: callsub OnBuyItem,968,5,969,5,7317,65,706,10,7326,75,7200,125,1036,100,4178,5,4094,5,4234,5,909,70,1918,5,1764,1000,4040,95,4210,150,4174,1,4001,1,4004,1,4033,1,4005,1,5000000,"Zeny",32200,1,"announce";
+                case 11: callsub OnBuyItem,701,3,969,5,7317,35,706,10,7326,55,7200,55,1036,100,4237,5,4185,5,4438,5,7063,60,1473,10,4429,10,4431,5,4111,150,4178,150,4342,1,4001,69,4004,169,5000000,"Zeny",32201,1,"announce";
+                case 12: callsub OnBuyItem,701,3,969,5,7317,15,706,10,7326,35,7200,25,1036,100,4072,15,4381,5,4053,5,909,150,938,150,971,150,970,50,973,10,4205,65,4387,150,4047,1,4001,100,4004,100,4033,1,4005,1,5000000,"Zeny",32202,1,"announce";
+                case 13: callsub OnBuyItem,751,7,969,7,7317,35,706,10,7326,35,7200,35,1036,100,4107,7,4293,7,4002,7,7063,150,523,77,1615,10,1624,5,717,100,4038,175,4053,55,4372,1,4001,1,4004,1,4033,1,4005,1,5000000,"Zeny",32203,1,"announce";
+                case 14: callsub OnBuyItem,4147,8,969,7,7317,75,706,12,7326,35,7200,45,1036,200,4097,5,4094,5,4334,5,7095,50,4133,50,2280,1,1745,2,2423,1,1019,250,4178,150,4131,1,4001,1,4004,1,4033,1,4005,1,42069420,"Zeny",32204,1,"announce";                
+               
+	}
+}               

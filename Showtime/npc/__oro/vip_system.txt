@@ -1,0 +1,132 @@
+phtownall,191,165,6	script	VIP System	617,{
+if (getgroupid()<4) {
+goto Prem;
+}
+if (getgroupid()>5) {
+mes "[ VIP NPC ]";
+mes "Sorry,GM staff can't use this.";
+close;
+}
+
+set .@Timer, vip_status(VIP_STATUS_EXPIRE);
+
+mes "[ VIP System ]";
+mes "Welcome "+strcharinfo(0)+",";
+mes "Please choose the menu.";
+mes "^FF0000Your VIP Status will Expire at:^000000";
+mes gettimestr("%Y-%m/%d %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE));
+mes "^FF0000Time Left: ^000000" + callfunc("Time2Str",.@Timer);
+close; 
+
+Prem:
+set .@itemweek,32293;
+set .@itemday,32294;
+set .@itemmonth,32295;
+
+//set .@day,1000;
+//set .@week,5000;
+//set .@month,20000;
+ 
+mes "[ VIP System ]";
+mes "This is the price for VIP Service.";
+mes "7 days - "+getitemname(.@itemweek)+" Ticket";
+mes "14 days - "+getitemname(.@itemday)+" Ticket";
+mes "30 days - "+getitemname(.@itemmonth)+" Ticket";
+//mes "Your cash point "+#CASHPOINTS+".";
+next;
+switch(select("Use VIP 7Days:Use VIP 14Days:Use VIP 30Days:No, Thanks.")) {
+case 1:
+mes "Your are purchasing VIP Status for 7 Days.";
+next;
+menu "Proceed?",-,"Cancel.",cvip;
+if ( countitem(.@itemweek) < 1) {
+mes "[ VIP System ]";
+mes "Sorry, You Don't have the VIP Ticket with you.";
+close;
+}
+delitem .@itemweek,1;
+atcommand "@vip +7d "+strcharinfo(0)+"";
+mes "[ VIP System ]";
+mes "Enjoy your VIP Service.";
+close;
+ 
+case 2:
+mes "Your are purchasing VIP Status for 14 Days.";
+next;
+menu "Proceed?",-,"Cancel.",cvip;
+if ( countitem(.@itemday) < 1) {
+mes "[ VIP System ]";
+mes "Sorry, You Don't have the VIP Ticket with you.";
+close;
+}
+delitem .@itemday,1;
+atcommand "@vip +14d "+strcharinfo(0)+"";
+mes "[ VIP System ]";
+mes "Enjoy your VIP Service.";
+close;
+ 
+case 3:
+mes "Your are purchasing VIP Status for 30 Days.";
+next;
+menu "Proceed?",-,"Cancel.",cvip;
+if ( countitem(.@itemmonth) < 1) {
+mes "[ VIP System ]";
+mes "Sorry, You Don't have the VIP Ticket with you.";
+close;
+}
+delitem .@itemmonth,1;
+atcommand "@vip +30d "+strcharinfo(0)+"";
+mes "[ VIP System ]";
+mes "Enjoy your VIP Service.";
+close;
+ 
+case 4:
+mes "[ VIP System ]";
+mes "Ok, Thank You.";
+close;
+}
+cvip:
+  mes "You cancel the transaction.";
+  mes "Have a nice day.";
+  end;
+}
+
+// --------------------------------------------------
+//  Duplicates:
+// --------------------------------------------------
+//alberta,33,240,4	duplicate(VIP Churvavels)	VIP System#alber	617
+//aldebaran,146,116,4	duplicate(VIP Churvavels)	VIP System#alde	617
+//amatsu,205,87,4	duplicate(VIP Churvavels)	VIP System#ama	617
+//ayothaya,212,172,6	duplicate(VIP Churvavels)	VIP System#ayo	617
+//comodo,191,161,4	duplicate(VIP Churvavels)	VIP System#como	617
+//einbech,55,36,6	duplicate(VIP Churvavels)	VIP System#einbe	617
+//einbroch,72,206,4	duplicate(VIP Churvavels)	VIP System#einbr	617
+//geffen,127,66,4	duplicate(VIP Churvavels)	VIP System#gef	617
+//gonryun,162,126,4	duplicate(VIP Churvavels)	VIP System#gon	617
+//hugel,102,148,4	duplicate(VIP Churvavels)	VIP System#hug	617
+//izlude,126,118,4	duplicate(VIP Churvavels)	VIP System#izl	617
+ //Pre-RE: (132,120)
+//jawaii,248,134,4	duplicate(VIP Churvavels)	VIP System#jaw	617
+//lighthalzen,154,104,4	duplicate(VIP Churvavels)	VIP System#lhz	617
+//louyang,205,105,6	duplicate(VIP Churvavels)	VIP System#lou	617
+//manuk,272,150,6	duplicate(VIP Churvavels)	VIP System#man	617
+//mid_camp,50,157,4	duplicate(VIP Churvavels)	VIP System#mid	617
+//morocc,146,89,4	duplicate(VIP Churvavels)	VIP System#mor	617
+//moscovia,226,195,4	duplicate(VIP Churvavels)	VIP System#mos	617
+//niflheim,199,180,4	duplicate(VIP Churvavels)	VIP System#nif	617
+//payon,149,223,4	duplicate(VIP Churvavels)	VIP System#pay	617
+//rachel,138,122,4	duplicate(VIP Churvavels)	VIP System#rac	617
+//splendide,198,153,4	duplicate(VIP Churvavels)	VIP System#spl	617
+//umbala,97,148,3	duplicate(VIP Churvavels)	VIP System#umb	617
+//veins,211,120,4	duplicate(VIP Churvavels)	VIP System#ve	617
+//xmas,142,139,6	duplicate(VIP Churvavels)	VIP System#xmas	617
+//yuno,164,50,4	duplicate(VIP Churvavels)	VIP System#yuno	617
+
+// --------------------------------------------------
+//  Duplicates (Renewal):
+// --------------------------------------------------
+//brasilis,199,225,4	duplicate(VIP Churvavels)	VIP System#bra	617
+//dewata,202,190,6    duplicate(VIP System)   VIP System#dew  617
+//dicastes01,196,197,6    duplicate(VIP System)   VIP System#dic  617
+//malangdo,137,116,6  duplicate(VIP System)   VIP System#mal  617
+//malaya,228,195,4    duplicate(VIP System)   VIP System#ma   617

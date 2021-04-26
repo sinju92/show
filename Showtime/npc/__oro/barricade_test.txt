@@ -1,0 +1,910 @@
+// ========================================================================
+
+quiz_02	mapflag	nomemo
+quiz_02	mapflag	nosave	SavePoint
+quiz_02	mapflag	nowarp
+quiz_02	mapflag	nowarpto
+quiz_02	mapflag	noreturn
+quiz_02	mapflag	noicewall
+quiz_02	mapflag	nobranch
+quiz_02	mapflag	nopenalty
+quiz_02	mapflag	noteleport
+
+// WoE Second Edition - Games
+// ========================================================================
+
+quiz_02,249,389,4	script	Game Master::RepairManager	903,{
+	mes "[ ^FFA500Game Master^000000 ]";
+	mes "Welcome to the practice room for repairs of WoE Second Edition. ";
+	mes "There are 2 rooms available, look for an empty if you wanna practice.";
+	close;
+}
+
+phtownall,208,165,0	script	G. Stone Repair Test::RepairTestB	1907,{
+	mes "[ ^FFA500Guardian Stone Test^000000 ]";
+	mes "Best Repair:";
+	if( $RepairTestB_ID )
+	{
+		mes "- Player : ^0000FF" + $RepairTestB_Name$ + "^000000.";
+		mes "- Time : ^0000FF" + $RepairTestB_Time + "^000000 ms.";
+	}
+	else
+	{
+		mes "- Player : ^0000FF(none)^000000.";
+		mes "- Time : ^0000FF(not established)^000000 ms.";
+	}
+	
+	if( select("Test:Exit") == 2 )
+		close;
+
+	if( getvariableofnpc(.Char_ID,"MainRepairTestB") )
+	{
+		mes "The room is in use.";
+		close;
+	}
+
+	set getvariableofnpc(.Char_ID,"MainRepairTestB"),getcharid(0);
+	set getvariableofnpc(.Char_Name$,"MainRepairTestB"),strcharinfo(0);
+	set getvariableofnpc(.Test_Step,"MainRepairTestB"),0;
+
+	initnpctimer "MainRepairTestB";
+
+	warp "quiz_02",264,344;
+	end;
+}
+
+quiz_02,264,346,0	script	MainRepairTestB	-1,13,13,{
+	end;
+
+OnTimer10000:
+	if( .Test_Step != 0 )
+		end;
+
+	stopnpctimer;
+	set .Char_ID, 0;
+	end; // Maybe Lag
+
+OnTouch:
+	if( .Char_ID != getcharid(0) )
+	{
+		warp "phtownall",199,184; // Kick Player
+		end;
+	}
+	if( .Test_Step != 0 )
+		end; // Touching but already inside? Maybe hiding/unhiding
+
+	set .Test_Step, 1; // Announcing
+	sleep 2000;
+	areaannounce "quiz_02",252,334,275,357,"Get ready! The test will start in 5 seconds.",8;
+	sleep 2000;
+	areaannounce "quiz_02",252,334,275,357,"3 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",252,334,275,357,"2 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",252,334,275,357,"1 second...",8;
+	sleep 1000;
+	areaannounce "quiz_02",252,334,275,357,"Go ahead! Repair the Guardian Stone!!",8;
+	set .Test_Init, gettimetick(0);
+	set .Test_Step, 2; // Repairing!!
+	initnpctimer;
+	end;
+
+OnTimer30000:
+	areaannounce "quiz_02",252,334,275,357,"60 seconds remaining to repair the Guardian Stone...",8;
+	end;
+
+OnTimer60000:
+	areaannounce "quiz_02",252,334,275,357,"30 seconds remaining to repair the Guardian Stone...",8;
+	end;
+
+OnTimer80000:
+	areaannounce "quiz_02",252,334,275,357,"10 seconds remaining to repair the Guardian Stone...",8;
+	end;
+
+OnTimer90000:
+	stopnpctimer;
+	set .Test_Step, 3;
+	areaannounce "quiz_02",252,334,275,357,"Time Out! Fail test!!",8;
+	sleep 2000;
+	areawarp "quiz_02",252,334,275,357,"quiz_02",262,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+
+OnRepairDone:
+	stopnpctimer;
+	if( .Test_Step != 2 )
+		end; // Time Out
+
+	set .Test_Completed, gettimetick(0) - .Test_Init;
+	areaannounce "quiz_02",252,334,275,357,"Test completed in " + .Test_Completed + " milliseconds!!",8;
+	if( .Test_Completed < $RepairTestB_Time || $RepairTestB_Time == 0 )
+	{
+		set $RepairTestB_Time, .Test_Completed;
+		set $RepairTestB_Name$, .Char_Name$;
+		set $RepairTestB_ID, .Char_ID;
+	}
+	
+	set .Test_Step, 3;
+	sleep 2000;
+	areawarp "quiz_02",252,334,275,357,"quiz_02",262,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+}
+
+quiz_02,264,346,4	script	Guardian Stone::DevRepairTestB	858,{
+	if( getvariableofnpc(.Test_Step,"MainRepairTestB") != 2 )
+		end;
+	if( getvariableofnpc(.Char_ID,"MainRepairTestB") != getcharid(0) )
+		end;
+
+	mes "^3355FFYou will need the";
+	mes "following materials to";
+	mes "rebuild a destroyed";
+	mes "Guardian Stone.^000000";
+	next;
+	mes "1 Oridecon";
+	mes "1 Elunium";
+	mes "30 Stones";
+	mes "5 Blue Gemstones";
+	mes "5 Yellow Gemstones";
+	mes "5 Red Gemstones";
+	next;
+	mes "^3355FFDo you want to continue?^000000";
+	switch( select("No:Continue") )
+	{
+		case 1:
+			mes "^3355FFWork canceled.^000000";
+			close;
+		case 2:
+			mes "^3355FFArrange Stones, Elunium, and";
+			mes "Oridecon, in that order, in the";
+			mes "center. Then you must arrange";
+			mes "the enchanted Gemstones to";
+			mes "rebuild the Guardian Stone.^000000";
+			next;
+			switch( select("Elunium:Oridecon:Stone") )
+			{
+				case 1:
+					mes "^3355FFElunium has been";
+					mes "placed in the center.^000000";
+					next;
+					break;
+				case 2:
+					mes "^3355FFOridecon has been";
+					mes "placed in the center.^000000";
+					next;
+					break;
+				case 3:
+					mes "^3355FFStones have been";
+					mes "placed in the center.^000000";
+					set .@nice,.@nice + 10;
+					next;
+					break;
+			}
+			switch( select("Elunium:Oridecon:Stone") )
+			{
+				case 1:
+					mes "^3355FFYou have lined the";
+					mes "outside of the center";
+					mes "with some Elunium.^000000";
+					set .@nice,.@nice + 10;
+					next;
+					break;
+				case 2:
+					mes "^3355FFYou have lined the";
+					mes "outside of the center";
+					mes "with some Oridecon.^000000";
+					next;
+					break;
+				case 3:
+					mes "^3355FFYou have lined the";
+					mes "outside of the center";
+					mes "with some Stones.^000000";
+					next;
+					break;
+			}
+			switch( select("Elunium:Oridecon:Stone") )
+			{
+				case 1:
+					mes "^3355FFYou covered the";
+					mes "rest of the materials";
+					mes "with some Elunium.^000000";
+					next;
+					break;
+				case 2:
+					mes "^3355FFYou covered the";
+					mes "rest of the materials";
+					mes "with some Oridecon.^000000";
+					set .@nice,.@nice + 10;
+					next;
+					break;
+				case 3:
+					mes "^3355FFYou covered the";
+					mes "rest of the materials";
+					mes "with some Stones.^000000";
+					next;
+					break;
+			}
+			mes "^3355FFNow you need to arrange";
+			mes "the enchanted Gemstones";
+			mes "accordingly. You can identify";
+			mes "their Magic properties by";
+			mes "their casting effect.^000000";
+			next;
+			while( 1 )
+			{
+				if( .@roof0 > 7 )
+				{
+					break;
+				}
+				else
+				{
+					switch( rand(1,3) )
+					{
+						case 1:
+							specialeffect EF_BEGINSPELL2;
+							mes "^3355FFThe Gemstones must";
+							mes "be arranged in the correct";
+							mes "order according to their";
+							mes "magic properties and power.^000000";
+							next;
+							switch( select("Red Gemstone:Yellow Gemstone:Blue Gemstone") )
+							{
+								case 1:
+									mes "^3355FFYou placed the Red Gemstone.";
+									mes "However, the Guardian Stone";
+									mes "Repair System failed because";
+									mes "of a magic power conflict.^000000";
+									close;
+								case 2:
+									mes "^3355FFYou placed the Yellow Gemstone.";
+									mes "However, the Guardian Stone";
+									mes "Repair System failed because";
+									mes "of a magic power conflict.^000000";
+									close;
+								case 3:
+									mes "^3355FFYou placed the Blue Gemstone.^000000";
+									set .@nice,.@nice + 10;
+									set .@roof0,.@roof0 + 1;
+									specialeffect EF_STEAL;
+									next;
+									break;
+							}
+							break;
+						case 2:
+							specialeffect EF_VOLCANO;
+							mes "^3355FFThe Gemstones must";
+							mes "be arranged in the correct";
+							mes "order according to their";
+							mes "magic properties and power.^000000";
+							next;
+							switch(select("Red Gemstone:Yellow Gemstone:Blue Gemstone"))
+							{
+								case 1:
+									mes "^3355FFYou placed the Red Gemstone.^000000";
+									set .@nice,.@nice + 10;
+									set .@roof0,.@roof0 + 1;
+									specialeffect EF_STEAL;
+									next;
+									break;
+								case 2:
+									mes "^3355FFYou placed the Yellow Gemstone.";
+									mes "However, the Guardian Stone";
+									mes "Repair System failed because";
+									mes "of a magic power conflict.^000000";
+									close;
+								case 3:
+									mes "^3355FFYou placed the Blue Gemstone.";
+									mes "However, the Guardian Stone";
+									mes "Repair System failed because";
+									mes "of a magic power conflict.^000000";
+									close;
+							}
+							break;
+						case 3:
+							specialeffect EF_BEGINSPELL4;
+							mes "^3355FFThe Gemstones must";
+							mes "be arranged in the correct";
+							mes "order according to their";
+							mes "magic properties and power.^000000";
+							next;
+							switch( select("Red Gemstone:Yellow Gemstone:Blue Gemstone") )
+							{
+								case 1:
+									mes "^3355FFYou placed the Red Gemstone.";
+									mes "However, the Guardian Stone";
+									mes "Repair System failed because";
+									mes "of a magic power conflict.^000000";
+									close;
+								case 2:
+									mes "^3355FFYou placed the Yellow Gemstone.^000000";
+									set .@nice,.@nice + 10;
+									set .@roof0,.@roof0 + 1;
+									specialeffect EF_STEAL;
+									next;
+									break;
+								case 3:
+									mes "^3355FFYou placed the Blue Gemstone.";
+									mes "However, the Guardian Stone";
+									mes "Repair System failed because";
+									mes "of a magic power conflict.^000000";
+									close;
+							}
+					}
+				}
+			}
+
+			if( .@nice > 90 )
+			{
+				mes "^3355FFThe Gemstones have been";
+				mes "arranged, and the Guardian";
+				mes "Stone is successfully repaired.^000000";
+				close2;
+				specialeffect EF_ICECRASH;
+				donpcevent "MainRepairTestB::OnRepairDone";
+				end;
+			}
+			else
+			{
+				mes "^3355FFAfter all of that work...";
+				mes "It looks like you failed";
+				mes "to fix the Guardian Stone,";
+				mes "and lost some materials.^000000";
+				close;
+			}
+	}
+	end;
+}
+
+phtownall,208,161,0	script	Barricade Repair Test::RepairTestA	1905,{
+	mes "[ ^FFA500Barricade Test^000000 ]";
+	mes "Best Repair:";
+	if( $RepairTestA_ID )
+	{
+		mes "- Player : ^0000FF" + $RepairTestA_Name$ + "^000000.";
+		mes "- Time : ^0000FF" + $RepairTestA_Time + "^000000 ms.";
+	}
+	else
+	{
+		mes "- Player : ^0000FF(none)^000000.";
+		mes "- Time : ^0000FF(not established)^000000 ms.";
+	}
+	
+	if( select("Test:Exit") == 2 )
+		close;
+
+	if( getvariableofnpc(.Char_ID,"MainRepairTestA") )
+	{
+		mes "The room is in use.";
+		close;
+	}
+
+	set getvariableofnpc(.Char_ID,"MainRepairTestA"),getcharid(0);
+	set getvariableofnpc(.Char_Name$,"MainRepairTestA"),strcharinfo(0);
+	set getvariableofnpc(.Test_Step,"MainRepairTestA"),0;
+
+	initnpctimer "MainRepairTestA";
+
+	warp "quiz_02",236,344;
+	end;
+}
+
+quiz_02,236,346,0	script	MainRepairTestA	-1,13,13,{
+	end;
+
+OnTimer10000:
+	if( .Test_Step != 0 )
+		end;
+
+	stopnpctimer;
+	set .Char_ID, 0;
+	end; // Maybe Lag
+
+OnTouch:
+	if( .Char_ID != getcharid(0) )
+	{
+		warp "phtownall",199,184; // Kick Player
+		end;
+	}
+	if( .Test_Step != 0 )
+		end; // Touching but already inside? Maybe hiding/unhiding
+
+	set .Test_Step, 1; // Announcing
+	sleep 2000;
+	areaannounce "quiz_02",224,334,247,357,"Get ready! The test will start in 5 seconds.",8;
+	sleep 2000;
+	areaannounce "quiz_02",224,334,247,357,"3 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",224,334,247,357,"2 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",224,334,247,357,"1 second...",8;
+	sleep 1000;
+	areaannounce "quiz_02",224,334,247,357,"Go ahead! Repair the Barricade!!",8;
+	set .Test_Init, gettimetick(0);
+	set .Test_Step, 2; // Repairing!!
+	initnpctimer;
+	end;
+
+OnTimer30000:
+	areaannounce "quiz_02",224,334,247,357,"60 seconds remaining to repair the Barricade..",8;
+	end;
+
+OnTimer60000:
+	areaannounce "quiz_02",224,334,247,357,"30 seconds remaining to repair the Barricade...",8;
+	end;
+
+OnTimer80000:
+	areaannounce "quiz_02",224,334,247,357,"10 seconds remaining to repair the Barricade...",8;
+	end;
+
+OnTimer90000:
+	stopnpctimer;
+	set .Test_Step, 3;
+	areaannounce "quiz_02",224,334,247,357,"Time Out! Fail test!!",8;
+	sleep 2000;
+	areawarp "quiz_02",224,334,247,357,"quiz_02",237,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+
+OnRepairDone:
+	stopnpctimer;
+	if( .Test_Step != 2 )
+		end; // Time Out
+
+	set .Test_Completed, gettimetick(0) - .Test_Init;
+	areaannounce "quiz_02",224,334,247,357,"Test completed in " + .Test_Completed + " millisecond!!",8;
+	if( .Test_Completed < $RepairTestA_Time || $RepairTestA_Time == 0 )
+	{
+		set $RepairTestA_Time, .Test_Completed;
+		set $RepairTestA_Name$, .Char_Name$;
+		set $RepairTestA_ID, .Char_ID;
+	}
+	
+	set .Test_Step, 3;
+	sleep 2000;
+	areawarp "quiz_02",224,334,247,357,"quiz_02",237,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+}
+
+quiz_02,236,346,4	script	Control Device::DevRepairTestA	858,{
+	if( getvariableofnpc(.Test_Step,"MainRepairTestA") != 2 )
+		end;
+	if( getvariableofnpc(.Char_ID,"MainRepairTestA") != getcharid(0) )
+		end;
+
+	mes "^3355FFDemolished Fortress";
+	mes "Gates can be repaired,";
+	mes "but you will need to gather";
+	mes "the following materials.^000000";
+	next;
+	mes "^4D4DFF10 Steel^000000,";
+	mes "^4D4DFF30 Trunks^000000,";
+	mes "^4D4DFF5 Oridecon^000000, and";
+	mes "^4D4DFF10 Emveretarcon^000000.";
+	next;
+	select("Continue");
+	mes "^3355FFYou will need Trunks to";
+	mes "repair the support frame,";
+	mes "Oridecon to enhance the";
+	mes "gate's endurance, and";
+	mes "Emveretarcon to basically";
+	mes "hold everything together.^000000";
+	next;
+	set .@ro_of01,rand(10,15);
+	while( 1 )
+	{
+		if( .@ro_of02 == .@ro_of01 )
+		{
+			break;
+		}
+		else
+		{
+			switch( rand(1,4) )
+			{
+				case 1:
+					mes "^3355FFThe support frame";
+					mes "is badly damaged:";
+					mes "fixing this part";
+					mes "is a top priority.^000000";
+					next;
+					switch( select("Trunk:Steel:Emveretarcon:Oridecon") )
+					{
+						case 1:
+							mes "^3355FFThe frame has been";
+							mes "reinforced with wood.^000000";
+							set .@rp_temp,.@rp_temp + 1;
+							set .@ro_of02,.@ro_of02 + 1;
+							specialeffect2 EF_REPAIRWEAPON;
+							next;
+							break;
+						case 2:
+							mes "^3355FFYou tried using steel,";
+							mes "but it's not working very";
+							mes "well. You'll have to try";
+							mes "something else.^000000";
+							close;
+						case 3:
+							mes "^3355FFYou tried using emveretarcon";
+							mes "to reinforce the gate, but it's";
+							mes "not working well at all.";
+							mes "You'll have to start over.^000000";
+							close;
+						case 4:
+							mes "^3355FFYou tried using oridecon,";
+							mes "but it's not working very";
+							mes "well. You'll have to try";
+							mes "something else.^000000";
+							close;
+					}
+					break;
+				case 2:
+					mes "^3355FFIt looks like the gate's";
+					mes "overall endurance needs to";
+					mes "be reinforced with something.^000000";
+					next;
+					switch( select("Trunk:Steel:Emveretarcon:Oridecon") )
+					{
+						case 1:
+							mes "^3355FFYou tried using wood";
+							mes "to reinforce the gate.^000000";
+							set .@ro_of02,.@ro_of02 + 1;
+							next;
+							break;
+						case 2:
+							mes "^3355FFYou tried using steel";
+							mes "to reinforce the gate, but";
+							mes "it's not working well at all.";
+							mes "You'll have to start over.^000000";
+							close;
+						case 3:
+							mes "^3355FFYou tried using emveretarcon";
+							mes "to reinforce the gate, but it's";
+							mes "not working well at all.";
+							mes "You'll have to start over.^000000";
+							close;
+						case 4:
+							mes "^3355FFYou hammered the";
+							mes "oridecon: it looks";
+							mes "like this will work.^000000";
+							set .@rp_temp,.@rp_temp + 1;
+							set .@ro_of02,.@ro_of02 + 1;
+							specialeffect2 EF_REPAIRWEAPON;
+							next;
+							break;
+					}
+					break;
+				case 3:
+					mes "^3355FFThe damage to the gate";
+					mes "has caused all these";
+					mes "cracks. You'll have to";
+					mes "weld them solid somehow.^000000";
+					next;
+					switch( select("Trunk:Steel:Emveretarcon:Oridecon") )
+					{
+						case 1:
+							mes "^3355FFYou tried using wood to fix";
+							mes "this problem, but it seems";
+							mes "to have made it worse.";
+							mes "You'll have to start all over.^000000";
+							close;
+						case 2:
+							mes "^3355FFYou used steel to weld";
+							mes "all the cracks: the gate is";
+							mes "is starting to look more solid.^000000";
+							set .@rp_temp,.@rp_temp + 1;
+							set .@ro_of02,.@ro_of02 + 1;
+							specialeffect2 EF_REPAIRWEAPON;
+							next;
+							break;
+						case 3:
+							mes "^3355FFYou tried using emveretarcon";
+							mes "to reinforce the gate, but it's";
+							mes "not working well at all.";
+							mes "You'll have to start over.^000000";
+							close;
+						case 4:
+							mes "^3355FFYou tried using oridecon,";
+							mes "but it's not working very";
+							mes "well. You'll have to try";
+							mes "something else.^000000";
+							close;
+					}
+					break;
+				case 4:
+					mes "^3355FFNow you need to make";
+					mes "sure that the gate is held";
+					mes "together pretty solidly.^000000";
+					next;
+					switch( select("Trunk:Steel:Emveretarcon:Oridecon") )
+					{
+						case 1:
+							mes "^3355FFYou tried using wood to fix";
+							mes "this problem, but it seems";
+							mes "to have made it worse.";
+							mes "You'll have to start all over.^000000";
+							close;
+						case 2:
+							mes "^3355FFYou tried using steel,";
+							mes "but it's not working very";
+							mes "well. You'll have to try";
+							mes "something else.^000000";
+							close;
+						case 3:
+							mes "^3355FFYou successfully used";
+							mes "the emveretarcon to repair";
+							mes "much of the gate's damage.^000000";
+							set .@rp_temp,.@rp_temp + 1;
+							set .@ro_of02,.@ro_of02 + 1;
+							specialeffect2 EF_REPAIRWEAPON;
+							next;
+							break;
+						case 4:
+							mes "^3355FFYou tried using oridecon,";
+							mes "but it's not working very";
+							mes "well. You'll have to try";
+							mes "something else.^000000";
+							close;
+					}
+			}
+		}
+	}
+
+	mes "^3355FFWell, it looks like";
+	mes "you're just about done";
+	mes "with repairing the gate.^000000";
+	next;
+	if( .@rp_temp == .@ro_of01 )
+	{
+		mes "^3355FFThe Fortress Gate has";
+		mes "been successfully repaired!^000000";
+		close2;
+		donpcevent "MainRepairTestA::OnRepairDone";
+		end;
+	}
+	else
+	{
+		mes "^3355FFThe wall has been breached,";
+		mes "and the attempt to repair the";
+		mes "Fortress Gate has failed.";
+		mes "You lost some of your";
+		mes "repair resources...^000000";
+		close;
+	}
+}
+
+// Emperium Breaker - Games
+// ========================================================================
+
+quiz_02,45,389,4	script	Game Master::EmpeManager	105,{
+	mes "[ ^FFA500Game Master^000000 ]";
+	mes "Welcome to the practice room of breaking Emperium.";
+	mes "There are 2 rooms available, look for an empty if u wanna test...";
+	close;
+}
+
+quiz_02,33,365,0	script	EmpBreakTest Full Buff::EmpeTestA	722,{
+	mes "[ ^FFA500Empe Test^000000 ]";
+	mes "Best EmpeBreaker:";
+	if( $EmpeTestA_ID )
+	{
+		mes "- Player : ^0000FF" + $EmpeTestA_Name$ + "^000000.";
+		mes "- Time : ^0000FF" + $EmpeTestA_Time + "^000000 ms.";
+	}
+	else
+	{
+		mes "- Player : ^0000FF(none)^000000.";
+		mes "- Time : ^0000FF(not established)^000000 ms.";
+	}
+
+	if( select("Test:Exit") == 2 )
+		close;
+
+	if( getvariableofnpc(.Char_ID,"MainEmpeTestA") )
+	{
+		mes "The room is in use.";
+		close;
+	}
+
+	set getvariableofnpc(.Char_ID,"MainEmpeTestA"),getcharid(0);
+	set getvariableofnpc(.Char_Name$,"MainEmpeTestA"),strcharinfo(0);
+	set getvariableofnpc(.Test_Step,"MainEmpeTestA"),0;
+
+	initnpctimer "MainEmpeTestA";
+
+	warp "quiz_02",32,342;
+	end;
+}
+
+quiz_02,32,346,0	script	MainEmpeTestA	-1,13,13,{
+	end;
+
+OnTimer10000:
+	if( .Test_Step != 0 )
+		end;
+
+	stopnpctimer;
+	set .Char_ID, 0;
+	end; // Maybe Lag
+
+OnTouch:
+	if( .Char_ID != getcharid(0) )
+	{
+		warp "prontera",151,136; // Kick Player
+		end;
+	}
+	if( .Test_Step != 0 )
+		end; // Touching but already inside? Maybe hiding/unhiding
+
+	set .Test_Step, 1; // Announcing
+	sleep 2000;
+	areaannounce "quiz_02",20,334,43,357,"Get ready! The test will start in 5 seconds.",8;
+	sleep 2000;
+	areaannounce "quiz_02",20,334,43,357,"3 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",20,334,43,357,"2 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",20,334,43,357,"1 second...",8;
+	sleep 1000;
+	areaannounce "quiz_02",20,334,43,357,"Go ahead! Destroy the Emperium!!",8;
+	mobevent "quiz_02",32,346,"Emperium",1288,0,1,0,0,0,0,0,1,0,0,0,0,0,"MainEmpeTestA::OnEmpeBreak";
+	set .Test_Init, gettimetick(0);
+	set .Test_Step, 2; // Breaking!!
+	initnpctimer;
+	end;
+
+OnTimer30000:
+	areaannounce "quiz_02",20,334,43,357,"60 seconds remaining to break the Emperium...",8;
+	end;
+
+OnTimer60000:
+	areaannounce "quiz_02",20,334,43,357,"30 seconds remaining to break the Emperium...",8;
+	end;
+
+OnTimer80000:
+	areaannounce "quiz_02",20,334,43,357,"10 seconds remaining to break the Emperium...",8;
+	end;
+
+OnTimer90000:
+	stopnpctimer;
+	killmonster "quiz_02","MainEmpeTestA::OnEmpeBreak";
+	areaannounce "quiz_02",20,334,43,357,"Time Out! Fail test!!",8;
+	sleep 2000;
+	areawarp "quiz_02",20,334,43,357,"quiz_02",33,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+
+OnEmpeBreak:
+	stopnpctimer;
+	set .Test_Completed, gettimetick(0) - .Test_Init;
+	areaannounce "quiz_02",20,334,43,357,"Test completed in " + .Test_Completed + " milliseconds!!",8;
+	if( .Test_Completed < $EmpeTestA_Time || $EmpeTestA_Time == 0 )
+	{
+		set $EmpeTestA_Time, .Test_Completed;
+		set $EmpeTestA_Name$, .Char_Name$;
+		set $EmpeTestA_ID, .Char_ID;
+	}
+
+	sleep 2000;
+	areawarp "quiz_02",20,334,43,357,"quiz_02",33,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+}
+
+quiz_02,58,365,0	script	EmpBreakTest Full DeBuff::EmpeTestB	722,{
+	mes "[ ^FFA500Empe Test^000000 ]";
+	mes "Mejor Puntaje EmpeBreaker:";
+	if( $EmpeTestB_ID )
+	{
+		mes "- Player : ^0000FF" + $EmpeTestB_Name$ + "^000000.";
+		mes "- Time : ^0000FF" + $EmpeTestB_Time + "^000000 ms.";
+	}
+	else
+	{
+		mes "- Player : ^0000FF(none)^000000.";
+		mes "- Time : ^0000FF(not established)^000000 ms.";
+	}
+
+	if( select("Test:Exit") == 2 )
+		close;
+
+	if( getvariableofnpc(.Char_ID,"MainEmpeTestB") )
+	{
+		mes "The room is in use";
+		close;
+	}
+
+	set getvariableofnpc(.Char_ID,"MainEmpeTestB"),getcharid(0);
+	set getvariableofnpc(.Char_Name$,"MainEmpeTestB"),strcharinfo(0);
+	set getvariableofnpc(.Test_Step,"MainEmpeTestB"),0;
+
+	initnpctimer "MainEmpeTestB";
+	sc_end SC_ALL;
+
+	warp "quiz_02",60,342;
+	end;
+}
+
+quiz_02,60,346,0	script	MainEmpeTestB	-1,13,13,{
+	end;
+
+OnTimer10000:
+	if( .Test_Step != 0 )
+		end;
+
+	stopnpctimer;
+	set .Char_ID, 0;
+	end; // Maybe Lag
+
+OnTouch:
+	if( .Char_ID != getcharid(0) )
+	{
+		warp "SavePoint",0,0; // Kick Player
+		end;
+	}
+	if( .Test_Step != 0 )
+		end; // Touching but already inside? Maybe hiding/unhiding
+
+	set .Test_Step, 1; // Announcing
+	sleep 2000;
+	areaannounce "quiz_02",48,334,71,357,"Get ready! The test will start in 5 seconds.",8;
+	sleep 2000;
+	areaannounce "quiz_02",48,334,71,357,"3 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",48,334,71,357,"2 seconds...",8;
+	sleep 1000;
+	areaannounce "quiz_02",48,334,71,357,"1 second...",8;
+	sleep 1000;
+	areaannounce "quiz_02",48,334,71,357,"Go ahead! Destroy the Emperium!!",8;
+	mobevent "quiz_02",60,346,"Emperium",1288,0,1,0,0,0,0,0,1,0,0,0,0,0,"MainEmpeTestB::OnEmpeBreak";
+	set .Test_Init, gettimetick(0);
+	set .Test_Step, 2; // Breaking!!
+	initnpctimer;
+	end;
+
+OnTimer30000:
+	areaannounce "quiz_02",48,334,71,357,"60 seconds remaining to break the Emperium...",8;
+	end;
+
+OnTimer60000:
+	areaannounce "quiz_02",48,334,71,357,"30 seconds remaining to break the Emperium...",8;
+	end;
+
+OnTimer80000:
+	areaannounce "quiz_02",48,334,71,357,"10 seconds remaining to break the Emperium...",8;
+	end;
+
+OnTimer90000:
+	stopnpctimer;
+	killmonster "quiz_02","MainEmpeTestB::OnEmpeBreak";
+	areaannounce "quiz_02",48,334,71,357,"Time Out! Fail test!!",8;
+	sleep 2000;
+	areawarp "quiz_02",48,334,71,357,"quiz_02",58,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+
+OnEmpeBreak:
+	stopnpctimer;
+	set .Test_Completed, gettimetick(0) - .Test_Init;
+	areaannounce "quiz_02",48,334,71,357,"Test completed in " + .Test_Completed + " milliseconds!!",8;
+	if( .Test_Completed < $EmpeTestB_Time || $EmpeTestB_Time == 0 )
+	{
+		set $EmpeTestB_Time, .Test_Completed;
+		set $EmpeTestB_Name$, .Char_Name$;
+		set $EmpeTestB_ID, .Char_ID;
+	}
+
+	sleep 2000;
+	areawarp "quiz_02",48,334,71,357,"quiz_02",58,370;
+	set .Test_Step, 0;
+	set .Char_ID, 0;
+	end;
+}
+

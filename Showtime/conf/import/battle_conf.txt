@@ -1,0 +1,340 @@
+// Move-delay adjustment for multi-hitting attacks.
+// When hit by a multi-hitting skill like Lord of Vermillion or Jupitel Thunder, characters will be 
+// unable to move for an additional "(number of hits -1) * multihit_delay" milliseconds.
+// 80 is the setting that feels like Aegis (vs Sonic Blows)
+// 230 is the setting that makes walkdelay last until the last hit (vs Jupitel thunder)
+multihit_delay: 230
+
+// When a player dies, how should we penalize them?
+// 0 = No penalty.
+// 1 = Lose % of current level when killed.
+// 2 = Lose % of total experience when killed.
+death_penalty_type: 2
+
+// Base exp. penalty rate (Each 100 is 1% of their exp)
+death_penalty_base: 10000
+
+// Job exp. penalty rate (Each 100 is 1% of their exp)
+death_penalty_job: 10000
+// Does the delay time depend on the caster's DEX and/or AGI? (Note 1)
+// Note: On Official servers, neither Dex nor Agi affect delay time
+delay_dependon_dex: yes
+delay_dependon_agi: yes
+
+// PK Server Mode.  Turns entire server pvp(excluding towns). Experience loss is doubled if killed by another player.
+// When players hunt monsters over 20 levels higher, they will receive 15% additional exp., and 25% chance of receiving more items. 
+// There is a nopvp.txt for setting up maps not to have pk on in this mode.  Novices cannot be attacked and cannot attack.
+// Normal pvp counter and rank display are disabled as well.
+// Note: If pk_mode is set to 2 instead of 1 (yes), players will receive a 
+//   manner penalty of 5 each time they kill another player (see manner_system 
+//   config to adjust how this will affect players)
+pk_mode: 1
+
+// Displays a message when the player enters a pk zone.
+// Only during pk_mode (Note 1)
+pk_mode_mes: yes
+
+// Manner/karma system configuration. Specifies how does negative manner
+// (red no chat bubble) affects players (add as needed):
+//  0: No penalties.
+//  1: Disables chatting (includes whispers, party/guild msgs, etc)
+//  2: Disables skill usage
+//  4: Disables commands usage
+//  8: Disables item usage/picking/dropping
+// 16: Disables room creation (chatrooms and vending shops)
+manner_system: 15
+
+// For PK Server Mode. Change this to define the minimum level players can start PK-ing
+pk_min_level: 99
+
+// For PK Server Mode. It specifies the maximum level difference between
+// players to let them attack each other. 0 disables said limit.
+pk_level_range: 0
+
+// For PK servers. Damage adjustment settings, these follow the same logic
+// as their WoE counterparts (see guild.conf)  
+pk_short_attack_damage_rate: 100
+pk_long_attack_damage_rate: 100
+pk_weapon_attack_damage_rate: 100
+pk_magic_attack_damage_rate: 100
+pk_misc_attack_damage_rate: 100
+
+// Make broadcast ** Player1 won Pupa's Pupa Card (chance 0.01%) ***
+// This can be set to any value between 0~10000.
+// Note: It also announces STEAL skill usage with rare items
+// 0 = don't show announces at all
+// 1 = show announces for 0.01% drop chance items
+// 333 = show announces for 3.33% or lower drop chance items
+// 10000 = show announces for all items
+rare_drop_announce: 100
+
+// Delay between using @duel in minutes
+duel_time_interval: 0
+
+// Required level of bNoMagicDamage before Status Changes are blocked (Golden Thief Bug card).
+// For example, if left at 50. An item can give bNoMagicDamage,40;
+// which reduces magic damage by 40%, but does not blocks status changes.
+gtb_sc_immunity: 100
+
+
+//-------EXP Conf
+// Rate at which exp. is given. (Note 2)
+base_exp_rate: 500000
+
+// Rate at which job exp. is given. (Note 2)
+job_exp_rate: 500000
+
+// Turn this on to allow a player to level up more than once from a kill. (Note 1)
+multi_level_up: yes
+
+// Allow multi level up until a certain level?
+// This only triggers if multi_level_up is enabled.
+// Default: 0 (Unlimited)
+multi_level_up_base: 0
+multi_level_up_job: 0
+
+//-------Monster Conf
+// MVP bonus exp rate. (Note 2)
+mvp_exp_rate: 5000
+
+// The HP rate of MVPs. (Note 2)
+mvp_hp_rate: 200
+
+// The HP rate of normal monsters (that is monsters that are not MVP's) (Note 2)
+monster_hp_rate: 100
+
+//-------Party Conf
+// Display party name regardless if player is in a guild.
+// Official servers do not display party name unless the user is in a guild. (Note 1)
+display_party_name: yes
+
+//-------Skill Conf
+// Allows players to skip menu when casting Teleport level 1
+// Menu contains two options. "Random" and "Cancel"
+skip_teleport_lv1_menu: yes
+
+// Allow use of SG skills without proper day (Sun/Moon/Star) ?
+allow_skill_without_day: yes
+
+// Allow use of ES-type magic on players?
+allow_es_magic_player: yes
+
+// Miracle of the Sun, Moon and Stars skill ratio (100% = 10000)
+sg_miracle_skill_ratio: 10000
+
+// Miracle of the Sun, Moon and Stars skill duration in milliseconds
+sg_miracle_skill_duration: 3600000
+
+// Angel of the Sun, Moon and Stars skill ratio (100% = 10000)
+sg_angel_skill_ratio: 10000
+
+
+// Dancing Weapon Switch
+// On official servers, a fix is in place that prevents the switching of weapons to cancel songs.
+// Default: yes
+dancing_weaponswitch_fix: no
+
+// Should Dispel work on songs when the target is not in the song area? (Note 1)
+// On official servers, it's impossible to dispel songs.
+// Hint: Also affects the Rebellion skill "Vanishing Buster".
+dispel_song: yes
+
+// Should Tarot Card of Fate have the same chance for each card to occur? (Note 1)
+// Official chances: 15%: LOVERS | 10%: FOOL, MAGICIAN, HIGH PRIESTESS, STRENGTH, SUN | 8%: TEMPERANCE
+// 7%: CHARIOT | 6%: THE HANGED MAN | 5%: DEATH, STAR | 2%: TOWER | 1%: WHEEL OF FORTUNE, DEVIL
+// If you set this to "yes", the chance for each card becomes 1/14.
+tarotcard_equal_chance: no
+
+// EDP setting: (Note 3)
+// When switching/unequipping a right hand weapon, should EDP be removed? EDP can't be used with bare hand.
+// 0: Disabled (rAthena legacy and pre-renewal behavior).
+// 1: Enabled on pre-renewal.
+// 2: Enabled on renewal.
+// 3: 1+2
+switch_remove_edp: 0
+
+
+
+//------Player Conf
+// Maximum atk speed. (Default 190, Highest allowed 199)
+max_aspd: 196
+
+// Maximum SP. (Default is 1000000)
+max_sp: 3000
+
+// Maximum params/stats for each class. (str, agi, vit, int, dex, and luk)
+// 'max_parameter' for novice, non-trans, non-baby, and non-3rd classes
+// 'max_trans_parameter' for trans classes (non-3rd trans classes)
+// 'max_third_parameter' for 3rd classes (regular/non-trans) except baby 3rd clasess
+// 'max_third_trans_parameter' for 3rd trans classes
+// 'max_baby_parameter' for baby classes except baby 3rd classes
+// 'max_baby_third_parameter' for baby 3rd classes only
+// 'max_extended_parameter' for extended 2nd class (Kagerou/Oboro and Rebellion)
+// For mor specific/advanced option, see 'db/[pre-]re/job_params_db.txt'
+max_parameter: 150
+max_trans_parameter: 150
+max_baby_parameter: 150
+max_extended_parameter: 150
+
+// Max weight carts can hold.
+max_cart_weight: 15000
+
+// Players' will drop a 'Skull' when killed?
+// Note: The 'Skull' item (ID 7420) is trade restricted by default. Please check
+// the item_trade database to adjust accordingly.
+// 0 = Disabled
+// 1 = Dropped only in PvP maps
+// 2 = Dropped in all situations
+bone_drop: 1
+
+// Max armor def/mdef
+// NOTE: This setting have no effect if server is run on Renewal Mode (RENEWAL) 
+// NOTE: does not affects skills and status effects like Mental Strength
+// If weapon_defense_type is non-zero, it won't apply to max def.
+// If magic_defense_type is non-zero, it won't apply to max mdef.
+max_def: 70
+// ---- Client Conf
+
+// Maximum allowed 'level' value that can be sent in unit packets.
+// Use together with the aura_lv setting to tell when exactly to show the aura.
+// NOTE: You also need to adjust the client if you want this to work.
+// NOTE: Default is 99. Values above 127 will probably behave incorrectly.
+// NOTE: If you don't know what this does, don't change it!!!
+max_lv: 255
+
+// Level required to display an aura.
+// NOTE: This assumes that sending max_lv to the client will display the aura.
+// NOTE: aura_lv must not be less than max_lv.
+// Example: If max_lv is 99 and aura_lv is 150, characters with level 99~149
+//          will be sent as being all level 98, and only characters with level
+//          150 or more will be reported as having level 99 and show an aura.
+aura_lv: 255
+
+// Valid range of dyes and styles on the client.
+min_hair_style: 1
+max_hair_style: 69
+min_hair_color: 1
+max_hair_color: 30
+min_cloth_color: 1 
+max_cloth_color: 500
+min_body_style: 0
+max_body_style: 1
+
+// When set to yes, the damage field in packets sent from woe maps will be set
+// to -1, making it impossible for GMs, Bots and Hexed clients to know the
+// actual damage caused by attacks. (Note 1)
+hide_woe_damage: yes
+
+//------- Battle Conf
+// Are arrows/ammo consumed when used on a bow/gun?
+// 0 = No
+// 1 = Yes
+// 2 = Yes even for skills that do not specify arrow consumption when said 
+//     skill is weapon-based and used with ranged weapons (auto-guesses which 
+//     skills should consume ammo when it's acquired via a card or plagiarize)
+arrow_decrement: 0
+
+//------- Drops Conf
+
+// The rate the common items are dropped (Items that are in the ETC tab, besides card)
+item_rate_common: 5000
+item_rate_common_boss: 10000
+item_rate_common_mvp: 10000
+item_drop_common_min: 1
+item_drop_common_max: 10000
+
+// The rate healing items are dropped (items that restore HP or SP)
+item_rate_heal: 10000
+item_rate_heal_boss: 10000
+item_rate_heal_mvp: 10000
+item_drop_heal_min: 1
+item_drop_heal_max: 10000
+
+// The rate at which usable items (in the item tab) other then healing items are dropped.
+item_rate_use: 10000
+item_rate_use_boss: 10000
+item_rate_use_mvp: 10000
+item_drop_use_min: 1
+item_drop_use_max: 10000
+
+// The rate at which equipment is dropped.
+item_rate_equip: 50000
+item_rate_equip_boss: 5000
+item_rate_equip_mvp: 500
+item_drop_equip_min: 1
+item_drop_equip_max: 10000
+
+// The rate at which cards are dropped
+item_rate_card: 100000
+item_rate_card_boss: 30000
+item_rate_card_mvp: 100
+item_drop_card_min: 10
+item_drop_card_max: 10000
+
+// The rate adjustment for card-granted item drops.
+item_rate_adddrop: 100
+item_drop_add_min: 1
+item_drop_add_max: 10000
+
+// Whether or not Marine Spheres and Floras summoned by Alchemist drop items?
+// This setting has three available values:
+// 0: Nothing drops.
+// 1: Only marine spheres drop items.
+// 2: All alchemist summons drop items.
+alchemist_summon_reward: 0
+
+// Make broadcast ** Player1 won Pupa's Pupa Card (chance 0.01%) ***
+// This can be set to any value between 0~10000.
+// Note: It also announces STEAL skill usage with rare items
+// 0 = don't show announces at all
+// 1 = show announces for 0.01% drop chance items
+// 333 = show announces for 3.33% or lower drop chance items
+// 10000 = show announces for all items
+rare_drop_announce: 100
+
+// Guild Conf
+
+// Activate guild skills delay by relog?
+// Official setting is 5 minutes (300000 ms), otherwise allow guild leaders to relog to cancel the 5 minute delay.
+guild_skill_relog_delay: 60000
+
+// Limit Guild alliances. Value is 0 to 3.
+// If you want to change this value, clear the guild alliance table.
+// Default is 3
+max_guild_alliance: 0
+
+// Is changing the guild leader allowed during WoE?
+// Default: no
+guild_leaderchange_woe: yes
+
+// Misc Conf
+
+// Makes player cannot be attacked when autotrade? (turns player's state.monster_ignore) (Note 1)
+at_monsterignore: yes
+
+// Amount of mails a user can send a day.
+// Default: 100
+// 0 = Unlimited
+mail_daily_count: 0
+
+//======= Homun Conf
+// Max level for regular Homunculus
+homunculus_max_level: 255
+
+// Max level for Homunculus S
+homunculus_S_max_level: 255
+
+// Growth level for Homunculus S
+// This is the level at which homunculus S can use their growth tables
+// Without this, a shuffle causes all levels of a Homunculus S to use their
+// growth tables, causing imbalanced stats
+homunculus_S_growth_level: 99
+
+// The rate a homunculus will get friendly by feeding it. (Note 2)
+homunculus_friendly_rate: 200
+
+
+
+//======= Items Conf
+// How much time must pass between cash food uses? Default: 60000 (1 min)
+cashfood_use_interval: 0

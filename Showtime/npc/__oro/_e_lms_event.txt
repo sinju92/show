@@ -1,0 +1,219 @@
+-	script	LMS#disable	-1,{
+
+OnInit:
+disablenpc "Mr. Banker";
+disablenpc "LMS Event Manager";
+end;
+}
+
+-	script	LMS	-1,{
+
+OnClock0400:
+OnClock0800:
+OnClock1200:
+OnClock1600:
+OnClock0000: 
+goto startlmsevent;
+
+startlmsevent:
+announce "Event Manager: The [Last Man Standing] event will be starting shortly.",0;
+sleep 10000;
+announce "Event Manager: Those who want to play, please proceed to @event and Register to LMS Event Manager..",0;
+sleep 10000;
+announce "Event Manager: After 1 Minute the Registration will close.",0;
+sleep 10000;
+announce "Event Manager: Please type @event and Register to LMS Event Manager.",0;
+enablenpc "LMS Event Manager";
+initnpctimer;
+end;
+
+OnTimer30000:
+announce "Event Manager: Last 30 seconds.",0;
+sleep 5000;
+announce "Event Manager: If you want to join please Register in @event and Register to LMS Event Manager.",0;
+end;
+
+OnTimer50000:
+announce "Event Manager: Last 10 seconds.",0;
+end;
+
+OnTimer55000:
+announce "Event Manager: 5.",0;
+end;
+
+OnTimer56000:
+announce "Event Manager: 4.",0;
+end;
+
+OnTimer57000:
+announce "Event Manager: 3.",0;
+end;
+
+OnTimer58000:
+announce "Event Manager: 2.",0;
+end;
+
+OnTimer59000:
+announce "Event Manager: 1.",0;
+end;
+
+OnTimer60000:
+announce "Event Manager: Time's up.",0;
+end;
+
+OnTimer61000:
+disablenpc "LMS Event Manager";
+donpcevent "Mr. Banker::OnEnable";
+stopnpctimer;
+end;
+}
+//---------All Job Registration---------------
+phtownall,234,208,5	script	LMS Event Manager	106,{
+
+mes "[Mr. Manager]";
+mes "Hello What can I do for you?";
+next;
+menu "Register",-,"What is LMS?",what,"Leave",leave;
+next;
+mes "[Mr. Manager]";
+mes "Thankyou for registering Mr. " + strcharinfo(0) + ", Have fun!";
+warp "force_1-3",100,180;
+end;
+what:
+mes "[Mr. Manager]";
+mes "LMS is also known as Last Man Standing Event";
+next;
+mes "[Mr. Manager]";
+mes "LMS is also like a PvP.";
+mes "The only difference is at LMS you will get 10 PC Point if you are the Last Man Standing at the arena.";
+next;
+mes "[Mr. Manager]";
+mes "That's all";
+close;
+leave:
+mes "[Mr. Manager]";
+mes "I hope you will register next time";
+close;
+
+
+}
+
+//--------------------------
+
+//--------------------------
+force_1-3,100,180,6	script	Mr. Banker	56,{
+
+mes "[banker]";
+mes "Congrats. You've won.";
+next;
+announce "Mr. Manager: We have a winner! well done "+strcharinfo(0)+".",0;
+getitem 7517,5; // Change This item id to what ever you want . item id,amount
+getitem 6153, 10;
+dispbottom "Obtained +5 Gold Coins & 10 Special Event Coupons";
+mes "You will return now";
+   warp "SavePoint",0,0;
+disablenpc "Mr. Banker";
+close;
+end;      
+OnEnable:
+pvpoff "force_1-3";
+mapannounce "force_1-3","Mr. Manager:The Last Man Standing Event will start shortly",0;
+sleep 10000;
+mapannounce "force_1-3","Mr. Manager:But before we start this is just a few reminders..",0;
+sleep 10000;
+mapannounce "force_1-3","Mr. Manager:Using Cloaking , Hiding is strictly not allowed..",0;
+sleep 10000;
+mapannounce "force_1-3","Mr. Manager: Only the Last Man Standing will win this event!!",0;
+sleep 10000;
+mapannounce "force_1-3","Mr. Manager: What are we waiting for?..Let's Get Ready to Rumble!!...",0;
+sleep 10000;
+goto L_Start;
+end;
+L_Start:
+if(getmapusers("force_1-3") == 1) goto L_Champ;
+if(getmapusers("force_1-3") == 0) goto L_None;
+if(getmapusers("force_1-3") > 1) {
+mapannounce "force_1-3","Mr. Manager: Get ready at the count of 5 we will start!....",0;
+sleep 10000;
+mapannounce "force_1-3","Mr. Manager: 5",0;
+sleep 5000;
+mapannounce "force_1-3","Mr. Manager: 4",0;
+sleep 4000;
+mapannounce "force_1-3","Mr. Manager: 3",0;
+sleep 3000;
+mapannounce "force_1-3","Mr. Manager: 2",0;
+sleep 2000;
+mapannounce "force_1-3","Mr. Manager: 1",0;
+sleep 1000;
+pvpon "force_1-3";
+goto timer;
+end;     
+}
+timer:                                          
+initnpctimer;
+end;
+
+OnTimer1000:
+end;
+
+OnTimer1100:
+if(getmapusers("force_1-3") == 1) goto L_Champ;
+if(getmapusers("force_1-3") > 2) goto timer;
+if(getmapusers("force_1-3") == 2) goto champ;
+stopnpctimer;
+end;
+
+champ:
+announce "Mr. Manager: Last 2 Brave warriors are still alive!",0;
+sleep 10000;
+if(getmapusers("force_1-3") == 1) goto L_Champ;
+if(getmapusers("force_1-3") > 1) goto timer;
+end;
+
+L_Champ:
+mapannounce "force_1-3","Mr. Banker: Please talk to me to get your prize..",0;
+pvpoff "force_1-3";
+enablenpc "Mr. Banker";
+end;
+
+L_None:
+disablenpc "Mr. Banker";
+pvpoff "force_1-3";
+end;  
+}
+//----- Die = warp prt -----
+-	script	Killa_warp	-1,{
+
+OnPCDieEvent:
+getmapxy(.@map,.@x,.@y,0);
+if(.@map=="force_1-3")
+{
+	set #kill_point, 0;
+	announce ""+strcharinfo(0)+" died, and out of the game!.",bc_all;
+   warp "SavePoint",0,0;
+	end;
+}
+OnPCKillEvent:
+getmapxy(.@map,.@x,.@y,0);
+if(.@map=="pvp_n_1-5")
+{
+set #kill_point,#kill_point+1;
+if ( #kill_point % 4 == 0) {
+announce ""+strcharinfo(0)+" have made 4 Consecutive Kills!!He will be granted an item",bc_all;
+//getitem 7539, 20;
+end;
+}
+}
+}
+ 
+
+// == Mapflags
+force_1-3	mapflag	nowarp
+force_1-3	mapflag	nowarpto
+force_1-3	mapflag	noteleport
+force_1-3	mapflag	nosave
+force_1-3	mapflag	nomemo
+force_1-3	mapflag	nobranch
+force_1-3	mapflag	pvp_noparty
+force_1-3	mapflag	pvp_noguild
+force_1-3	mapflag	restricted	1

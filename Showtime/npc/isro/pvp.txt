@@ -1,0 +1,222 @@
+prontera,160,191,4	script	PvP Warper#1-0::PvP Warper	615,{
+switch(select("PVP Event Arena ["+getmapusers("guild_vs3-1")+"/50]:Free for All ["+getmapusers("guild_vs3")+"/50]:GVG Arena ["+getmapusers("guild_vs3-2")+"/50]:Champion Arena ["+getmapusers("pvp_y_1-2")+"/20]:Sinx Arena ["+getmapusers("pvp_y_3-2")+"/20]:No Boss/MVP ["+getmapusers("pvp_n_3-5")+"/50]")) {
+	
+	case 1:	
+		mes "This Arena is only Open at ^FF000012PM, 3PM, 6PM, 9PM & 12AM^000000 server Time.";
+		mes "PVP Event Arena will only accessible for 30 mins once the gate is open.";
+		if (.openarena >= 1) {
+		if (getmapusers("guild_vs3-1") > 50 ) callsub S_full;
+//		set pvpx, rand(58,60);
+//		set pvpy, rand(84,154);
+		announce ""+strcharinfo(0)+" of the "+strcharinfo(2)+" Guild has entered the Event Arena Ground!",0,0x00CCFF;
+		warp "guild_vs3-1",0,0;
+		} 
+		mes "Arena is not availble.";
+		mes "Come back again later.";
+		end;
+
+	
+	case 2:	
+		if (getmapusers("guild_vs3") > 50 ) callsub S_full;
+//		set pvpx, rand(58,60);
+//		set pvpy, rand(84,154);
+		announce ""+strcharinfo(0)+" of the "+strcharinfo(2)+" Guild has entered the Free for All Arena!",0,0x00CCFF;
+		warp "guild_vs3",0,0;
+		end;
+
+
+
+	case 3:	
+		if (getmapusers("guild_vs3-2") > 50 ) callsub S_full;
+//		set pvpx, rand(58,60);
+//		set pvpy, rand(84,154);
+		announce ""+strcharinfo(0)+" of the "+strcharinfo(2)+" Guild has entered the GVG Ground!",0,0x00CCFF;
+		warp "guild_vs3-2",0,0;
+		end;
+
+	case 4:
+		if (Class != 4016) {
+		mes "Sorry you are not allowed to enter this arena.";
+		mes "You must be a Champion.";
+		close;
+		}
+		if (getmapusers("pvp_y_1-2") > 20) callsub S_full;
+		announce ""+strcharinfo(0)+" of the "+strcharinfo(2)+" Guild has entered the Chamion Arena!",0,0x00CCFF;
+		warp "pvp_y_1-2",0,0;
+		end;
+ 	
+	case 5:
+		if (Class != 4013) {
+		mes "Sorry you are not allowed to enter this arena.";
+		mes "You must be an Assassin Cross class.";
+		close;
+		}
+		if (getmapusers("pvp_y_3-2") > 20) callsub S_full;
+		//sc_end SC_ALL;
+		announce ""+strcharinfo(0)+" of the "+strcharinfo(2)+" Guild has entered the Sinx!",0,0x00CCFF;
+		warp "pvp_y_3-2",0,0;
+		end;
+ 	case 6:	
+                mes "BOSS CARDS / MVP CARDS ARE NOT ALLOWED IN THIS ARENA";
+		if (getmapusers("pvp_n_3-5") > 50) callsub S_full;
+		announce ""+strcharinfo(0)+" of the "+strcharinfo(2)+" Guild has entered the No Boss Arena!",0,0x00CCFF;
+		warp "pvp_n_3-5",0,0;
+		end;
+
+	}
+
+S_full:
+	mes " ";
+	mes "I'm sorry, this room is full.  Please try again later...";
+	close;
+OnClock1200:
+OnClock1500:
+OnClock1800:
+OnClock2100:
+OnClock0000:
+	set .openarena, 1;
+	end;
+OnClock1230:
+OnClock1530:
+OnClock1830:
+OnClock2130:
+OnClock0030:
+	set .openarena, 0;
+	end;	
+OnInit:
+waitingroom	"PvP Room",0;
+set .openarena,0;
+end;
+
+}
+-	script	pvpeventtrigger	-,{
+OnClock1200:
+OnClock1500:
+OnClock1800:
+OnClock2100:
+OnClock0000:
+	announce "PVP Event has just started. You may enter the arena now.",bc_all,0x00FF00,FW_BOLD,18;
+	end;
+OnClock1230:
+OnClock1530:
+OnClock1830:
+OnClock2130:
+OnClock0030:
+	announce "PVP Event is about to end.",bc_all,0x00FF00,FW_BOLD,18;
+	sleep 5000;
+	announce "PVP Event is now over.",bc_all,0x00FF00,FW_BOLD,18;
+	sleep 2000;
+	mapwarp "guild_vs3-1","payon",156,226;
+	end;
+}
+
+pvp_y_3-2	mapflag	nowarpto
+pvp_y_3-2	mapflag	nowarp
+pvp_y_3-2	mapflag	nobranch
+pvp_y_3-2	mapflag	noreturn
+pvp_y_3-2	mapflag	pvp
+pvp_y_3-2	mapflag	noteleport
+pvp_y_3-2	mapflag	nosave
+pvp_y_3-2	mapflag	pvp_noguild
+pvp_y_3-2	mapflag	noicewall
+
+pvp_y_1-2	mapflag	nowarpto
+pvp_y_1-2	mapflag	nowarp
+pvp_y_1-2	mapflag	nobranch
+pvp_y_1-2	mapflag	noreturn
+pvp_y_1-2	mapflag	pvp
+pvp_y_1-2	mapflag	noteleport
+pvp_y_1-2	mapflag	nosave
+pvp_y_1-2	mapflag	pvp_noguild
+pvp_y_1-2	mapflag	noicewall
+
+guild_vs3	mapflag	nowarpto
+guild_vs3	mapflag	nowarp
+guild_vs3	mapflag	nobranch
+guild_vs3	mapflag	noreturn
+guild_vs3	mapflag	pvp
+guild_vs3	mapflag	noteleport
+guild_vs3	mapflag	nosave
+//guild_vs3	mapflag	pvp_noguild
+//guild_vs3	mapflag	pvp_noparty
+guild_vs3	mapflag	noicewall
+
+guild_vs3-1	mapflag	nowarpto
+guild_vs3-1	mapflag	nowarp
+guild_vs3-1	mapflag	nobranch
+guild_vs3-1	mapflag	noreturn
+guild_vs3-1	mapflag	pvp
+guild_vs3-1	mapflag	noteleport
+guild_vs3-1	mapflag	nosave
+guild_vs3-1	mapflag	pvp_noguild
+guild_vs3-1	mapflag	pvp_noparty
+guild_vs3-1	mapflag	noicewall
+
+guild_vs3-2	mapflag	nowarpto
+guild_vs3-2	mapflag	nowarp
+guild_vs3-2	mapflag	nobranch
+guild_vs3-2	mapflag	noreturn
+guild_vs3-2	mapflag	gvg
+guild_vs3-2	mapflag	noteleport
+guild_vs3-2	mapflag	nosave
+//guild_vs3-2	mapflag	pvp_noguild
+//guild_vs3-2	mapflag	pvp_noparty
+guild_vs3-2	mapflag	noicewall
+
+pvp_n_2-5	mapflag	nowarpto
+pvp_n_2-5	mapflag	nowarp
+pvp_n_2-5	mapflag	noteleport
+pvp_n_2-5	mapflag	pvp
+pvp_n_2-5	mapflag	nobranch
+pvp_n_2-5	mapflag	noreturn
+//pvp_n_2-5	mapflag	nocommand	20
+pvp_n_2-5	mapflag	noicewall
+
+pvp_n_3-5	mapflag	nowarpto
+pvp_n_3-5	mapflag	nowarp
+pvp_n_3-5	mapflag	noteleport
+pvp_n_3-5	mapflag	pvp
+pvp_n_3-5	mapflag	nobranch
+pvp_n_3-5	mapflag	noreturn
+//pvp_n_3-5	mapflag	nocommand	20
+pvp_n_3-5	mapflag	noicewall
+pvp_n_3-5	mapflag	restricted	4
+
+guild_vs4	mapflag	nowarpto
+guild_vs4	mapflag	nowarp
+guild_vs4	mapflag	noteleport
+guild_vs4	mapflag	pvp
+guild_vs4	mapflag	nobranch
+guild_vs4	mapflag	noreturn
+//guild_vs4	mapflag	nocommand	20
+guild_vs4	mapflag	noicewall
+guild_vs4	mapflag	restricted	4
+
+morocc,150,97,5	duplicate(PvP Warper)	PvP Room#1	615
+geffen,116,62,5	duplicate(PvP Warper)	PvP Room#2	615
+payon,168,233,5	duplicate(PvP Warper)	PvP Room#3	615
+alberta,23,229,5	duplicate(PvP Warper)	PvP Room#4	615
+izlude,123,118,5	duplicate(PvP Warper)	PvP Room#5	615
+aldebaran,135,113,4	duplicate(PvP Warper)	PvP Room#6	615
+xmas,147,126,5	duplicate(PvP Warper)	PvP Room#7	615
+comodo,186,162,3	duplicate(PvP Warper)	PvP Room#8	615
+yuno,153,185,3	duplicate(PvP Warper)	PvP Room#9	615
+amatsu,102,157,3	duplicate(PvP Warper)	PvP Room#10	615
+gonryun,168,114,3	duplicate(PvP Warper)	PvP Room#11	615
+amatsu,102,157,3	duplicate(PvP Warper)	PvP Room#12	615
+louyang,222,105,3	duplicate(PvP Warper)	PvP Room#14	615
+ayothaya,153,123,3	duplicate(PvP Warper)	PvP Room#15	615
+lou_fild01,189,172,3	duplicate(PvP Warper)	PvP Room#16	615
+mosk_in,28,119,3	duplicate(PvP Warper)	PvP Room#17	615
+hugel,102,146,3	duplicate(PvP Warper)	PvP Room#18	615
+einbroch,66,203,4	duplicate(PvP Warper)	PvP Room#19	615
+lighthalzen,161,103,4	duplicate(PvP Warper)	PvP Room#20	615
+rachel,137,115,4	duplicate(PvP Warper)	PvP Room#21	615
+veins,212,127,4	duplicate(PvP Warper)	PvP Room#22	615
+moscovia,217,191,4	duplicate(PvP Warper)	PvP Room#23	615
+aldeba_in,99,181,4	duplicate(PvP Warper)	PvP Room#24	615
+//mapflag
+//guild_vs3	mapflag	nocommand	20
+
+
+

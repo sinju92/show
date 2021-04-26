@@ -1,0 +1,261 @@
+//===== rAthena Script =======================================
+//= Healer
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Basic healer script.
+//===== Additional Comments: =================================
+//= 1.0 Initial script.
+//= 1.1 Aligned coordinates with @go.
+//============================================================
+
+-	script	Healer	-1,{
+
+	set .@Price,0;	// Zeny required for heal
+	set .@Buffs,1;	// Also buff players? (1: yes / 0: no)
+	set .@Delay,3;	// Heal delay, in seconds
+
+	if(getgroupid() >= 5) {
+//				skilleffect 361,0; sc_start  SC_ASSUMPTIO,360000,5;
+				skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//				skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//				skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//				skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+		switch(Class){
+
+			case 18:
+			case 4019:
+			case 4071:
+			case 4078:
+				skilleffect "SL_ALCHEMIST",0;
+				sc_start4 SC_SPIRIT,9999999,5,455,0,0;
+				break;
+			case 15:
+			case 4016:
+			case 4070:
+			case 4077:
+				skilleffect "SL_MONK",0;
+				sc_start4 SC_SPIRIT,9999999,5,447,0,0;
+				break;
+			case 4047:
+				skilleffect "SL_STAR",0;
+				sc_start4 SC_SPIRIT,9999999,5,448,0,0;
+				break;
+			case 16:
+			case 4017:
+			case 4067:
+			case 4074:
+				skilleffect "SL_SAGE",0;
+				sc_start4 SC_SPIRIT,9999999,5,449,0,0;
+				break;
+			case 14:
+			case 4015:
+			case 4066:
+			case 4073:
+				skilleffect "SL_CRUSADER",0;
+				sc_start4 SC_SPIRIT,9999999,5,450,0,0;
+				break;
+			case 23:
+			case 4190:
+				skilleffect "SL_SUPERNOVICE",0;
+				sc_start4 SC_SPIRIT,9999999,5,451,0,0;
+				break;
+			case 7:
+			case 4008:
+			case 4054:
+			case 4060:
+				skilleffect "SL_KNIGHT",0;
+				sc_start4 SC_SPIRIT,9999999,5,452,0,0; 
+				break;
+			case 9:
+			case 4010:
+			case 4055:
+			case 4061:
+				skilleffect "SL_WIZARD",0;
+				sc_start4 SC_SPIRIT,9999999,5,453,0,0;
+				break;
+			case 8:
+			case 4009:
+			case 4057:
+			case 4063:
+				skilleffect "SL_PRIEST",0;
+				sc_start4 SC_SPIRIT,9999999,5,454,0,0;
+				break;
+			case 19:
+			case 20:
+			case 4020:
+			case 4021:
+			case 4068:
+			case 4069:
+			case 4075:
+			case 4076:
+				skilleffect "SL_BARDDANCER",0;
+				sc_start4 SC_SPIRIT,9999999,5,455,0,0;
+				break;
+			case 17:
+			case 4018:
+			case 4072:
+			case 4079:
+				skilleffect "SL_ROGUE",0;
+				sc_start4 SC_SPIRIT,9999999,5,456,0,0;
+				break;
+			case 12:
+			case 4013:
+			case 4059:
+			case 4065:
+				skilleffect "SL_ASSASIN",0;
+				sc_start4 SC_SPIRIT,9999999,5,457,0,0;
+				break;
+			case 10:
+			case 4011:
+				skilleffect "SL_BLACKSMITH",0;
+				sc_start4 SC_SPIRIT,9999999,5,458,0,0;
+				break;
+			case 11:
+			case 4012:
+			case 4056:
+			case 4062:
+				skilleffect "SL_HUNTER",0;
+				sc_start4 SC_SPIRIT,9999999,5,460,0,0;
+				break;
+			case 4049:
+				skilleffect "SL_SOULLINKER",0;
+				sc_start4 SC_SPIRIT,9999999,5,461,0,0;
+				break;
+			default:
+				break;
+		}
+	}
+
+	if (@HD > gettimetick(2)) end;
+	if (.@Price) {
+		message strcharinfo(0),"Healing costs "+.@Price+"  Zeny.";
+		if (Zeny < .@Price) end;
+		if(select("^0055FFHeal^000000:^777777Cancel^000000") ==  2) end;
+		set Zeny, Zeny-.@Price;
+	}
+
+	specialeffect2 EF_HEAL2; percentheal 100,100;
+	if (.@Buffs) {
+			repairall;
+			skilleffect 34,0; sc_start  SC_BLESSING,360000,10;
+            skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+			
+			// buff for level below 85
+			if( BaseLevel < 85 ){
+//				skilleffect 361,0; sc_start  SC_ASSUMPTIO,360000,5;
+				skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//				skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//				skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//				skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+		}
+	}
+
+	// Identify All
+	getinventorylist;
+	for( set .@itemnum, 0; .@itemnum < @inventorylist_count; set  .@itemnum, .@itemnum + 1 ) {
+		if ( @inventorylist_identify[.@itemnum] != 1 ) {
+			delitem2  @inventorylist_id[.@itemnum],1,0,0,0,0,0,0,0;
+			getitem @inventorylist_id[.@itemnum],1;
+		}
+	}
+
+	if (.@Delay) set @HD, gettimetick(2)+.@Delay;
+	end;
+}
+
+// Ontouch
+firstcity,215,56,0	script	Healer:OnTouch	-1,5,5,{
+
+	OnTouch:
+
+	set .@Price,0;	// Zeny required for heal
+	set .@Buffs,1;	// Also buff players? (1: yes / 0: no)
+	set .@Delay,3;	// Heal delay, in seconds
+
+	if (@HD > gettimetick(2)) end;
+	if (.@Price) {
+		message strcharinfo(0),"Healing costs "+.@Price+"  Zeny.";
+		if (Zeny < .@Price) end;
+		if(select("^0055FFHeal^000000:^777777Cancel^000000") ==  2) end;
+		set Zeny, Zeny-.@Price;
+	}
+
+	specialeffect2 EF_HEAL2; percentheal 100,100;
+	if (.@Buffs) {
+			repairall;
+			skilleffect 34,0; sc_start  SC_BLESSING,360000,10;
+            skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+			
+			// buff for level below 85
+			if( BaseLevel < 85 ){
+//				skilleffect 361,0; sc_start  SC_ASSUMPTIO,360000,5;
+				skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//				skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//				skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//				skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+			}
+	}
+
+	// Identify All
+	getinventorylist;
+	for( set .@itemnum, 0; .@itemnum < @inventorylist_count; set  .@itemnum, .@itemnum + 1 ) {
+		if ( @inventorylist_identify[.@itemnum] != 1 ) {
+			delitem2  @inventorylist_id[.@itemnum],1,0,0,0,0,0,0,0;
+			getitem @inventorylist_id[.@itemnum],1;
+		}
+	}
+
+	if (.@Delay) set @HD, gettimetick(2)+.@Delay;
+	end;
+}
+
+
+// Duplicates
+//============================================================
+alberta,25,240,6	duplicate(Healer)	Healer#alb	501
+aldebaran,136,119,6	duplicate(Healer)	Healer#alde	501
+amatsu,102,152,4	duplicate(Healer)	Healer#ama	501
+ayothaya,203,169,6	duplicate(Healer)	Healer#ayo	501
+comodo,184,158,6	duplicate(Healer)	Healer#com	501
+einbech,57,36,6	duplicate(Healer)	Healer#einbe	501
+einbroch,57,202,6	duplicate(Healer)	Healer#einbr	501
+geffen,115,72,6	duplicate(Healer)	Healer#gef	501
+gonryun,156,122,6	duplicate(Healer)	Healer#gon	501
+hugel,101,147,6	duplicate(Healer)	Healer#hug	501
+izlude,128,117,6	duplicate(Healer)	Healer#izl	501	//Pre-RE: (125,118)
+jawaii,201,293,4	duplicate(Healer)	Healer#jaw	501
+lighthalzen,152,100,6	duplicate(Healer)	Healer#lhz	501
+louyang,214,104,4	duplicate(Healer)	Healer#lou	501
+manuk,272,144,6	duplicate(Healer)	Healer#man	501
+mid_camp,203,289,6	duplicate(Healer)	Healer#mid	501
+moc_ruins,72,164,4	duplicate(Healer)	Healer#moc	501
+morocc,153,97,6	duplicate(Healer)	Healer#mor	501
+moscovia,220,191,4	duplicate(Healer)	Healer#mos	501
+niflheim,212,182,5	duplicate(Healer)	Healer#nif	501
+payon,179,106,4	duplicate(Healer)	Healer#pay	501
+prontera,161,193,4	duplicate(Healer)	Healer#prt	501
+rachel,125,116,6	duplicate(Healer)	Healer#rac	501
+splendide,201,153,4	duplicate(Healer)	Healer#spl	501
+thor_camp,249,74,4	duplicate(Healer)	Healer#thor	501
+umbala,93,160,3	duplicate(Healer)	Healer#umb	501
+veins,217,121,4	duplicate(Healer)	Healer#ve	501
+xmas,143,136,4	duplicate(Healer)	Healer#xmas	501
+yuno,164,45,4	duplicate(Healer)	Healer#yuno	501
+firstcity,214,60,4	duplicate(Healer)	Healer#maintown	501
+firstcity,36,231,6	duplicate(Healer)	Healer#maintown2	501
+
+// Duplicates (Renewal)
+//============================================================
+brasilis,194,221,6	duplicate(Healer)	Healer#bra	501
+dewata,195,187,4	duplicate(Healer)	Healer#dew	501
+dicastes01,201,194,4	duplicate(Healer)	Healer#dic	501
+ecl_in01,45,60,4	duplicate(Healer)	Healer#ecl	501
+malangdo,132,114,6	duplicate(Healer)	Healer#mal	501
+malaya,227,204,6	duplicate(Healer)	Healer#ma	501
+mora,55,152,4	duplicate(Healer)	Healer#mora	501
+  

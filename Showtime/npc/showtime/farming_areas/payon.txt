@@ -1,0 +1,179 @@
+payon,187,104,4	script	Payon Farming NPC	10115,{
+//Start of script
+//	if((gettimetick(2) - #timeexpired > (60 * 60 * 24)) && (#prtfarm_done==1)) {
+cutin "ep16_skia_shadow01",2;
+if (#payf_q == 1) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(1019) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 1019,100; //Trunk
+		set #payf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Trunk";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#payf_q == 2) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(921) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 921,100; //Mushroom Spore
+		set #payf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Mushroom Spore";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#payf_q == 3) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(740) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 740,100; //Puppet
+		set #payf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Puppet";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }		
+	 else if (#payf_q == 4) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(926) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 926,100; //Snake Scale
+		set #payf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Snake Scale";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	 else if (#payf_q == 5) {
+		mes .npcnamepront$;
+		mes "You are back, did you bring what I asked?";
+		next;
+		If (countitem(7032) >= 100) {
+		mes .npcnamepront$;
+		mes "Well done, you have all the items.";
+		delitem 7032,100; //Piece of Egg shell
+		set #payf_q,0;
+		next;
+		mes "Here is your reward.";
+		set Zeny, Zeny + .zenyrewrd;
+		dispbottom "You have gained 15,000,000 zenny.";
+		close;
+		} else {
+		mes .npcnamepront$;
+   		mes "You do not have what I asked for!";
+		mes "100 Piece of Egg Shell";
+		mes "These are the items I require, go find them all.";
+		cutin "",255;
+		close;
+		}
+	 }
+	mes .npcnamepront$;
+	mes "Hello there ^0000ff"+strcharinfo(0)+"^000000. I am the Payon Farming npc.";
+	mes "I will give you a random quest.";
+	mes "For every quest you finish, I will reward you with ^ff0000"+ .zenyrewrd + " Zeny^000000."; 
+	mes "Would you like to take on a quest?";
+	switch(select("Yes, I am ready!:No, not now.")) {
+		case 1:
+			switch(rand(1,5) ) {
+			case 1:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Trunk Administration]^000000.";
+				mes "Bring me 100x Trunk.";
+				set #payf_q, 1;
+				break;
+			case 2:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[A discharge of what?!]^000000.";
+				mes "Bring me 100x Mushroom Spore.";
+				set #payf_q, 2;
+				break;
+			case 3:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Master of Puppets]^000000.";
+				mes "Bring me 100x Puppet.";
+				set #payf_q, 3;
+				break;
+			case 4:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Premium Fashion]^000000.";
+				mes "Bring me 100x Snake Scale.";
+				set #payf_q, 4;
+				break;
+
+			case 5:
+				next;
+				mes .npcnamepront$;
+				mes "Your quest today is called ^fa8a11[Crunchy Goodness]^000000.";
+				mes "Bring me 100x Piece of Egg Shell.";
+				set #payf_q, 5;
+				break;				
+			} 
+		case 2:
+			end;
+		} 
+		mes .npcnamepront$;
+		mes "Sorry, Please Come back Later!";
+		mes "You can have another quest after 24 hours has expired";
+		cutin "",255;
+		close;
+	
+OnInit:
+	//Name of npc
+	set .npcnamepront$, "[^1b02ad Farming NPC ^000000 ]";
+	.zenyrewrd = 5000000;
+	end;
+}

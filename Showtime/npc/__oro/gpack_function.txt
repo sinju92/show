@@ -1,0 +1,137 @@
+function	script	guildpack	{
+		if (strcharinfo(2)== "") { 
+			dispbottom "You are not in a guild";
+			end;
+			}
+      		if (checkweight(32168,1,32169,10) == 0) {
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you lose some weight. -";
+		getitem 32166,1;
+		close;
+		}
+//		getitembound 32167, 10,Bound_Guild;	//solo package box
+		getitembound 32168, 1,Bound_Guild;	//woe supply box
+        getitembound 32169, 10,Bound_Guild;  // GL Pack
+				
+                announce "Guild " +strcharinfo(2)+ " had just claimed their guild packages.",0;
+        	end;
+}
+
+function	script	solopack	{
+		if (checkweight(2289,1,15015,1,2149,1,2561,1,2459,1,20509,1,19539,1,19541,1,5495,1,13710,1,14532,10,12135,3000) == 0) {
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you lose some weight. -";
+		getitem 32167,1;
+		close;
+		}
+				
+      if (#solo_claimv3 == 0) {
+		getitembound 2289, 1,Bound_Account;	//poo poo hat
+		getitembound 15015, 1,Bound_Account;	//Hunters Coat
+		getitembound 2149, 1,Bound_Account;	//Hunters Muffler
+		getitembound 2561, 1,Bound_Account;	//Hunters Boots
+		getitembound 2459, 1,Bound_Account;	//Hunters Buckler
+        getitembound 20509, 1,Bound_Account;	//Costume
+        getitembound 19539, 1,Bound_Account;	//Costume
+        getitembound 19541, 1,Bound_Account;	//Costume        
+        getitembound 5495, 1,Bound_Account;	//Costume
+    	getitembound 13710, 1,Bound_Account;	//Gym Pass
+//		getitembound 12497, 10,Bound_Account;	//Bubble gum 
+		getitembound 14532, 10,Bound_Account;	//Field Manual	
+		getitembound 12135, 3000,Bound_Account;	// Green Ale
+		set #solo_claimv3,1;
+		end;
+	} else {
+	dispbottom "You already claimed your solo pack.";
+ 	end;
+	}
+}
+
+function	script	glpack	{
+		if (checkweight(7234,4,14532,10,12135,10000) == 0) {
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you lose some weight. -";
+		getitem 32169,1;
+		close;
+		}
+				
+      if (#gl_claimv1 == 0) {
+    	getitembound 7234, 6,Bound_Account;	//Gym Pass
+//		getitembound 12497, 10,Bound_Account;	//Bubble gum 
+		getitembound 14532, 10,Bound_Account;	//Field Manual	
+		getitembound 12135, 10000,Bound_Account;	// Green Ale
+		set #gl_claimv1,1;
+		end;
+	} else {
+	dispbottom "You already claimed your solo pack.";
+ 	end;
+	}
+}
+
+function	script	woesupplies	{   
+		if (checkweight(12135,12000,14553,2400,14562,2400,14564,2400,14556,2400) == 0) {
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you lose some weight. -";
+                getitem 32168,1;
+		end;
+		}
+		getitembound 12135, 12000,Bound_Guild;	//ygg seed box30
+		getitembound 14553, 2400,Bound_Guild;	//Acid Bomb Box500
+		getitembound 14562, 2400,Bound_Guild;	//poison bottle
+		getitembound 14564, 2400,Bound_Guild;	//cobweb
+		getitembound 14556, 2400,Bound_Guild;	//cobweb
+}
+
+
+
+function	script	obtrewards	{   
+		if (checkweight(12203,5,12202,5,12206,5,12205,5,12204,5,12207,5) == 0) {
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you lose some weight. -";
+                getitem 32182,1;
+		end;
+		}
+
+//		getitembound 1826,1,Bound_Account;
+        getitembound 12203,5,Bound_Account;
+        getitembound 12202,5,Bound_Account;
+        getitembound 12206,5,Bound_Account;
+        getitembound 12205,5,Bound_Account;
+        getitembound 12204,5,Bound_Account;
+        getitembound 12207,5,Bound_Account;
+}
+
+function	script	cbtrewards	{   
+		if (checkweight(12135,2000,12203,5,12202,5,12206,5,12205,5,12204,5,12207,5) == 0) {
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you lose some weight. -";
+                getitem 32181,1;
+		end;
+		}
+        getitembound 12135,2000,Bound_Account;
+        getitembound 12203,5,Bound_Account;
+        getitembound 12202,5,Bound_Account;
+        getitembound 12206,5,Bound_Account;
+        getitembound 12205,5,Bound_Account;
+        getitembound 12204,5,Bound_Account;
+        getitembound 12207,5,Bound_Account;
+        }
+

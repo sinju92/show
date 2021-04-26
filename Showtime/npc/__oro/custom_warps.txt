@@ -1,0 +1,25 @@
+turbo_room,100,76,0	warp	oro#warp1	3,3,phtownall,188,185
+phtownall,184,181,0	warp	oro#warp2	1,1,turbo_room,100,82
+phtownall,200,192,0	warp	oro#warp3	1,1,valkyrie,48,12
+valkyrie,49,6,0	warp	oro#warp4	3,3,phtownall,199,184
+
+yggdrasil01,249,262,0	warp	oro#warp5	1,1,phtownall,199,184
+
+paramk,98,4,0	warp	oro#warp6	1,1,phtownall,184,212
+phtownall,181,216,0	warp	oro#warp7	1,1,paramk,98,13
+
+
+
+//payon castle 03
+//payg_cas03,293,265,0    warp	oro#cas1	1,1,paramk,98,13
+//payg_cas03,244,265,0    warp	oro#cas2	1,1,paramk,98,13
+//pay_gld,324,301,0   warp	oro#cas3	1,1,payg_cas03,247,265
+//pay_gld,324,283,0   warp	oro#cas4	1,1,payg_cas03,290,265
+
+pay_gld,324,301,0	warp	oro#warp8	1,1,payg_cas03,247,265
+pay_gld,324,283,0	warp	oro#warp9	1,1,payg_cas03,290,265
+
+payg_cas03,293,265,0	warp	oro#warp10	1,1,pay_gld,320,283
+payg_cas03,244,265,0	warp	oro#warp11	1,1,pay_gld,320,301
+
+

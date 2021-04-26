@@ -1,0 +1,423 @@
+prontera,149,187,4	script	Class Manager#pront::aione	109,{
+ 
+mes "[Class Manager]";
+        mes "Hi, What service do you want?.";
+        next;
+        switch(select("Rental:Platinum Skills:Reset Stat:Remove Card:Gym Instructor")) {
+case 1:
+mes "[Class Manager]";
+        mes "Please Choose What You Want To Rent.";
+        next;
+        switch(select("Cart:Falcon:Peco")) {
+                case 1:
+                        if( checkcart() == 0 && getskilllv("MC_PUSHCART")>0) {
+                                setcart;
+                                close;
+                        }else{
+                                mes "[Class Manager]";
+                                mes "Sorry " + strcharinfo(0) + ", Please make sure you are the required job and have the required skill.";
+                                close;
+                        }
+                case 2:
+                        if(BaseJob != Job_Archer && BaseClass == Job_Archer && checkfalcon() == 0 && getskilllv("HT_FALCON")>0) {
+                                setfalcon;
+                                close;
+                        }else{
+                                mes "[Class Manager]";
+                                mes "Sorry " + strcharinfo(0) + ", Please make sure you are the required job and have the required skill.";
+                                close;
+                        }                                      
+                case 3:
+                        if (BaseJob != Job_Swordman && BaseClass == Job_Swordman && checkriding() == 0 && getskilllv("KN_RIDING")>0) {
+                                setriding;
+                                close;
+                        }else{
+                                mes "[Class Manager]";
+                                mes "Sorry " + strcharinfo(0) + ", Please make sure you are the required job and have the required skill.";
+                                close;
+                        }
+        }
+case 2:
+mes "[Class Manager]";
+        mes "Do you really want the special skills available to your job.";
+        mes "Would you like these skills now?";
+        next;
+        if (select("Yes Please:No") == 2) {
+                mes "[Class ManagerC]";
+                mes "Have a nice day... >.>";
+                close;
+        }
+        skill 142,1,0; // First Aid
+        if (BaseClass == Job_Novice) {
+                skill 143,1,0; // Play Dead
+        } else if (BaseClass == Job_Swordman) {
+                skill 144,1,0; // Moving HP-Recovery
+                skill 145,1,0; // Fatal Blow
+                skill 146,1,0; // Auto Berserk
+        } else if (BaseClass == Job_Mage) {
+                skill 157,1,0; // Energy Coat
+        } else if (BaseClass == Job_Archer) {
+                skill 147,1,0; // Arrow Crafting
+                skill 148,1,0; // Arrow Repel
+        } else if (BaseClass == Job_Merchant) {
+                skill 153,1,0; // Cart Revolution
+                skill 154,1,0; // Change Cart
+                skill 155,1,0; // Crazy Uproar
+		if(PACKETVER >= 20150826)
+			skill "MC_CARTDECORATE",1,SKILL_PERM;
+        } else if (BaseClass == Job_Thief) {
+                skill 149,1,0; // Sand Attack
+                skill 150,1,0; // Back Slide
+                skill 151,1,0; // Find Stone
+                skill 152,1,0; // Stone Fling
+        } else if (BaseClass == Job_Acolyte) {
+                skill 156,1,0; // Holy Light
+        }
+        if (Class == Job_Knight || Class == Job_Lord_Knight) {
+                skill 1001,1,0; // Charge Attack
+        } else if (Class == Job_Crusader || Class == Job_Paladin) {
+                skill 1002,1,0; // Shrink
+        } else if (Class == Job_Wizard || Class == Job_High_Wizard) {
+                skill 1006,1,0; // Sight Blaster
+        } else if (Class == Job_Sage || Class == Job_Professor) {
+                skill 1007,1,0; // Create Elemental Converter
+                skill 1008,1,0; // Elemental Change Water
+                skill 1017,1,0; // Elemental Change Earth
+                skill 1018,1,0; // Elemental Change Fire
+                skill 1019,1,0; // Elemental Change Wind
+        } else if (Class == Job_Hunter || Class == Job_Sniper) {
+                skill 1009,1,0; // Phantasmic Arrow
+        } else if (Class == Job_Bard || Class == Job_Clown) {
+                skill 1010,1,0; // Pang Voice
+        } else if (Class == Job_Dancer || Class == Job_Gypsy) {
+                skill 1011,1,0; // Wink of Charm
+        } else if (Class == Job_Blacksmith || Class == Job_Whitesmith) {
+                skill 1012,1,0; // Unfair Trick
+                skill 1013,1,0; // Greed
+        } else if (Class == Job_Alchemist || Class == Job_Creator) {
+                skill 238,1,0; // Bioethics
+        } else if (Class == Job_Assassin || Class == Job_Assassin_Cross) {
+                skill 1003,1,0; // Sonic Acceleration
+                skill 1004,1,0; // Throw Venom Knife
+        } else if (Class == Job_Rogue || Class == Job_Stalker) {
+                skill 1005,1,0; // Close Confine
+        } else if (Class == Job_Priest || Class == Job_High_Priest) {
+                skill 1014,1,0; // Redemptio
+        } else if (Class == Job_Monk || Class == Job_Champion) {
+                skill 1015,1,0; // Ki Translation
+                skill 1016,1,0; // Ki Explosion
+        }
+        mes "[Class Manager]";
+        mes "There you go!";
+        close;
+ 
+case 3:
+        mes "[Class Manager]";
+        mes "Reset Stats: 50,000z";
+        mes "Reset Skills: 50,000z";
+        mes "Reset Both: 100,000z";
+        mes "Please select the service you want:";
+        next;
+        switch(select("^FF3355Reset Skills:Reset Stats:Reset Both^000000:Quit")) {
+                case 1:
+                        mes "[Class Manager]";
+                        if (Zeny < 50000) {
+                                mes "Sorry, you don't have enough Zeny.";
+                                close;
+                        }
+                        mes "Alright, here we go now.. Remember, changes won't take effect until you log back on!";
+                        set Zeny,zeny-50000;
+                        ResetSkill;
+                        close;
+                case 2:
+                        mes "[Class Manager]";
+                        if (Zeny < 50000) {
+                                mes "Sorry, you don't have enough Zeny.";
+                                close;
+                        }
+                        mes "Alright, here we go now.. Remember, changes won't take effect until you log back on!";
+                        set Zeny,zeny-50000;
+                        ResetStatus;
+                        close;
+                case 3:
+                        mes "[Class Manager]";
+                        if (Zeny < 100000) {
+                                mes "Sorry, you don't have enough Zeny.";
+                                close;
+                        }
+                        mes "Alright, here we go now.. Remember, changes won't take effect until you log back on!";
+                        set Zeny,zeny-900000;
+                        ResetSkill;
+                        ResetStatus;
+                        close;
+                case 4:
+                        close;
+        }
+ 
+case 4:
+	set .zenycost,200000;    // base cost of the card remover services (in Zeny)
+	set .percardcost,25000;  // cost per card of the card remover services (in Zeny)
+//	set .faildestroy,0;      // should the card remover have a chance of failure that destroys items?
+mes "[Class Manager]";
+        mes "Would you like to remove cards that you have compounded onto your equipment?";
+        next;
+        switch(select("Yes, it does.:What do you charge?:No thanks.")) {
+case 1:
+		mes "[Wise Old Woman]";
+		mes "Very well. Which item shall I examine for you?";
+		next;
+
+		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
+			if( getequipisequiped(.@indices[.@i]) )
+				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part, .@indices[ select(.@menu$) ];
+		if(!getequipisequiped(.@part)) {
+			mes "[Wise Old Woman]";
+			mes "Young one... Your not wearing anything there that I can remove cards from.";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[Wise Old Woman]";
+			mes "Young one... There are no cards compounded on this item. I can do nothing with it, I'm afraid.";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "^3355FFJust a minute!";
+			mes "I can't offer any of my";
+			mes "services to you because";
+			mes "you're carrying too much";
+			mes "stuff. Put your extra items in";
+			mes "Kafra Storage and come again~";
+			close;
+		}
+		mes "[Wise Old Woman]";
+		mes "This item has " + .@cardcount + " cards compounded on it. To perform my magic, I will need " + (.zenycost+(.@cardcount * .percardcost)) + " zeny, a ^0000FFStar Crumb^000000, and a ^0000FFYellow Gemstone^000000.";
+		next;
+		if(select("Very well. Do it.:Never mind.") == 2) {
+			mes "[Wise Old Woman]";
+			mes "Very well. Return at once if you seek my services.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
+			mes "[Wise Old Woman]";
+			mes "You do not have all the items I require to work my magic, child. Come again when you do.";
+			close;
+		}
+		mes "[Wise Old Woman]";
+		mes "Before I begin, I must warn you--I may fail. If I do, I may destroy the cards, the item, or both. I do not give refunds. That being said, which is more important to you: The cards, or the item?";
+		next;
+		switch(select("I changed my mind about this.:The item.:The cards.")) {
+		case 1:
+			mes "[Wise Old Woman]";
+			mes "Very well. Return at once if you seek my services.";
+			close;
+		case 2:
+			set .@failtype,1;
+			break;
+		case 3:
+			set .@failtype,2;
+		}
+		mes "[Wise Old Woman]";
+		mes "Very well. I shall begin.";
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		delitem 1000,1; //Star_Crumb
+		delitem 715,1; //Yellow_Gemstone
+		
+		// Replace the constants in the next 3 lines with failure chance values defined in refine_db.txt
+		// First value = Total failure chance (item and cards destroyed)
+		// Second value = Partial failure chance (one or the other is destroyed, player decides which one is safe)
+		// Third value = Harmless failure chance (all that's lost is your investment)
+
+		set .@failchance,rand(100);
+		/*
+		if (.faildestroy==1) {
+			if(.@failchance < 2) {
+				next;
+				failedremovecards .@part,0;
+				mes "[Wise Old Woman]";
+				mes "The process was a total failure. I am afraid the item and the cards were destroyed.";
+				close;
+			}
+
+			if(.@failchance < 8) {
+				if (.@failtype == 1) {
+					next;
+					failedremovecards .@part,1;
+					mes "[Wise Old Woman]";
+					mes "While I have managed to remove the cards from the item, they were destroyed in the process. The item, however, is okay.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					failedremovecards .@part,2;
+					mes "[Wise Old Woman]";
+					mes "Most unfortunate. I succeeded at removing the cards, but the item itself was destroyed in the process.";
+					close;
+				}
+			}
+
+		}
+		*/
+		if(.@failchance < 10) {
+			next;
+			failedremovecards .@part,3;
+			mes "[Wise Old Woman]";
+			mes "I have failed to remove the cards. Luckily, however, both the item and the cards are still okay.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[Wise Old Woman]";
+		mes "The process was a success. Here are your cards and your item. Farewell.";
+		close;
+	case 2:
+		mes "[Wise Old Woman]";
+		mes "I charge a flat fee of "+callfunc("F_InsertComma",.zenycost)+" zeny, plus "+callfunc("F_InsertComma",.percardcost)+" zeny for each card I remove from the item. In addition, I need a star crumb and a yellow gemstone to work my magic.";
+		close;
+	case 3:
+		mes "[Wise Old Woman]";
+		mes "Very well. Return at once if you seek my services.";
+		close;
+}
+case 5:
+mes "[Class Manager]";
+	mes "Hey, there. People aren't";
+	mes "as physically active as they";
+	mes "used to be. Even if you fight";
+	mes "for a living, your body might";
+	mes "be weak and flabby in some";
+	mes "areas. Know what I mean?";
+	next;
+	mes "[Class Manager]";
+	mes "Hey, train with me, and I can";
+	mes "guarantee that you'll be able";
+	mes "to lift and carry more of your";
+	mes "stuff. Just gimme your";
+	mes "^FF0000Gym Pass^000000 each time,";
+	mes "and we'll be good to go.";
+	next;
+	mes "[Class Manager]";
+	mes "But don't get too excited:";
+	mes "no matter how much training";
+	mes "I take you through, you can";
+	mes "overdo it. You ever hear of";
+	mes "anyone that got too buff?";
+	mes "That's cuz they're dead. See?";
+	next;
+	mes "[Class Manager]";
+	mes "I'd say that it'd be safe";
+	mes "for you to seriously train";
+	mes "with me and increase your";
+	mes "item carrying capacity ^FF000010 times^000000.";
+	mes "So... Are you ready to sweat?";
+	next;
+	switch(select("Yes:No:Um, my workouts wore off.")) {
+	case 1:
+		if (gympassmemory < 10) {
+			set .@add_carry,gympassmemory + 1;
+			set .@remain_carry,10 - .@add_carry;
+			if (countitem(7776) > 0) {
+				mes "[Class Manager]";
+				mes "Oh, awesome, I see you";
+				mes "brought your Gym Pass.";
+				mes "Alright, just do what I do,";
+				mes "and try to feel the burn.";
+				mes "Ready? Let's do this.";
+				next;
+				specialeffect2 EF_EARTHSPIKE;
+				next;
+				specialeffect2 EF_DEVIL;
+				next;
+				specialeffect2 EF_COIN;
+				next;
+				specialeffect2 EF_SIGHTRASHER;
+				next;
+				mes "[Class Manager]";
+				mes "There, you should be able";
+				mes "to carry more stuff with you.";
+				mes "Let's see, we can increase";
+				mes "your item carrying capacity";
+				mes "^FF00000" + .@remain_carry + "^000000 more times if we continue";
+				mes "training together like this.";
+				delitem 7776,1; //Max_Weight_Up_Scroll
+				set gympassmemory,.@add_carry;
+				skill "ALL_INCCARRY",.@add_carry,SKILL_PERM_GRANT;
+				close;
+			}
+			else {
+				mes "[Class Manager]";
+				mes "Dude, what'd I tell you?";
+				mes "You gotta bring me your";
+				mes "^FF0000Gym Pass^000000 if you wanna";
+				mes "work out, and build up your";
+				mes "item carrying muscles.";
+				close;
+			}
+		}
+		else {
+			mes "[Class Manager]";
+			mes "Dude, I don't think we can";
+			mes "build up your item carrying";
+			mes "muscles anymore than that.";
+			mes "It's too dangerous for your";
+			mes "body if we even tried! C'mon,";
+			mes "I told you about the limits.";
+			close;
+		}
+	case 2:
+		mes "[Class Manager]";
+		mes "Aw, that's too bad.";
+		mes "Well, come back if you";
+		mes "change your mind. Tell";
+		mes "your friends about me:";
+		mes "if they're flabby, I'll help";
+		mes "get them in shape.";
+		close;
+	case 3:
+		if (gympassmemory > 0) {
+			mes "[Class Manager]";
+			mes "What happened?";
+			mes "You let your item carrying";
+			mes "muscles just atrophy? Lucky";
+			mes "for you, there's such a thing";
+			mes "as muscle memory. It's won't take";
+			mes "as long to build 'em back up...";
+			next;
+			specialeffect2 EF_EARTHSPIKE;
+			next;
+			specialeffect2 EF_DEVIL;
+			next;
+			specialeffect2 EF_COIN;
+			next;
+			specialeffect2 EF_SIGHTRASHER;
+			next;
+			mes "[Class Manager]";
+			mes "How about that?";
+			mes "Your item carrying";
+			mes "muscles grew back,";
+			mes "just like that! Try not to";
+			mes "wimp out again, okay?";
+			skill "ALL_INCCARRY",gympassmemory,SKILL_PERM_GRANT;
+			close;
+		}
+		else {
+			mes "[Class Manager]";
+			mes "Uhh...";
+			mes "We didn't work out";
+			mes "together before.";
+			mes "I'm sure about that.";
+			close;
+		}
+	}
+}
+} 
+
+//duplicate
+//aldeba_in,99,171,4	duplicate(aione)	Class Manager#hug	109
+payon,149,235,4	duplicate(aione)	Class Manager#payn	109
